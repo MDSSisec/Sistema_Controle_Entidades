@@ -41,14 +41,14 @@ const data = {
   },
   navMain: [
     {
+      title: "Bem Vindo",
+      url: "/bem-vindo",
+      icon: IconListDetails,
+    },
+    {
       title: "Dashboard",
       url: "/dashboard",
       icon: IconDashboard,
-    },
-    {
-      title: "Welcome",
-      url: "/welcome",
-      icon: IconListDetails,
     },
     {
       title: "Analytics",
@@ -170,7 +170,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavDocuments items={data.documents} />
+        {/* <NavDocuments items={data.documents} /> */}
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>

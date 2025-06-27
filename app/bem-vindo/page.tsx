@@ -7,7 +7,7 @@ import {
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { IconPlus, IconChartBar, IconLayoutDashboard, IconChartPie, IconPigMoney, IconTargetArrow } from "@tabler/icons-react";
 
-export default function WelcomePage() {
+export default function BemVindoPage() {
   return (
     <SidebarProvider
       style={{
