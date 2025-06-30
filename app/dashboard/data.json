@@ -9,14 +9,14 @@
   {
     "id": 2,
     "header": "Projeto Informática Básica - Jovens da Comunidade",
-    "type": "6 Meses",
+    "type": "06 Meses",
     "status": "Done",
     "reviewer": "Carlos"
   },
   {
     "id": 3,
     "header": "Projeto Culinária Regional - Sabores do Nordeste",
-    "type": "8 Meses",
+    "type": "08 Meses",
     "status": "In Process",
     "reviewer": "Maria"
   },
@@ -30,7 +30,7 @@
   {
     "id": 5,
     "header": "Projeto Beleza e Estética - Autoestima",
-    "type": "9 Meses",
+    "type": "09 Meses",
     "status": "In Process",
     "reviewer": "Roberta"
   },
@@ -44,7 +44,7 @@
   {
     "id": 7,
     "header": "Projeto Fotografia - Olhar Artístico",
-    "type": "7 Meses",
+    "type": "07 Meses",
     "status": "In Process",
     "reviewer": "Lucas"
   },
@@ -58,7 +58,7 @@
   {
     "id": 9,
     "header": "Projeto Jardinagem - Verde e Vida",
-    "type": "5 Meses",
+    "type": "05 Meses",
     "status": "In Process",
     "reviewer": "João"
   },
@@ -72,7 +72,7 @@
   {
     "id": 11,
     "header": "Projeto Pintura - Cores e Expressão",
-    "type": "6 Meses",
+    "type": "06 Meses",
     "status": "In Process",
     "reviewer": "Sofia"
   },
@@ -93,14 +93,14 @@
   {
     "id": 14,
     "header": "Projeto Literatura - Palavras e Histórias",
-    "type": "8 Meses",
+    "type": "08 Meses",
     "status": "Done",
     "reviewer": "Isabela"
   },
   {
     "id": 15,
     "header": "Projeto Esportes - Saúde e Vitalidade",
-    "type": "9 Meses",
+    "type": "09 Meses",
     "status": "In Process",
     "reviewer": "Diego"
   }
