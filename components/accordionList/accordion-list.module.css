@@ -76,3 +76,9 @@
   color: var(--primary);
   text-decoration: underline;
 }
+
+.sectionLabel {
+  font-weight: bold;
+  font-size: 1rem;
+  color: var(--foreground, #111827);
+}

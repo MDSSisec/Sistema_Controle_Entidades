@@ -7,9 +7,14 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useRouter } from "next/navigation";
 import styles from "./accordion-list.module.css";
 
+interface ProjectAccordionListItem {
+  label: string;
+  isSection?: boolean;
+}
+
 interface ProjectAccordionListProps {
   title: string;
-  items: string[];
+  items: (string | ProjectAccordionListItem)[];
   defaultOpen?: boolean;
 }
 
@@ -46,18 +51,28 @@ export function ProjectAccordionList({ title, items, defaultOpen = false }: Proj
               </AccordionTrigger>
               <AccordionContent>
                 <ul className={styles.list}>
-                  {items.map((item, idx) => (
-                    <li key={idx} className={styles.listItem}>
-                      <Checkbox className={styles.checkbox} id={`checkbox-item-${idx}`} />
-                      <span className={styles.bullet} />
-                      <button 
-                        onClick={() => handleItemClick(item)}
-                        className={styles.itemButton}
-                      >
-                        {item}
-                      </button>
-                    </li>
-                  ))}
+                  {items.map((item, idx) => {
+                    const obj = typeof item === 'string' ? { label: item } : item;
+                    if (obj.isSection) {
+                      return (
+                        <li key={idx} className={styles.listItem}>
+                          <span className={styles.sectionLabel}>{obj.label}</span>
+                        </li>
+                      );
+                    }
+                    return (
+                      <li key={idx} className={styles.listItem}>
+                        <Checkbox className={styles.checkbox} id={`checkbox-item-${idx}`} />
+                        <span className={styles.bullet} />
+                        <button 
+                          onClick={() => handleItemClick(obj.label)}
+                          className={styles.itemButton}
+                        >
+                          {obj.label}
+                        </button>
+                      </li>
+                    );
+                  })}
                 </ul>
               </AccordionContent>
             </AccordionItem>
