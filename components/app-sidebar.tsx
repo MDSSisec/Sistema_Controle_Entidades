@@ -41,8 +41,8 @@ const data = {
   },
   navMain: [
     {
-      title: "Bem Vindo",
-      url: "/bem-vindo",
+      title: "Projetos",
+      url: "/projetos",
       icon: IconListDetails,
     },
     {
@@ -162,7 +162,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             >
               <a href="#">
                 <IconInnerShadowTop className="!size-5" />
-                <span className="text-base font-semibold">Balancium</span>
+                <span className="text-base font-semibold">Sistema de Gestão Interno</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
