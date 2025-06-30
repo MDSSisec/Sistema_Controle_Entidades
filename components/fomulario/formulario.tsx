@@ -34,6 +34,7 @@ interface FormularioProps {
   onSubmit: (data: Record<string, string>) => void;
   submitButtonText?: string;
   className?: string;
+  initialValues?: Record<string, string>;
 }
 
 export function Formulario({ 
@@ -41,9 +42,14 @@ export function Formulario({
   fields, 
   onSubmit, 
   submitButtonText = "Enviar",
-  className = ""
+  className = "",
+  initialValues = {}
 }: FormularioProps) {
-  const [formData, setFormData] = React.useState<Record<string, string>>({});
+  const [formData, setFormData] = React.useState<Record<string, string>>(initialValues);
+
+  React.useEffect(() => {
+    setFormData(initialValues);
+  }, [initialValues]);
 
   const handleInputChange = (id: string, value: string) => {
     setFormData(prev => ({
@@ -118,7 +124,7 @@ export function Formulario({
             <div key={field.id} className="space-y-2">
               <Label htmlFor={field.id}>
                 {field.label}
-                {/* {field.required && <span className="text-destructive ml-1">*</span>} */}
+                {field.required && <span className="text-destructive ml-1">*</span>}
               </Label>
               {renderField(field)}
             </div>

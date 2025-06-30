@@ -20,7 +20,7 @@ export function ProjectAccordionList({ title, items, defaultOpen = false }: Proj
     // Mapeamento dos itens para as rotas
     const routeMap: Record<string, string> = {
       "1.0 - Identificação do Projeto": "/formularios/01_identificacao",
-      "2.0 - Identificação da Entidade Proponente": "/formularios/02_entidade",
+      "2.0 - Identificação da Entidade Proponente": "/formularios/02_descricao",
       "3.0 - Identificação do Representante Legal da Entidade Proponente": "/formularios/03_representante",
       "4.0 - Identificação do Responsável Técnico pelo Projeto": "/formularios/04_responsavel",
       "5.0 - Justificativa e Motivação do Instrumento": "/formularios/05_justificativa",
