@@ -8,6 +8,7 @@ import {
   IconDatabase,
   IconFileAi,
   IconFileDescription,
+  IconFilePlus,
   IconFileWord,
   IconFolder,
   IconHelp,
@@ -17,6 +18,7 @@ import {
   IconSearch,
   IconSettings,
   IconUsers,
+  IconBuilding,
 } from "@tabler/icons-react"
 
 import { NavDocuments } from "@/components/nav-documents"
@@ -40,31 +42,12 @@ const data = {
     avatar: "/avatars/shadcn.jpg",
   },
   navMain: [
-    {
-      title: "Projetos",
-      url: "/projetos",
-      icon: IconListDetails,
-    },
-    {
-      title: "Dashboard",
-      url: "/dashboard",
-      icon: IconDashboard,
-    },
-    {
-      title: "Analytics",
-      url: "#",
-      icon: IconChartBar,
-    },
-    {
-      title: "Projects",
-      url: "#",
-      icon: IconFolder,
-    },
-    {
-      title: "Team",
-      url: "#",
-      icon: IconUsers,
-    },
+    {title: "Projetos", url: "/projetos", icon: IconListDetails},
+    {title: "Dashboard", url: "/dashboard", icon: IconChartBar},
+    {title: "Detalhe do Projeto", url: "/detalhe-projeto", icon: IconFolder},
+    {title: "Usuários", url: "/usuarios", icon: IconUsers},
+    {title: "Cadastrar Projeto", url: "/cadastrar-projeto", icon: IconFilePlus},
+    {title: "Cadastrar Entidade", url: "/cadastrar-entidade", icon: IconBuilding},
   ],
   navClouds: [
     {
