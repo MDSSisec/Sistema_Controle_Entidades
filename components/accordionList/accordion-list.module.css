@@ -57,3 +57,22 @@
   cursor: pointer;
   user-select: none;
 }
+
+.itemButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1rem;
+  color: var(--foreground);
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+  transition: color 0.2s;
+}
+
+.itemButton:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}

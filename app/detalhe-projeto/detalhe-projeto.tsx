@@ -1,10 +1,14 @@
+"use client"
+
 import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
 import styles from "./detalhe-projeto.module.css";
 import { ProjectAccordionList } from "@/components/accordionList/accordion-list";
 
+
 export function DetalheProjeto() {
+
   return (
     <SidebarProvider
       style={{
