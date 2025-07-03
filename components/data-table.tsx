@@ -279,7 +279,75 @@ export function DataTable<T extends { id: number }>({
             </Table>
           </DndContext>
         </div>
-        {/* Mantém apenas a tabela e paginação, remove o resto */}
+        {/* Paginação avançada sempre visível */}
+        <div className="flex flex-col gap-2 w-full">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between w-full gap-2 px-2">
+            <div className="text-muted-foreground flex-1 text-sm">
+              {table.getFilteredSelectedRowModel().rows.length} de {table.getFilteredRowModel().rows.length} linha(s) selecionada(s).
+            </div>
+            <div className="flex items-center gap-2">
+              <label htmlFor="rows-per-page" className="text-sm font-medium mr-2">
+                Linhas por página
+              </label>
+              <Select
+                value={`${table.getState().pagination.pageSize}`}
+                onValueChange={(value) => {
+                  table.setPageSize(Number(value))
+                }}
+              >
+                <SelectTrigger size="sm" className="w-20" id="rows-per-page">
+                  <SelectValue placeholder={table.getState().pagination.pageSize} />
+                </SelectTrigger>
+                <SelectContent side="top">
+                  {[5, 10, 20, 30, 40, 50].map((pageSize) => (
+                    <SelectItem key={pageSize} value={`${pageSize}`}>
+                      {pageSize}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <span className="text-sm font-medium ml-4">
+                Página {table.getState().pagination.pageIndex + 1} de {table.getPageCount()}
+              </span>
+              <Button
+                variant="outline"
+                className="h-8 w-8 p-0 ml-2"
+                onClick={() => table.setPageIndex(0)}
+                disabled={!table.getCanPreviousPage()}
+              >
+                <span className="sr-only">Primeira página</span>
+                <IconChevronsLeft />
+              </Button>
+              <Button
+                variant="outline"
+                className="h-8 w-8 p-0"
+                onClick={() => table.previousPage()}
+                disabled={!table.getCanPreviousPage()}
+              >
+                <span className="sr-only">Página anterior</span>
+                <IconChevronLeft />
+              </Button>
+              <Button
+                variant="outline"
+                className="h-8 w-8 p-0"
+                onClick={() => table.nextPage()}
+                disabled={!table.getCanNextPage()}
+              >
+                <span className="sr-only">Próxima página</span>
+                <IconChevronRight />
+              </Button>
+              <Button
+                variant="outline"
+                className="h-8 w-8 p-0"
+                onClick={() => table.setPageIndex(table.getPageCount() - 1)}
+                disabled={!table.getCanNextPage()}
+              >
+                <span className="sr-only">Última página</span>
+                <IconChevronsRight />
+              </Button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

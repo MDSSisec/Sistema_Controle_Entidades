@@ -6,9 +6,10 @@ import { SiteHeader } from "@/components/site-header";
 import { DataTable } from "@/components/data-table";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
-import { IconDotsVertical } from "@tabler/icons-react";
+import { IconDotsVertical, IconPlus } from "@tabler/icons-react";
 import styles from "./usuarios.module.css";
 import { ColumnDef } from "@tanstack/react-table";
+import React from "react";
 
 interface Usuario {
   id: number;
@@ -88,8 +89,20 @@ export function Usuarios() {
               <h1 className={styles.title}>Usuários</h1>
             </div>
             <div className={styles.tableContainer}>
-              <DataTable<Usuario> data={usuarios} columns={columns} pageSize={15} />
+              <DataTable<Usuario> data={usuarios} columns={columns} />
             </div>
+            {/* Botão flutuante para adicionar novo usuário */}
+            <Button 
+              className={styles.fabButton}
+              size="icon"
+              onClick={() => {
+                // TODO: Implementar lógica para abrir formulário de novo usuário
+                console.log("Adicionar novo usuário");
+              }}
+            >
+              <IconPlus className="h-6 w-6" />
+              <span className="sr-only">Adicionar novo usuário</span>
+            </Button>
           </div>
         </div>
       </SidebarInset>

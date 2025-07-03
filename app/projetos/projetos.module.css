@@ -97,3 +97,14 @@
   --sidebar-width: calc(var(--spacing) * 72);
   --header-height: calc(var(--spacing) * 12);
 }
+
+.paginationContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0 0.5rem 0;
+  background: transparent;
+  border-radius: 0 0 0.5rem 0.5rem;
+  box-shadow: none;
+  margin-top: 0;
+}

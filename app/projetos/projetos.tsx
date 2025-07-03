@@ -12,6 +12,7 @@ import { Row } from "@tanstack/react-table"
 import { Checkbox } from "@/components/ui/checkbox"
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
+import React from "react";
 
 // Tipagem dos dados
 interface Projeto {
@@ -121,7 +122,7 @@ export function Projetos() {
             <div className={styles.contentContainer}>
               <h1 className={styles.title}>Projetos</h1>
             </div>
-            <DataTable data={data} columns={columns} pageSize={15} />
+            <DataTable data={data} columns={columns} />
           </div>
         </div>
       </SidebarInset>
