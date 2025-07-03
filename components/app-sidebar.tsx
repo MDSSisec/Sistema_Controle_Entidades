@@ -103,25 +103,15 @@ const data = {
   ],
   navSecondary: [
     {
-      title: "Settings",
-      url: "#",
-      icon: IconSettings,
-    },
-    {
-      title: "Get Help",
-      url: "#",
-      icon: IconHelp,
-    },
-    {
-      title: "Search",
-      url: "#",
-      icon: IconSearch,
-    },
-    {
       title: "Tema",
       url: "#",
       icon: IconSun,
       action: "toggle-theme"
+    },
+    {
+      title: "Settings",
+      url: "#",
+      icon: IconSettings,
     },
   ],
   documents: [
@@ -173,7 +163,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     if (item.action === "toggle-theme") {
       return {
         ...item,
-        icon: isDark ? IconSun : IconMoon,
+        icon: isDark ? IconMoon : IconSun,
         onClick: () => handleNavSecondaryClick(item),
       };
     }

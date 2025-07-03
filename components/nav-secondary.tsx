@@ -13,6 +13,7 @@ import {
 
 export function NavSecondary({
   items,
+  className = "",
   ...props
 }: {
   items: {
@@ -21,23 +22,28 @@ export function NavSecondary({
     icon: Icon
     onClick?: () => void
   }[]
+  className?: string
 } & React.ComponentPropsWithoutRef<typeof SidebarGroup>) {
   return (
-    <SidebarGroup {...props}>
+    <SidebarGroup {...props} className={`nav-secondary ${className}`} aria-label="Menu secundário">
       <SidebarGroupContent>
         <SidebarMenu>
           {items.map((item) => (
             <SidebarMenuItem key={item.title}>
               <SidebarMenuButton asChild>
                 {item.onClick ? (
-                  <button type="button" onClick={item.onClick} style={{ background: "none", border: 0, padding: 0, width: "100%", textAlign: "left" }}>
-                    <item.icon />
-                    <span>{item.title}</span>
+                  <button
+                    type="button"
+                    onClick={item.onClick}
+                    className="flex items-center gap-2 w-full text-left px-2 py-1.5 hover:bg-muted rounded-md transition"
+                  >
+                    {item.icon && <item.icon className="size-5" />}
+                    <span className="ml-3 nav-secondary-text">{item.title}</span>
                   </button>
                 ) : (
-                  <a href={item.url}>
-                    <item.icon />
-                    <span>{item.title}</span>
+                  <a href={item.url} className="flex items-center gap-2 w-full text-left px-2 py-1.5 hover:bg-muted rounded-md transition">
+                    {item.icon && <item.icon className="size-5" />}
+                    <span className="ml-3 nav-secondary-text">{item.title}</span>
                   </a>
                 )}
               </SidebarMenuButton>

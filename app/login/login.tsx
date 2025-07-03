@@ -9,10 +9,10 @@ export default function LoginPage() {
 
   return (
     <div className={styles.loginContainer}>
-      <div className={styles.loginTitle}>Bem-vindo de volta!</div>
-      <div className={styles.loginSubtitle}>
+      <div className={styles.loginTitle}>Login</div>
+      {/* <div className={styles.loginSubtitle}>
         Faça login para acessar o Sistema de Gestão Interno.
-      </div>
+      </div> */}
       <form className={styles.loginForm} autoComplete="off" onSubmit={handleSubmit}>
         <div className={styles.inputGroup}>
           <label className={styles.inputLabel} htmlFor="perfil">Perfil</label>

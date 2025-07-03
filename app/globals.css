@@ -166,3 +166,8 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.nav-secondary-text {
+  margin-left: 0.75rem;
+  display: inline-block;
+}
