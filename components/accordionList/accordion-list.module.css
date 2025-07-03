@@ -8,6 +8,11 @@
   font-size: 1.125rem;
   font-weight: 700;
   color: var(--primary);
+  text-decoration: none;
+}
+
+.title:hover {
+  text-decoration: none;
 }
 
 .list {
@@ -42,6 +47,7 @@
 
 .listItem:hover {
   background: #f5f5f5;
+  border-radius: 0.5rem;
 }
 
 .bullet {
@@ -74,7 +80,7 @@
 
 .itemButton:hover {
   color: var(--primary);
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .sectionLabel {
