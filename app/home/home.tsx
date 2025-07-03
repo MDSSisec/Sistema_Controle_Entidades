@@ -1,5 +1,6 @@
 "use client";
 import styles from "./home.module.css";
+import ProjectTableChecklist from "@/components/ProjectTableChecklist";
 
 export default function HomeWelcome() {
   const handleStart = () => {
@@ -66,33 +67,7 @@ export default function HomeWelcome() {
           </div>
         </section>
         <section className={styles.illustration}>
-          {/* SVG estilizado de mão com celular e glow */}
-          <svg width="340" height="420" viewBox="0 0 340 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="170" cy="210" rx="160" ry="180" fill="#3a8bfd33" />
-            <ellipse cx="170" cy="210" rx="120" ry="140" fill="#fff2" />
-            <g filter="url(#glow)">
-              <rect x="90" y="60" width="160" height="300" rx="40" fill="#fff" fillOpacity="0.13" stroke="#5ee7df" strokeWidth="3" />
-              <rect x="110" y="80" width="120" height="260" rx="30" fill="#fff" fillOpacity="0.10" />
-              <circle cx="170" cy="210" r="60" fill="#5ee7df33" />
-              <rect x="130" y="120" width="80" height="180" rx="18" fill="#fff" fillOpacity="0.08" />
-            </g>
-            <g>
-              <path d="M90 360 Q120 390 170 390 Q220 390 250 360" stroke="#fff" strokeWidth="8" strokeLinecap="round" fill="none" opacity="0.18" />
-              <path d="M90 360 Q120 390 170 390 Q220 390 250 360" stroke="#5ee7df" strokeWidth="3" strokeLinecap="round" fill="none" opacity="0.25" />
-            </g>
-            <g>
-              <path d="M90 360 Q80 340 110 320 Q120 310 130 320 Q140 330 150 320 Q160 310 170 320 Q180 330 190 320 Q200 310 210 320 Q220 330 230 320 Q240 310 250 320 Q260 330 270 320 Q280 310 290 320 Q300 330 310 320 Q320 310 330 320" stroke="#fff" strokeWidth="4" strokeLinecap="round" fill="none" opacity="0.10" />
-            </g>
-            <defs>
-              <filter id="glow" x="0" y="0" width="340" height="420" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                <feGaussianBlur stdDeviation="12" result="blur" />
-                <feMerge>
-                  <feMergeNode in="blur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-            </defs>
-          </svg>
+          <ProjectTableChecklist width={400} height={340} />
         </section>
       </main>
     </div>
