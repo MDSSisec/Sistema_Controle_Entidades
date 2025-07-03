@@ -22,16 +22,40 @@ export function ProjectAccordionList({ title, items, defaultOpen = false }: Proj
   const router = useRouter();
 
   const handleItemClick = (item: string) => {
-    // Mapeamento dos itens para as rotas
+    // Mapeamento dos itens para as rotas da nova estrutura organizada
     const routeMap: Record<string, string> = {
-      "1.0 - Identificação do Projeto": "/formularios/01_identificacao",
-      "2.0 - Identificação da Entidade Proponente": "/formularios/02_descricao",
-      "3.0 - Identificação do Representante Legal da Entidade Proponente": "/formularios/03_representante",
-      "4.0 - Identificação do Responsável Técnico pelo Projeto": "/formularios/04_responsavel",
-      "5.0 - Justificativa e Motivação do Instrumento": "/formularios/05_justificativa",
-      "5.1 - Caracterização dos Interesses Recíprocos": "/formularios/05_1_interesses",
-      "5.2 - Público Alvo": "/formularios/05_2_publico",
-      "5.3 - Problema a ser Resolvido": "/formularios/05_3_problema",
+      // I - Identificação
+      "1.0 - Identificação do Projeto": "/formularios/01-identificacao/01-projeto",
+      "2.0 - Identificação da Entidade Proponente": "/formularios/01-identificacao/02-entidade",
+      "3.0 - Identificação do Representante Legal da Entidade Proponente": "/formularios/01-identificacao/03-representante-legal",
+      "4.0 - Identificação do Responsável Técnico pelo Projeto": "/formularios/01-identificacao/04-responsavel-tecnico",
+      
+      // II - Descrição do Projeto
+      "5.0 - Justificativa e Motivação do Instrumento": "/formularios/02-descricao-projeto/05-justificativa",
+      "6.1 - Objetivo Geral": "/formularios/02-descricao-projeto/06-objetivos/06-1-objetivo-geral",
+      "6.2 - Objetivos Específicos": "/formularios/02-descricao-projeto/06-objetivos/06-2-objetivos-especificos",
+      "7.0 - Metas": "/formularios/02-descricao-projeto/07-metas",
+      "8.0 - Etapas e Cronograma de Execução": "/formularios/02-descricao-projeto/08-cronograma",
+      "9.0 - Metodologia": "/formularios/02-descricao-projeto/09-metodologia",
+      "10.0 - Resultados Esperados": "/formularios/02-descricao-projeto/10-resultados-esperados",
+      "11.0 - Gestão de Projeto": "/formularios/02-descricao-projeto/11-gestao/11-1-equipe",
+      "11.1 - Dimensionamento da Equipe Necessária para a Execução do Projeto": "/formularios/02-descricao-projeto/11-gestao/11-1-equipe",
+      "11.2 - Dimensionamento de Contratações e Aquisições de Serviços de Terceiros - Pessoas Jurídicas para o Projeto.": "/formularios/02-descricao-projeto/11-gestao/11-2-contratacoes",
+      
+      // III - Público Alvo e Território
+      "12.0 - Histórico e Situação Socioeconômica do Território e da População a ser Beneficiada.": "/formularios/03-publico-alvo/12-historico-territorio",
+      "13.0 - Detalhamento da Base Territorial do Projeto": "/formularios/03-publico-alvo/13-base-territorial",
+      "14.0 - Público Beneficiário do Projeto.": "/formularios/03-publico-alvo/14-publico-beneficiario",
+      "15.0 - Informe se o Público Beneficiário faz Parte de Algum Destes povos ou comunidades tradicionais.": "/formularios/03-publico-alvo/15-povos-comunidades",
+      "16.0 - Informe o perfil socio ocupacional predominante do público beneficiário.": "/formularios/03-publico-alvo/16-perfil-socio-ocupacional",
+      "17.0 - Informe se o público beneficiário está acessando alguns dos seguintes serviços": "/formularios/03-publico-alvo/17-servicos-acessados",
+      
+      // IV - Caracterização da Entidade Proponente
+      "18.0 - Outras Informações julgadas apropriadas sobre a entidade proponente.": "/formularios/04-caracterizacao-entidade/18-outras-informacoes",
+      
+      // V - Dados Físico Financeiro
+      "19.0 - Valor Total do Projeto.": "/formularios/05-dados-financeiros/19-valor-total",
+      "20.0 - Cronograma de Desembolso.": "/formularios/05-dados-financeiros/20-cronograma-desembolso",
     };
 
     const route = routeMap[item];

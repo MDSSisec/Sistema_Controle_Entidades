@@ -3,7 +3,7 @@
 import React from "react";
 import { Formulario, FormField } from "@/components/fomulario/formulario";
 import { Button } from "@/components/ui/button";
-import styles from "./form-02.module.css";
+import styles from "./form_item02.module.css";
 
 const descricaoFields: FormField[] = [
   {

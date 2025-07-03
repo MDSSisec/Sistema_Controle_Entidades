@@ -41,11 +41,11 @@ export function DetalheProjeto() {
               "5.0 - Justificativa e Motivação do Instrumento",
               "6.1 - Objetivo Geral",
               "6.2 - Objetivos Específicos",
-              "7. Metas",
-              "8. Etapas e Cronograma de Execução",
-              "9. Metodologia",
-              "10. Resultados Esperados",
-              "11. Gestão de Projeto",
+              "7.0 - Metas",
+              "8.0 - Etapas e Cronograma de Execução",
+              "9.0 - Metodologia",
+              "10.0 - Resultados Esperados",
+              "11.0 - Gestão de Projeto",
               "11.1 - Dimensionamento da Equipe Necessária para a Execução do Projeto",
               "11.2 - Dimensionamento de Contratações e Aquisições de Serviços de Terceiros - Pessoas Jurídicas para o Projeto."
             ]}
@@ -55,12 +55,12 @@ export function DetalheProjeto() {
           <ProjectAccordionList
             title="III - Público Alvo e Território"
             items={[
-              "12. Histórico e Situação Socioeconômica do Território e da População a ser Beneficiada.",
-              "13. Detalhamento da Base Territorial do Projeto",
-              "14. Público Beneficiário do Projeto.",
-              "15. Informe se o Público Beneficiário faz Parte de Algum Destes povos ou comunidades tradicionais.",
-              "16. Informe o perfil socio ocupacional predominante do público beneficiário.",
-              "17. Informe se o público beneficiário está acessando alguns dos seguintes serviços"
+              "12.0 - Histórico e Situação Socioeconômica do Território e da População a ser Beneficiada.",
+              "13.0 - Detalhamento da Base Territorial do Projeto",
+              "14.0 - Público Beneficiário do Projeto.",
+              "15.0 - Informe se o Público Beneficiário faz Parte de Algum Destes povos ou comunidades tradicionais.",
+              "16.0 - Informe o perfil socio ocupacional predominante do público beneficiário.",
+              "17.0 - Informe se o público beneficiário está acessando alguns dos seguintes serviços"
             ]}
           />
         </div>
@@ -68,7 +68,7 @@ export function DetalheProjeto() {
           <ProjectAccordionList
             title="IV - Caracterização da Entidade Proponente"
             items={[
-              "18. Outras Informações julgadas apropriadas sobre a entidade proponente."
+              "18.0 - Outras Informações julgadas apropriadas sobre a entidade proponente."
             ]}
           />
         </div>
@@ -76,8 +76,8 @@ export function DetalheProjeto() {
           <ProjectAccordionList
             title="V - Dados Físico Financeiro: Planilhas Orçamentárias"
             items={[
-              "19. Valor Total do Projeto.",
-              "20. Cronograma de Desembolso."
+              "19.0 - Valor Total do Projeto.",
+              "20.0 - Cronograma de Desembolso."
             ]}
           />
         </div>

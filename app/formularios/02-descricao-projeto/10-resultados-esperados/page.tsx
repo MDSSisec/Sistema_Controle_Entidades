@@ -3,9 +3,8 @@
 import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
-import { FormDescricao } from "./form-02";
 
-export default function DescricaoPage() {
+export default function ResultadosEsperadosPage() {
   return (
     <SidebarProvider
       style={{
@@ -16,7 +15,10 @@ export default function DescricaoPage() {
       <AppSidebar variant="inset" />
       <SidebarInset>
         <SiteHeader />
-        <FormDescricao />
+        <div className="container mx-auto p-6">
+          <h1 className="text-2xl font-bold mb-4">Resultados Esperados</h1>
+          <p className="text-muted-foreground">Formulário em desenvolvimento...</p>
+        </div>
       </SidebarInset>
     </SidebarProvider>
   );

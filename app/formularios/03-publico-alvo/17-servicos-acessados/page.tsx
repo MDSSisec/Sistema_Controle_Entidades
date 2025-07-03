@@ -1,11 +1,10 @@
-"use client"
+"use client";
 
 import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
-import { FormIdentificacao } from "./form-01";
 
-export default function IdentificacaoPage() {
+export default function ServicosAcessadosPage() {
   return (
     <SidebarProvider
       style={{
@@ -16,8 +15,11 @@ export default function IdentificacaoPage() {
       <AppSidebar variant="inset" />
       <SidebarInset>
         <SiteHeader />
-        <FormIdentificacao />
+        <div className="container mx-auto p-6">
+          <h1 className="text-2xl font-bold mb-4">Serviços Acessados</h1>
+          <p className="text-muted-foreground">Formulário em desenvolvimento...</p>
+        </div>
       </SidebarInset>
     </SidebarProvider>
   );
-} 
+}
