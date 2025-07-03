@@ -171,3 +171,9 @@ body {
   margin-left: 0.75rem;
   display: inline-block;
 }
+
+.sidebar-active {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.199);
+  border-radius: 0.5rem;
+  background: #f5f5f5 !important;
+}

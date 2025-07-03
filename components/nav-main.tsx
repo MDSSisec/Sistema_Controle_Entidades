@@ -38,7 +38,7 @@ export function NavMain({
                 <SidebarMenuButton
                   asChild
                   tooltip={item.title}
-                  className={isActive ? "bg-muted text-primary font-bold" : ""}
+                  className={isActive ? "sidebar-active bg-muted text-primary font-bold" : ""}
                 >
                   <Link href={item.url} className="flex items-center gap-2">
                     {item.icon && <item.icon />}
