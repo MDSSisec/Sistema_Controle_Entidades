@@ -28,13 +28,14 @@ export default function HomeWelcome() {
           <span style={{fontWeight:800,letterSpacing:'0.04em'}}>SGI</span> <span style={{fontWeight:400,opacity:0.7}}>Interno</span>
         </div>
         <nav className={styles.menu}>
-          <button className={styles.menuButton}>Projetos</button>
-          <button className={styles.menuButton}>Usuários</button>
-          <button className={styles.menuButton}>Entidades</button>
-          <button className={styles.menuButton}>Dashboard</button>
-          <button className={styles.menuButton}>Ajuda</button>
-          <button className={styles.menuButton}>Login</button>
-          <button className={styles.ctaButton} onClick={handleStart}>Entrar</button>
+          <div className={styles.menuCard}>
+            <button className={styles.menuButton}>Ajuda</button>
+            <span style={{color:'#fff',opacity:0.5,fontWeight:600,fontSize:'1.2rem'}}>|</span>
+            <button className={styles.menuButton}>Login</button>
+            <span style={{color:'#fff',opacity:0.5,fontWeight:600,fontSize:'1.2rem'}}>|</span>
+            <button className={styles.menuButton}>Saiba Mais</button>
+          </div>
+          {/* <button className={styles.ctaButton} onClick={handleStart}>Entrar</button> */}
         </nav>
       </header>
 

@@ -171,6 +171,17 @@
   transform: translateY(-2px) scale(1.03);
 }
 
+.menuCard {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  border: 1.5px solid #fff;
+  border-radius: 1.5rem;
+  padding: 0.4rem 1.4rem;
+  background: none;
+  box-shadow: none;
+}
+
 @media (max-width: 1000px) {
   .mainContent {
     flex-direction: column;
