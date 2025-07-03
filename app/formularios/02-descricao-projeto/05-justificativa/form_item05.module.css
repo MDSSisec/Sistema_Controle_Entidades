@@ -34,7 +34,7 @@
 
 @media (min-width: 768px) {
   .grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -45,7 +45,7 @@
 }
 
 .fullWidth {
-  grid-column: span 2;
+  grid-column: span 1;
 }
 
 .label {
@@ -90,7 +90,7 @@
 }
 
 .buttonRow {
-  grid-column: span 2;
+  grid-column: span 1;
   display: flex;
   justify-content: flex-end;
   margin-top: 2rem;

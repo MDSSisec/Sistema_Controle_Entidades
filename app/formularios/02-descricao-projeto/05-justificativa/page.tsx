@@ -3,6 +3,7 @@
 import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
+import { FormJustificativa } from "./form_item05";
 
 export default function JustificativaPage() {
   return (
@@ -15,10 +16,7 @@ export default function JustificativaPage() {
       <AppSidebar variant="inset" />
       <SidebarInset>
         <SiteHeader />
-        <div className="container mx-auto p-6">
-          <h1 className="text-2xl font-bold mb-4">Justificativa</h1>
-          <p className="text-muted-foreground">Formulário em desenvolvimento...</p>
-        </div>
+        <FormJustificativa />
       </SidebarInset>
     </SidebarProvider>
   );

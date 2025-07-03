@@ -8,28 +8,28 @@ import styles from "./form_item01.module.css";
 const identificacaoFields: FormField[] = [
   {
     id: "nomeProjeto",
-    label: "Nome do Projeto",
+    label: "1.1 - Nome do Projeto",
     type: "text" as const,
     placeholder: "Digite o nome do projeto",
     required: true,
   },
   {
     id: "localExecucao",
-    label: "Local de Execução",
+    label: "1.2 - Local de Execução",
     type: "text" as const,
     placeholder: "Digite o local de execução",
     required: true,
   },
   {
     id: "duracao",
-    label: "Duração",
+    label: "1.3 - Duração",
     type: "text" as const,
     placeholder: "Ex: 12 meses",
     required: true,
   },
   {
     id: "resumoProjeto",
-    label: "Resumo do Projeto",
+    label: "1.4 - Resumo do Projeto",
     type: "textarea" as const,
     placeholder: "Descreva um resumo do projeto",
     required: true,
@@ -67,22 +67,23 @@ export function FormIdentificacao() {
     return (
       <div className={styles.container}>
         <div className={styles.formWrapper}>
-          <h2 className={styles.title}>I - Identificação do Projeto</h2>
+          <h2 className={styles.title}>I - Identificação</h2>
+          <h3 className={styles.subtitle}>1.0 - Identificação do Projeto</h3>
           <div className={styles.grid}>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>Nome do Projeto</div>
+              <div className={styles.labelMuted}>1.1 - Nome do Projeto</div>
               <div className={styles.valueBox}>{dados.nomeProjeto}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>Local de Execução</div>
+              <div className={styles.labelMuted}>1.2 - Local de Execução</div>
               <div className={styles.valueBox}>{dados.localExecucao}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>Duração</div>
+              <div className={styles.labelMuted}>1.3 - Duração</div>
               <div className={styles.valueBox}>{dados.duracao}</div>
             </div>
             <div className={`${styles.field} ${styles.fullWidth}`}>
-              <div className={styles.labelMuted}>Resumo do Projeto</div>
+              <div className={styles.labelMuted}>1.4 - Resumo do Projeto</div>
               <div className={styles.valueBox}>{dados.resumoProjeto}</div>
             </div>
           </div>
