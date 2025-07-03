@@ -20,7 +20,7 @@ interface Usuario {
 }
 
 const usuarios: Usuario[] = [
-  { id: 1, nome: "Lucas Fontoura Righi Fontes", email: "lucas@email.com", dataCadastro: "2024-05-01", perfil: "Administrador" },
+  { id: 1, nome: "Lucas Fontoura Righi Fontes", email: "lucas.fontes@mds.gov.br.com", dataCadastro: "2024-05-01", perfil: "Administrador" },
   { id: 2, nome: "Maria Silva Alves", email: "maria@email.com", dataCadastro: "2024-04-15", perfil: "Usuário" },
   { id: 3, nome: "João Souza da Silva", email: "joao@email.com", dataCadastro: "2024-03-20", perfil: "Usuário" },
 ];
@@ -28,27 +28,35 @@ const usuarios: Usuario[] = [
 const columns: ColumnDef<Usuario>[] = [
   {
     accessorKey: "nome",
-    header: "Nome", 
+    header: "Nome",
+    size: 180,
+    cell: ({ getValue }) => <span style={{ display: 'inline-block', minWidth: 140 }}>{getValue() as string}</span>,
   },
   {
     accessorKey: "email",
     header: "Email",
+    size: 170,
+    cell: ({ getValue }) => <span style={{ display: 'inline-block', minWidth: 120 }}>{getValue() as string}</span>,
   },
   {
     accessorKey: "dataCadastro",
     header: "Data Cadastro",
+    size: 110,
     cell: ({ getValue }) => {
       const data = new Date(getValue() as string);
-      return data.toLocaleDateString();
+      return <span style={{ display: 'inline-block', minWidth: 90, textAlign: 'center' }}>{data.toLocaleDateString()}</span>;
     },
   },
   {
     accessorKey: "perfil",
     header: "Perfil",
+    size: 100,
+    cell: ({ getValue }) => <span style={{ display: 'inline-block', minWidth: 70 }}>{getValue() as string}</span>,
   },
   {
     id: "actions",
     header: "Ações",
+    size: 60,
     cell: ({ row }) => (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
@@ -88,9 +96,7 @@ export function Usuarios() {
             <div className={styles.contentContainer}>
               <h1 className={styles.title}>Usuários</h1>
             </div>
-            <div className={styles.tableContainer}>
-              <DataTable<Usuario> data={usuarios} columns={columns} />
-            </div>
+            <DataTable<Usuario> data={usuarios} columns={columns} />
             {/* Botão flutuante para adicionar novo usuário */}
             <Button 
               className={styles.fabButton}
