@@ -34,62 +34,6 @@ const dadosExemplo: Meta[] = [
   }
 ];
 
-const columns = [
-  {
-    id: "numero",
-    header: "Meta",
-    cell: ({ row }: { row: Row<Meta> }) => (
-      <div className="font-medium">
-        Meta {String(row.original.id).padStart(2, '0')}
-      </div>
-    ),
-    enableHiding: false,
-  },
-  {
-    accessorKey: "especificacao",
-    header: "Especificação da Meta",
-    cell: ({ row }: { row: Row<Meta> }) => row.original.especificacao,
-    enableHiding: false,
-  },
-  {
-    accessorKey: "valor",
-    header: "Valor",
-    cell: ({ row }: { row: Row<Meta> }) => row.original.valor,
-  },
-  {
-    accessorKey: "dataInicio",
-    header: "Data de Início",
-    cell: ({ row }: { row: Row<Meta> }) => row.original.dataInicio,
-  },
-  {
-    accessorKey: "dataTermino",
-    header: "Data de Término",
-    cell: ({ row }: { row: Row<Meta> }) => row.original.dataTermino,
-  },
-  {
-    id: "actions",
-    header: "Ações",
-    cell: () => (
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button
-            variant="ghost"
-            className="data-[state=open]:bg-muted text-muted-foreground flex size-8"
-            size="icon"
-          >
-            <IconDotsVertical />
-            <span className="sr-only">Open menu</span>
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-32">
-          <DropdownMenuItem>Editar</DropdownMenuItem>
-          <DropdownMenuItem>Excluir</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-    ),
-  },
-];
-
 export function FormMetas() {
   const [metas, setMetas] = React.useState<Meta[]>(dadosExemplo);
   const [formData, setFormData] = React.useState<Omit<Meta, 'id'>>({
@@ -98,6 +42,7 @@ export function FormMetas() {
     dataInicio: "",
     dataTermino: ""
   });
+  const [editandoId, setEditandoId] = React.useState<number | null>(null);
 
   // Função para formatar valor monetário
   const formatarValor = (valor: string): string => {
@@ -158,6 +103,26 @@ export function FormMetas() {
     setFormData({ ...formData, dataTermino: valorFormatado });
   };
 
+  const handleEditar = (meta: Meta) => {
+    setFormData({
+      especificacao: meta.especificacao,
+      valor: meta.valor,
+      dataInicio: meta.dataInicio,
+      dataTermino: meta.dataTermino
+    });
+    setEditandoId(meta.id);
+  };
+
+  const handleCancelarEdicao = () => {
+    setEditandoId(null);
+    setFormData({
+      especificacao: "",
+      valor: "",
+      dataInicio: "",
+      dataTermino: ""
+    });
+  };
+
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -167,14 +132,21 @@ export function FormMetas() {
       return;
     }
 
-    // Criar nova meta
-    const novaMeta: Meta = {
-      id: metas.length + 1,
-      ...formData
-    };
+    if (editandoId) {
+      // Atualizar meta existente
+      setMetas(metas.map(meta =>
+        meta.id === editandoId ? { ...meta, ...formData } : meta
+      ));
+      setEditandoId(null);
+    } else {
+      // Adicionar nova meta
+      const novaMeta: Meta = {
+        id: metas.length + 1,
+        ...formData
+      };
+      setMetas([...metas, novaMeta]);
+    }
 
-    setMetas([...metas, novaMeta]);
-    
     // Limpar formulário
     setFormData({
       especificacao: "",
@@ -183,6 +155,63 @@ export function FormMetas() {
       dataTermino: ""
     });
   };
+
+  // Mover columns para dentro do componente para acessar handleEditar
+  const columns = [
+    {
+      id: "numero",
+      header: "Meta",
+      cell: ({ row }: { row: Row<Meta> }) => (
+        <div className="font-medium">
+          Meta {String(row.original.id).padStart(2, '0')}
+        </div>
+      ),
+      enableHiding: false,
+    },
+    {
+      accessorKey: "especificacao",
+      header: "Especificação da Meta",
+      cell: ({ row }: { row: Row<Meta> }) => row.original.especificacao,
+      enableHiding: false,
+    },
+    {
+      accessorKey: "valor",
+      header: "Valor",
+      cell: ({ row }: { row: Row<Meta> }) => row.original.valor,
+    },
+    {
+      accessorKey: "dataInicio",
+      header: "Data de Início",
+      cell: ({ row }: { row: Row<Meta> }) => row.original.dataInicio,
+    },
+    {
+      accessorKey: "dataTermino",
+      header: "Data de Término",
+      cell: ({ row }: { row: Row<Meta> }) => row.original.dataTermino,
+    },
+    {
+      id: "actions",
+      header: "Ações",
+      cell: ({ row }: { row: Row<Meta> }) => (
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button
+              variant="ghost"
+              className="data-[state=open]:bg-muted text-muted-foreground flex size-8"
+              size="icon"
+            >
+              <IconDotsVertical />
+              <span className="sr-only">Open menu</span>
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="w-32">
+            <DropdownMenuItem onClick={() => handleEditar(row.original)}>Editar</DropdownMenuItem>
+            <DropdownMenuItem>Excluir</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      ),
+    },
+  ];
 
   return (
     <div className={styles.container}>
@@ -257,7 +286,12 @@ export function FormMetas() {
             </div>
             
             <div className={styles.buttonRow}>
-              <Button type="submit">Adicionar Meta</Button>
+              <Button type="submit">{editandoId ? "Salvar" : "Adicionar Meta"}</Button>
+              {editandoId && (
+                <Button type="button" variant="outline" onClick={handleCancelarEdicao}>
+                  Cancelar
+                </Button>
+              )}
             </div>
           </form>
         </div>
