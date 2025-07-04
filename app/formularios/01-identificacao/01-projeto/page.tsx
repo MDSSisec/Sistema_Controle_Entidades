@@ -4,6 +4,7 @@ import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
 import { FormIdentificacao } from "./form_item01";
+import { BackToProjectDetails } from "@/components/BackToProjectDetails";
 
 export default function IdentificacaoPage() {
   return (
@@ -16,6 +17,7 @@ export default function IdentificacaoPage() {
       <AppSidebar variant="inset" />
       <SidebarInset>
         <SiteHeader />
+        <BackToProjectDetails />
         <FormIdentificacao />
       </SidebarInset>
     </SidebarProvider>

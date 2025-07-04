@@ -4,6 +4,7 @@ import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
 import { FormDescricao } from "./form_item02";
+import { BackToProjectDetails } from "@/components/BackToProjectDetails";
 
 export default function DescricaoPage() {
   return (
@@ -16,6 +17,7 @@ export default function DescricaoPage() {
       <AppSidebar variant="inset" />
       <SidebarInset>
         <SiteHeader />
+        <BackToProjectDetails />
         <FormDescricao />
       </SidebarInset>
     </SidebarProvider>

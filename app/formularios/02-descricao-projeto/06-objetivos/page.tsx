@@ -3,8 +3,10 @@
 import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
+import { FormObjetivos } from "./form_item06";
+import { BackToProjectDetails } from "@/components/BackToProjectDetails";
 
-export default function ObjetivosEspecificosPage() {
+export default function ObjetivosPage() {
   return (
     <SidebarProvider
       style={{
@@ -15,10 +17,8 @@ export default function ObjetivosEspecificosPage() {
       <AppSidebar variant="inset" />
       <SidebarInset>
         <SiteHeader />
-        <div className="container mx-auto p-6">
-          <h1 className="text-2xl font-bold mb-4">Objetivos Específicos</h1>
-          <p className="text-muted-foreground">Formulário em desenvolvimento...</p>
-        </div>
+        <BackToProjectDetails />
+        <FormObjetivos />
       </SidebarInset>
     </SidebarProvider>
   );

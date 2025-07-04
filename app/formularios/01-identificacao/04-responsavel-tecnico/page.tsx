@@ -3,6 +3,7 @@
 import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
+import { BackToProjectDetails } from "@/components/BackToProjectDetails";
 
 export default function ResponsavelTecnicoPage() {
   return (
@@ -15,10 +16,7 @@ export default function ResponsavelTecnicoPage() {
       <AppSidebar variant="inset" />
       <SidebarInset>
         <SiteHeader />
-        <div className="container mx-auto p-6">
-          <h1 className="text-2xl font-bold mb-4">Responsável Técnico</h1>
-          <p className="text-muted-foreground">Formulário em desenvolvimento...</p>
-        </div>
+        <BackToProjectDetails />
       </SidebarInset>
     </SidebarProvider>
   );

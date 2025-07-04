@@ -4,6 +4,7 @@ import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
 import { FormJustificativa } from "./form_item05";
+import { BackToProjectDetails } from "@/components/BackToProjectDetails";
 
 export default function JustificativaPage() {
   return (
@@ -16,6 +17,7 @@ export default function JustificativaPage() {
       <AppSidebar variant="inset" />
       <SidebarInset>
         <SiteHeader />
+        <BackToProjectDetails />
         <FormJustificativa />
       </SidebarInset>
     </SidebarProvider>

@@ -33,8 +33,7 @@ export function ProjectAccordionList({ title, items, defaultOpen = false, checke
       
       // II - Descrição do Projeto
       "5.0 - Justificativa e Motivação do Instrumento": "/formularios/02-descricao-projeto/05-justificativa",
-      "6.1 - Objetivo Geral": "/formularios/02-descricao-projeto/06-objetivos/06-1-objetivo-geral",
-      "6.2 - Objetivos Específicos": "/formularios/02-descricao-projeto/06-objetivos/06-2-objetivos-especificos",
+      "6.0 - Objetivo": "/formularios/02-descricao-projeto/06-objetivos",
       "7.0 - Metas": "/formularios/02-descricao-projeto/07-metas",
       "8.0 - Etapas e Cronograma de Execução": "/formularios/02-descricao-projeto/08-cronograma",
       "9.0 - Metodologia": "/formularios/02-descricao-projeto/09-metodologia",

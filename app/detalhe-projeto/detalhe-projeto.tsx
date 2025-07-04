@@ -26,7 +26,7 @@ export function DetalheProjeto() {
               Etapas do Projeto: <span style={{ fontWeight: 700 }}>Projeto Corte e Costura - Mulheres do Sol</span>
             </h2>
             <div style={{ minWidth: 180 }}>
-              <ChartRadialText concluido={19} total={20} />
+              <ChartRadialText concluido={15} total={20} />
             </div>
           </div>
           <div style={{ paddingBottom: '4rem' }}>
@@ -44,8 +44,7 @@ export function DetalheProjeto() {
               title="II - Descrição do Projeto"
               items={[
                 "5.0 - Justificativa e Motivação do Instrumento",
-                "6.1 - Objetivo Geral",
-                "6.2 - Objetivos Específicos",
+                "6.0 - Objetivo",
                 "7.0 - Metas",
                 "8.0 - Etapas e Cronograma de Execução",
                 "9.0 - Metodologia",

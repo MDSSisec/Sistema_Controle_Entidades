@@ -1,0 +1,155 @@
+.container {
+    width: 100%;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+  }
+  
+  .formWrapper {
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .subtitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    color: var(--muted-foreground, #6b7280);
+  }
+  
+  .formCard {
+    background: var(--background);
+    border: 1px solid var(--border, #e5e7eb);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  }
+  
+  .cardTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--foreground, #111827);
+  }
+  
+  .formGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .formGrid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .fullWidth {
+    grid-column: span 2;
+  }
+  
+  @media (max-width: 767px) {
+    .fullWidth {
+      grid-column: span 1;
+    }
+  }
+  
+  .label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--muted-foreground, #6b7280);
+  }
+  
+  .input, .textarea {
+    border: 1px solid var(--border, #e5e7eb);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    background: var(--input-bg, #fff);
+    color: var(--foreground, #111827);
+    transition: border-color 0.2s;
+  }
+  
+  .input:focus, .textarea:focus {
+    outline: none;
+    border-color: var(--primary, #2563eb);
+  }
+  
+  .textarea {
+    min-height: 50px;
+    resize: vertical;
+  }
+  
+  .buttonRow {
+    grid-column: span 2;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+  }
+  
+  @media (max-width: 767px) {
+    .buttonRow {
+      grid-column: span 1;
+      margin-top: 1rem;
+    }
+  }
+  
+  .tableSection {
+    margin-top: 3rem;
+    background: var(--background);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  }
+  
+  .tableTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--foreground, #111827);
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .container {
+      padding: 1rem 0.5rem;
+    }
+    
+    .formWrapper {
+      max-width: 100%;
+    }
+    
+    .title {
+      font-size: 1.5rem;
+    }
+    
+    .subtitle {
+      font-size: 1.25rem;
+    }
+    
+    .tableSection {
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    
+    .tableTitle {
+      font-size: 1.125rem;
+    }
+  }
+  
