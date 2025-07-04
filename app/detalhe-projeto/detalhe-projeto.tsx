@@ -21,72 +21,65 @@ export function DetalheProjeto() {
       <SidebarInset>
         <SiteHeader />
         <div className={styles.container}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <h1 className={styles.title}>Etapas do Projeto "{'{ProjectName}'}"</h1>
+          <div className={styles.header}>
+            <h2 className={styles.title}>
+              Etapas do Projeto: <span style={{ fontWeight: 700 }}>Projeto Corte e Costura - Mulheres do Sol</span>
+            </h2>
             <div style={{ minWidth: 180 }}>
               <ChartRadialText concluido={19} total={20} />
             </div>
           </div>
-        </div>
-        <div>
-          <ProjectAccordionList
-            title="I - Identificação"
-            items={[
-              "1.0 - Identificação do Projeto",
-              "2.0 - Identificação da Entidade Proponente",
-              "3.0 - Identificação do Representante Legal da Entidade Proponente",
-              "4.0 - Identificação do Responsável Técnico pelo Projeto"
-            ]}
-            checkedItems={["1.0 - Identificação do Projeto", "2.0 - Identificação da Entidade Proponente"]}
-          />
-        </div>
-        <div>
-          <ProjectAccordionList
-            title="II - Descrição do Projeto"
-            items={[
-              // { label: "Justificativa e Motivação do Instrumento", isSection: true},
-              "5.0 - Justificativa e Motivação do Instrumento",
-              "6.1 - Objetivo Geral",
-              "6.2 - Objetivos Específicos",
-              "7.0 - Metas",
-              "8.0 - Etapas e Cronograma de Execução",
-              "9.0 - Metodologia",
-              "10.0 - Resultados Esperados",
-              "11.0 - Gestão de Projeto",
-              "11.1 - Dimensionamento da Equipe Necessária para a Execução do Projeto",
-              "11.2 - Dimensionamento de Contratações e Aquisições de Serviços de Terceiros - Pessoas Jurídicas para o Projeto."
-            ]}
-          />
-        </div>
-        <div>
-          <ProjectAccordionList
-            title="III - Público Alvo e Território"
-            items={[
-              "12.0 - Histórico e Situação Socioeconômica do Território e da População a ser Beneficiada.",
-              "13.0 - Detalhamento da Base Territorial do Projeto",
-              "14.0 - Público Beneficiário do Projeto.",
-              "15.0 - Informe se o Público Beneficiário faz Parte de Algum Destes povos ou comunidades tradicionais.",
-              "16.0 - Informe o perfil socio ocupacional predominante do público beneficiário.",
-              "17.0 - Informe se o público beneficiário está acessando alguns dos seguintes serviços"
-            ]}
-          />
-        </div>
-        <div>
-          <ProjectAccordionList
-            title="IV - Caracterização da Entidade Proponente"
-            items={[
-              "18.0 - Outras Informações julgadas apropriadas sobre a entidade proponente."
-            ]}
-          />
-        </div>
-        <div>
-          <ProjectAccordionList
-            title="V - Dados Físico Financeiro: Planilhas Orçamentárias"
-            items={[
-              "19.0 - Valor Total do Projeto.",
-              "20.0 - Cronograma de Desembolso."
-            ]}
-          />
+          <div style={{ paddingBottom: '4rem' }}>
+            <ProjectAccordionList
+              title="I - Identificação"
+              items={[
+                "1.0 - Identificação do Projeto",
+                "2.0 - Identificação da Entidade Proponente",
+                "3.0 - Identificação do Representante Legal da Entidade Proponente",
+                "4.0 - Identificação do Responsável Técnico pelo Projeto"
+              ]}
+              checkedItems={["1.0 - Identificação do Projeto", "2.0 - Identificação da Entidade Proponente"]}
+            />
+            <ProjectAccordionList
+              title="II - Descrição do Projeto"
+              items={[
+                "5.0 - Justificativa e Motivação do Instrumento",
+                "6.1 - Objetivo Geral",
+                "6.2 - Objetivos Específicos",
+                "7.0 - Metas",
+                "8.0 - Etapas e Cronograma de Execução",
+                "9.0 - Metodologia",
+                "10.0 - Resultados Esperados",
+                "11.0 - Gestão de Projeto",
+                "11.1 - Dimensionamento da Equipe Necessária para a Execução do Projeto",
+                "11.2 - Dimensionamento de Contratações e Aquisições de Serviços de Terceiros - Pessoas Jurídicas para o Projeto."
+              ]}
+            />
+            <ProjectAccordionList
+              title="III - Público Alvo e Território"
+              items={[
+                "12.0 - Histórico e Situação Socioeconômica do Território e da População a ser Beneficiada.",
+                "13.0 - Detalhamento da Base Territorial do Projeto",
+                "14.0 - Público Beneficiário do Projeto.",
+                "15.0 - Informe se o Público Beneficiário faz Parte de Algum Destes povos ou comunidades tradicionais.",
+                "16.0 - Informe o perfil socio ocupacional predominante do público beneficiário.",
+                "17.0 - Informe se o público beneficiário está acessando alguns dos seguintes serviços"
+              ]}
+            />
+            <ProjectAccordionList
+              title="IV - Caracterização da Entidade Proponente"
+              items={[
+                "18.0 - Outras Informações julgadas apropriadas sobre a entidade proponente."
+              ]}
+            />
+            <ProjectAccordionList
+              title="V - Dados Físico Financeiro: Planilhas Orçamentárias"
+              items={[
+                "19.0 - Valor Total do Projeto.",
+                "20.0 - Cronograma de Desembolso."
+              ]}
+            />
+          </div>
         </div>
       </SidebarInset>
     </SidebarProvider>

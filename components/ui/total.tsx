@@ -14,22 +14,25 @@ const chartConfig = {
 } satisfies ChartConfig
 
 export function ChartRadialText({ concluido = 2, total = 20 }: { concluido?: number, total?: number }) {
+  const percent = Math.max(0, Math.min(1, concluido / total));
+  const angle = 360 * percent;
+  const startAngle = 90;
+  const endAngle = 90 - angle;
   const chartData = [
-    { name: "concluido", value: concluido, fill: "#3b82f6" },
-    { name: "restante", value: total - concluido, fill: "transparent" }
+    { name: "progresso", value: 100, fill: "#3b82f6" }
   ];
 
   return (
-    <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-16 bg-transparent flex items-center justify-center">
+    <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-28 bg-transparent flex items-center justify-center">
       <RadialBarChart
         data={chartData}
-        startAngle={90}
-        endAngle={-270}
-        innerRadius={30}
-        outerRadius={40}
+        startAngle={startAngle}
+        endAngle={endAngle}
+        innerRadius={40}
+        outerRadius={60}
       >
         <PolarGrid gridType="circle" radialLines={false} stroke="none" />
-        <RadialBar dataKey="value" background={false} cornerRadius={20} barSize={8} />
+        <RadialBar dataKey="value" background={false} cornerRadius={20} barSize={6} />
         <PolarRadiusAxis tick={false} tickLine={false} axisLine={false}>
           <Label
             content={({ viewBox }) => {
@@ -44,7 +47,7 @@ export function ChartRadialText({ concluido = 2, total = 20 }: { concluido?: num
                     <tspan
                       x={viewBox.cx}
                       y={viewBox.cy}
-                      className="fill-foreground text-base font-bold"
+                      className="fill-foreground text-lg font-bold"
                     >
                       {concluido}/{total}
                     </tspan>
