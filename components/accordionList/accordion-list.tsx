@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useRouter } from "next/navigation";
 import styles from "./accordion-list.module.css";
+import React from "react";
 
 interface ProjectAccordionListItem {
   label: string;
@@ -17,10 +18,30 @@ interface ProjectAccordionListProps {
   items: (string | ProjectAccordionListItem)[];
   defaultOpen?: boolean;
   checkedItems?: string[];
+  open?: boolean;
+  forceOpen?: string;
 }
 
-export function ProjectAccordionList({ title, items, defaultOpen = false, checkedItems = [] }: ProjectAccordionListProps) {
+export function ProjectAccordionList({ title, items, defaultOpen = false, checkedItems = [], open, forceOpen }: ProjectAccordionListProps) {
   const router = useRouter();
+  const [accordionOpen, setAccordionOpen] = React.useState<boolean>(false);
+
+  React.useEffect(() => {
+    if (forceOpen && forceOpen === title) {
+      setAccordionOpen(true);
+    } else if (forceOpen) {
+      setAccordionOpen(false);
+    }
+  }, [forceOpen, title]);
+
+  const handleAccordionChange = (value: string | undefined) => {
+    if (value === "section") {
+      localStorage.setItem("ultimoCardAberto", title);
+      setAccordionOpen(true);
+    } else {
+      setAccordionOpen(false);
+    }
+  };
 
   const handleItemClick = (item: string) => {
     // Mapeamento dos itens para as rotas da nova estrutura organizada
@@ -68,7 +89,13 @@ export function ProjectAccordionList({ title, items, defaultOpen = false, checke
     <div className={styles.container}>
       <Card>
         <CardContent>
-          <Accordion type="single" collapsible defaultValue={defaultOpen ? "section" : undefined}>
+          <Accordion
+            type="single"
+            collapsible
+            value={accordionOpen ? "section" : undefined}
+            defaultValue={open === undefined && forceOpen === undefined ? (defaultOpen ? "section" : undefined) : undefined}
+            onValueChange={handleAccordionChange}
+          >
             <AccordionItem value="section">
               <AccordionTrigger>
                 <Label className={styles.title}>{title}</Label>
