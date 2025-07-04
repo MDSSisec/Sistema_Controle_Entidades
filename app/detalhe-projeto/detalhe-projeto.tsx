@@ -5,6 +5,7 @@ import { AppSidebar } from "@/components/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
 import styles from "./detalhe-projeto.module.css";
 import { ProjectAccordionList } from "@/components/accordionList/accordion-list";
+import { ChartRadialText } from "@/components/ui/total";
 
 
 export function DetalheProjeto() {
@@ -20,7 +21,12 @@ export function DetalheProjeto() {
       <SidebarInset>
         <SiteHeader />
         <div className={styles.container}>
-          <h1 className={styles.title}>Etapas do Projeto "{'{ProjectName}'}"</h1>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <h1 className={styles.title}>Etapas do Projeto "{'{ProjectName}'}"</h1>
+            <div style={{ minWidth: 180 }}>
+              <ChartRadialText concluido={19} total={20} />
+            </div>
+          </div>
         </div>
         <div>
           <ProjectAccordionList
@@ -31,6 +37,7 @@ export function DetalheProjeto() {
               "3.0 - Identificação do Representante Legal da Entidade Proponente",
               "4.0 - Identificação do Responsável Técnico pelo Projeto"
             ]}
+            checkedItems={["1.0 - Identificação do Projeto", "2.0 - Identificação da Entidade Proponente"]}
           />
         </div>
         <div>

@@ -16,9 +16,10 @@ interface ProjectAccordionListProps {
   title: string;
   items: (string | ProjectAccordionListItem)[];
   defaultOpen?: boolean;
+  checkedItems?: string[];
 }
 
-export function ProjectAccordionList({ title, items, defaultOpen = false }: ProjectAccordionListProps) {
+export function ProjectAccordionList({ title, items, defaultOpen = false, checkedItems = [] }: ProjectAccordionListProps) {
   const router = useRouter();
 
   const handleItemClick = (item: string) => {
@@ -86,7 +87,11 @@ export function ProjectAccordionList({ title, items, defaultOpen = false }: Proj
                     }
                     return (
                       <li key={idx} className={styles.listItem}>
-                        <Checkbox className={styles.checkbox} id={`checkbox-item-${idx}`} />
+                        <Checkbox
+                          className={styles.checkbox}
+                          id={`checkbox-item-${idx}`}
+                          checked={checkedItems.includes(obj.label)}
+                        />
                         <span className={styles.bullet} />
                         <button 
                           onClick={() => handleItemClick(obj.label)}
