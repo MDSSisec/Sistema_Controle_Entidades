@@ -1,1 +1,1 @@
-## Balancium Versão 2.0.0 Novo Layout Moderno
+## Sistema de Controle das Entidades e dos Cursos.
