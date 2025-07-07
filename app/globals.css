@@ -177,3 +177,8 @@ body {
   border-radius: 0.5rem;
   background: #f5f5f5 !important;
 }
+
+[data-radix-popper-content-wrapper] {
+  z-index: 2147483647 !important;
+  position: fixed !important;
+}

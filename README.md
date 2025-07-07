@@ -1,1 +1,1 @@
-## Sistema de Controle das Entidades e dos Cursos.
+## Sistema de Controle das Entidades e Cursos.

@@ -7,9 +7,10 @@ import { DataTable } from "@/components/data-table";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
 import { IconDotsVertical, IconPlus } from "@tabler/icons-react";
+import { CadastroUsuario } from "@/app/cadastroUsuario/cadastro-usuario";
 import styles from "./usuarios.module.css";
 import { ColumnDef } from "@tanstack/react-table";
-import React from "react";
+import React, { useState } from "react";
 
 interface Usuario {
   id: number;
@@ -81,6 +82,34 @@ const columns: ColumnDef<Usuario>[] = [
 ];
 
 export function Usuarios() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleSubmit = (usuarioData: Omit<Usuario, 'id' | 'dataCadastro'>) => {
+    // TODO: Implementar lógica para salvar o usuário
+    console.log("Dados do usuário para cadastro:", usuarioData);
+    
+    // Simular adição de usuário
+    const novoUsuario: Usuario = {
+      id: usuarios.length + 1,
+      nome: usuarioData.nome,
+      email: usuarioData.email,
+      perfil: usuarioData.perfil,
+      dataCadastro: new Date().toISOString().split('T')[0]
+    };
+    
+    console.log("Novo usuário criado:", novoUsuario);
+    
+    // Aqui você pode adicionar a lógica para salvar no backend
+    // await api.post('/usuarios', usuarioData);
+    
+    // Fechar modal
+    setIsModalOpen(false);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <SidebarProvider
       style={{
@@ -97,18 +126,24 @@ export function Usuarios() {
               <h1 className={styles.title}>Usuários</h1>
             </div>
             <DataTable<Usuario> data={usuarios} columns={columns} />
-            {/* Botão flutuante para adicionar novo usuário */}
+            
+            {/* Botão flutuante para abrir popup */}
             <Button 
               className={styles.fabButton}
               size="icon"
-              onClick={() => {
-                // TODO: Implementar lógica para abrir formulário de novo usuário
-                console.log("Adicionar novo usuário");
-              }}
+              onClick={() => setIsModalOpen(true)}
             >
               <IconPlus className="h-6 w-6" />
               <span className="sr-only">Adicionar novo usuário</span>
             </Button>
+            
+            {/* Componente de cadastro de usuário */}
+            <CadastroUsuario
+              isOpen={isModalOpen}
+              onClose={handleCloseModal}
+              onSubmit={handleSubmit}
+              title="Cadastrar Novo Usuário"
+            />
           </div>
         </div>
       </SidebarInset>
