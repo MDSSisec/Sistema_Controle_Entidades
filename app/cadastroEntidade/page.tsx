@@ -1,0 +1,1 @@
+export { CadastroEntidade } from './cadastro-entidade'; 

@@ -6,8 +6,10 @@ import { SiteHeader } from "@/components/site-header";
 import { DataTable } from "@/components/data-table";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { IconDotsVertical, IconPlus } from "@tabler/icons-react";
 import { CadastroUsuario } from "@/app/cadastroUsuario/cadastro-usuario";
+  import { Entidades } from "./entidades";
 import styles from "./usuarios.module.css";
 import { ColumnDef } from "@tanstack/react-table";
 import React, { useState } from "react";
@@ -22,8 +24,10 @@ interface Usuario {
 
 const usuarios: Usuario[] = [
   { id: 1, nome: "Lucas Fontoura Righi Fontes", email: "lucas.fontes@mds.gov.br.com", dataCadastro: "2024-05-01", perfil: "Administrador" },
-  { id: 2, nome: "Maria Silva Alves", email: "maria@email.com", dataCadastro: "2024-04-15", perfil: "Usuário" },
-  { id: 3, nome: "João Souza da Silva", email: "joao@email.com", dataCadastro: "2024-03-20", perfil: "Usuário" },
+  { id: 2, nome: "Maria Silva Alves", email: "maria@email.com", dataCadastro: "2024-04-15", perfil: "Equipe Empreendedorismo" },
+  { id: 3, nome: "João Souza da Silva", email: "joao@email.com", dataCadastro: "2024-03-20", perfil: "Administrador" },
+  { id: 4, nome: "Ana Costa Santos", email: "ana@email.com", dataCadastro: "2024-02-10", perfil: "Equipe Empreendedorismo" },
+  { id: 5, nome: "Pedro Oliveira Lima", email: "pedro@email.com", dataCadastro: "2024-01-05", perfil: "Administrador" },
 ];
 
 const columns: ColumnDef<Usuario>[] = [
@@ -123,27 +127,41 @@ export function Usuarios() {
         <div className={styles.usuariosContainer}>
           <div className={styles.mainContainer}>
             <div className={styles.contentContainer}>
-              <h1 className={styles.title}>Usuários</h1>
+              <h1 className={styles.title}>Gerenciamento</h1>
             </div>
-            <DataTable<Usuario> data={usuarios} columns={columns} />
             
-            {/* Botão flutuante para abrir popup */}
-            <Button 
-              className={styles.fabButton}
-              size="icon"
-              onClick={() => setIsModalOpen(true)}
-            >
-              <IconPlus className="h-6 w-6" />
-              <span className="sr-only">Adicionar novo usuário</span>
-            </Button>
-            
-            {/* Componente de cadastro de usuário */}
-            <CadastroUsuario
-              isOpen={isModalOpen}
-              onClose={handleCloseModal}
-              onSubmit={handleSubmit}
-              title="Cadastrar Novo Usuário"
-            />
+            <Tabs defaultValue="usuarios" className={styles.tabsContainer}>
+              <TabsList className={styles.tabsList}>
+                <TabsTrigger value="usuarios">Usuários</TabsTrigger>
+                <TabsTrigger value="entidades">Entidades</TabsTrigger>
+              </TabsList>
+              
+              <TabsContent value="usuarios" className={styles.tabContent}>
+                <DataTable<Usuario> data={usuarios} columns={columns} />
+                
+                {/* Botão flutuante para abrir popup */}
+                <Button 
+                  className={styles.fabButton}
+                  size="icon"
+                  onClick={() => setIsModalOpen(true)}
+                >
+                  <IconPlus className="h-6 w-6" />
+                  <span className="sr-only">Adicionar novo usuário</span>
+                </Button>
+                
+                {/* Componente de cadastro de usuário */}
+                <CadastroUsuario
+                  isOpen={isModalOpen}
+                  onClose={handleCloseModal}
+                  onSubmit={handleSubmit}
+                  title="Cadastrar Novo Usuário"
+                />
+              </TabsContent>
+              
+              <TabsContent value="entidades" className={styles.tabContent}>
+                <Entidades />
+              </TabsContent>
+            </Tabs>
           </div>
         </div>
       </SidebarInset>

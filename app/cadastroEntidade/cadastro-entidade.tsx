@@ -3,36 +3,37 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { IconX } from "@tabler/icons-react";
-import styles from "./cadastro-usuario.module.css";
+import styles from "./cadastro-entidade.module.css";
 import React, { useState } from "react";
 
-interface Usuario {
+interface Entidade {
   id: number;
   nome: string;
+  cnpj: string;
   email: string;
+  telefone: string;
   dataCadastro: string;
-  perfil: string;
 }
 
-interface CadastroUsuarioProps {
+interface CadastroEntidadeProps {
   isOpen: boolean;
   onClose: () => void;
-  onSubmit: (usuario: Omit<Usuario, 'id' | 'dataCadastro'>) => void;
+  onSubmit: (entidade: Omit<Entidade, 'id' | 'dataCadastro'>) => void;
   title?: string;
 }
 
-export function CadastroUsuario({ 
+export function CadastroEntidade({ 
   isOpen, 
   onClose, 
   onSubmit, 
-  title = "Cadastrar Novo Usuário" 
-}: CadastroUsuarioProps) {
+  title = "Cadastrar Nova Entidade" 
+}: CadastroEntidadeProps) {
   const [formData, setFormData] = useState({
     nome: "",
+    cnpj: "",
     email: "",
-    perfil: ""
+    telefone: ""
   });
 
   const handleInputChange = (field: string, value: string) => {
@@ -46,7 +47,7 @@ export function CadastroUsuario({
     e.preventDefault();
     
     // Validar se todos os campos estão preenchidos
-    if (!formData.nome || !formData.email || !formData.perfil) {
+    if (!formData.nome || !formData.cnpj || !formData.email || !formData.telefone) {
       alert("Por favor, preencha todos os campos obrigatórios.");
       return;
     }
@@ -58,15 +59,29 @@ export function CadastroUsuario({
       return;
     }
 
-    // Chamar função de callback com os dados do usuário
+    // Validar formato do CNPJ (básico)
+    const cnpjRegex = /^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/;
+    if (!cnpjRegex.test(formData.cnpj)) {
+      alert("Por favor, insira um CNPJ válido no formato XX.XXX.XXX/XXXX-XX.");
+      return;
+    }
+
+    // Validar formato do telefone (básico)
+    const telefoneRegex = /^\(\d{2}\) \d{4,5}-\d{4}$/;
+    if (!telefoneRegex.test(formData.telefone)) {
+      alert("Por favor, insira um telefone válido no formato (XX) XXXXX-XXXX.");
+      return;
+    }
+
+    // Chamar função de callback com os dados da entidade
     onSubmit(formData);
     
     // Limpar formulário
-    setFormData({ nome: "", email: "", perfil: "" });
+    setFormData({ nome: "", cnpj: "", email: "", telefone: "" });
   };
 
   const handleCancel = () => {
-    setFormData({ nome: "", email: "", perfil: "" });
+    setFormData({ nome: "", cnpj: "", email: "", telefone: "" });
     onClose();
   };
 
@@ -97,11 +112,11 @@ export function CadastroUsuario({
         <form onSubmit={handleSubmit} className={styles.modalForm}>
           <div className={styles.formFields}>
             <div className={styles.formField}>
-              <Label htmlFor="nome">Nome Completo</Label>
+              <Label htmlFor="nome">Nome da Entidade *</Label>
               <Input
                 id="nome"
                 type="text"
-                placeholder="Digite o nome completo"
+                placeholder="Digite o nome da entidade"
                 value={formData.nome}
                 onChange={(e) => handleInputChange("nome", e.target.value)}
                 required
@@ -109,7 +124,19 @@ export function CadastroUsuario({
             </div>
             
             <div className={styles.formField}>
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="cnpj">CNPJ *</Label>
+              <Input
+                id="cnpj"
+                type="text"
+                placeholder="XX.XXX.XXX/XXXX-XX"
+                value={formData.cnpj}
+                onChange={(e) => handleInputChange("cnpj", e.target.value)}
+                required
+              />
+            </div>
+            
+            <div className={styles.formField}>
+              <Label htmlFor="email">Email *</Label>
               <Input
                 id="email"
                 type="email"
@@ -121,20 +148,15 @@ export function CadastroUsuario({
             </div>
             
             <div className={styles.formField}>
-              <Label htmlFor="perfil">Perfil</Label>
-              <Select
-                value={formData.perfil}
-                onValueChange={(value) => handleInputChange("perfil", value)}
+              <Label htmlFor="telefone">Telefone *</Label>
+              <Input
+                id="telefone"
+                type="text"
+                placeholder="(XX) XXXXX-XXXX"
+                value={formData.telefone}
+                onChange={(e) => handleInputChange("telefone", e.target.value)}
                 required
-              >
-                <SelectTrigger>
-                  <SelectValue placeholder="Selecione o perfil" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="Administrador">Administrador</SelectItem>
-                  <SelectItem value="Equipe Empreendedorismo">Equipe Empreendedorismo</SelectItem>
-                </SelectContent>
-              </Select>
+              />
             </div>
           </div>
           
