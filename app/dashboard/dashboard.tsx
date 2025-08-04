@@ -5,7 +5,7 @@ import { SectionCards } from "@/components/section-cards"
 import { AppSidebar } from "@/components/app-sidebar"
 import { SiteHeader } from "@/components/site-header"
 import styles from "./dashboard.module.css"
-import { ChartAreaInteractive } from "@/components/chart-area-interactive"
+import { ChartBarInteractive } from "@/components/bar-chart/bar-chart"
 
 export function Dashboard() {
   return (
@@ -31,7 +31,7 @@ export function Dashboard() {
               </div>
             </div>
             <div className={styles.chartContainer}>
-              <ChartAreaInteractive />
+              <ChartBarInteractive />
             </div>
           </div>
         </div>
