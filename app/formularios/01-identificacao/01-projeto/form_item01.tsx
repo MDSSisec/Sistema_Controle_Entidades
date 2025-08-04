@@ -38,11 +38,10 @@ const identificacaoFields: FormField[] = [
 ];
 
 const dadosExemplo = {
-  nomeProjeto: "Projeto Corte e Costura - Mulheres do Sol",
-  localExecucao: "Brasília - DF",
-  duracao: "10 meses",
-  resumoProjeto:
-    "Projeto para modernização dos processos internos, com foco em automação, integração de sistemas e melhoria da gestão de dados.",
+  nomeProjeto: "",
+  localExecucao: "",
+  duracao: "",
+  resumoProjeto: "",
 };
 
 export function FormIdentificacao() {
@@ -155,6 +154,17 @@ export function FormIdentificacao() {
             />
           </div>
           <div className={styles.buttonRow}>
+            <Button 
+              type="button" 
+              variant="outline" 
+              onClick={() => {
+                setFormData(dados);
+                setModoEdicao(false);
+              }}
+              style={{ marginRight: '1rem' }}
+            >
+              Cancelar
+            </Button>
             <Button type="submit">Salvar Identificação</Button>
           </div>
         </form>

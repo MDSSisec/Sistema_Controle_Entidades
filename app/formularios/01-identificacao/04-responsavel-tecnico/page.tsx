@@ -4,6 +4,7 @@ import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
 import { BackToProjectDetails } from "@/components/BackToProjectDetails";
+import { FormResponsavelTecnico } from "./form_item04";
 
 export default function ResponsavelTecnicoPage() {
   return (
@@ -17,6 +18,7 @@ export default function ResponsavelTecnicoPage() {
       <SidebarInset>
         <SiteHeader />
         <BackToProjectDetails />
+        <FormResponsavelTecnico />
       </SidebarInset>
     </SidebarProvider>
   );

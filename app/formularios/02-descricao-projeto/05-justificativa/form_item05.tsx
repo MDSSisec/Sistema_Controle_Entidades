@@ -49,11 +49,11 @@ const justificativaFields: FormField[] = [
 ];
 
 const dadosExemplo = {
-  interessesReciprocos: "O projeto visa estabelecer uma parceria estratégica entre a entidade proponente e os beneficiários, onde ambos têm interesses alinhados no desenvolvimento socioeconômico da região. A entidade busca fortalecer sua atuação social, enquanto os beneficiários buscam qualificação profissional e inserção no mercado de trabalho.",
-  publicoAlvo: "Mulheres em situação de vulnerabilidade social, com idade entre 18 e 45 anos, residentes em comunidades de baixa renda. O público alvo inclui mulheres que buscam qualificação profissional e oportunidades de geração de renda.",
-  problemaResolver: "A falta de qualificação profissional e oportunidades de emprego para mulheres em situação de vulnerabilidade social, resultando em baixa renda familiar e dependência de programas sociais. O projeto visa capacitar essas mulheres em técnicas de corte e costura, proporcionando uma fonte de renda sustentável.",
-  resultadosEsperados: "Capacitação de 50 mulheres em técnicas de corte e costura, criação de uma cooperativa de costura, geração de renda média de R$ 800,00 por beneficiária, redução da dependência de programas sociais em 60% das famílias beneficiadas.",
-  relacaoObjetivos: "O projeto está alinhado com os objetivos do programa de inclusão produtiva e geração de renda, contribuindo para a redução da pobreza e desigualdade social. A proposta atende às diretrizes de capacitação profissional e fomento ao empreendedorismo feminino.",
+  interessesReciprocos: "",
+  publicoAlvo: "",
+  problemaResolver: "",
+  resultadosEsperados: "",
+  relacaoObjetivos: "",
 };
 
 export function FormJustificativa() {
@@ -137,6 +137,17 @@ export function FormJustificativa() {
             </div>
           ))}
           <div className={styles.buttonRow}>
+            <Button 
+              type="button" 
+              variant="outline" 
+              onClick={() => {
+                setFormData(dados);
+                setModoEdicao(false);
+              }}
+              style={{ marginRight: '1rem' }}
+            >
+              Cancelar
+            </Button>
             <Button type="submit">Salvar Justificativa</Button>
           </div>
         </form>

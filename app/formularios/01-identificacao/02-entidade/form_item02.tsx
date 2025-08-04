@@ -86,17 +86,17 @@ const descricaoFields: FormField[] = [
 ];
 
 const dadosExemplo = {
-  nome: "Associação Brasileira de Tecnologia",
-  cnpj: "12.345.678/0001-99",
-  dataFundacao: "2001-05-20",
-  registroCnpj: "123456789",
-  enderecoCompleto: "Rua das Inovações, 1234, Centro",
-  bairro: "Centro",
-  cep: "70000-000",
-  uf: "DF",
-  telefoneFax: "(61) 99999-8888 / (61) 3333-2222",
-  email: "contato@abtec.org.br",
-  paginaWeb: "https://www.abtec.org.br",
+  nome: "",
+  cnpj: "",
+  dataFundacao: "",
+  registroCnpj: "",
+  enderecoCompleto: "",
+  bairro: "",
+  cep: "",
+  uf: "",
+  telefoneFax: "",
+  email: "",
+  paginaWeb: "",
 };
 
 export function FormDescricao() {
@@ -220,6 +220,17 @@ export function FormDescricao() {
             );
           })}
           <div className={styles.buttonRow}>
+            <Button 
+              type="button" 
+              variant="outline" 
+              onClick={() => {
+                setFormData(dados);
+                setModoEdicao(false);
+              }}
+              style={{ marginRight: '1rem' }}
+            >
+              Cancelar
+            </Button>
             <Button type="submit">Salvar Descrição</Button>
           </div>
         </form>

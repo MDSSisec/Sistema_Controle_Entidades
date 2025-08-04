@@ -13,14 +13,6 @@ import React from "react";
 export function DetalheProjeto() {
   const searchParams = useSearchParams();
   let cardAberto = searchParams.get("card");
-  const [forceOpen, setForceOpen] = React.useState<string | undefined>(undefined);
-
-  React.useEffect(() => {
-    if (!cardAberto && typeof window !== "undefined") {
-      const ultimo = localStorage.getItem("ultimoCardAberto");
-      if (ultimo) setForceOpen(ultimo);
-    }
-  }, [cardAberto]);
 
   return (
     <SidebarProvider
@@ -51,7 +43,6 @@ export function DetalheProjeto() {
                 "4.0 - Identificação do Responsável Técnico pelo Projeto"
               ]}
               checkedItems={["1.0 - Identificação do Projeto", "2.0 - Identificação da Entidade Proponente"]}
-              forceOpen={forceOpen}
             />
             <ProjectAccordionList
               title="II - Descrição do Projeto"
@@ -66,8 +57,6 @@ export function DetalheProjeto() {
                 "11.1 - Dimensionamento da Equipe Necessária para a Execução do Projeto",
                 "11.2 - Dimensionamento de Contratações e Aquisições de Serviços de Terceiros - Pessoas Jurídicas para o Projeto."
               ]}
-              open={cardAberto === "6"}
-              forceOpen={forceOpen}
             />
             <ProjectAccordionList
               title="III - Público Alvo e Território"
@@ -79,14 +68,12 @@ export function DetalheProjeto() {
                 "16.0 - Informe o perfil socio ocupacional predominante do público beneficiário.",
                 "17.0 - Informe se o público beneficiário está acessando alguns dos seguintes serviços"
               ]}
-              forceOpen={forceOpen}
             />
             <ProjectAccordionList
               title="IV - Caracterização da Entidade Proponente"
               items={[
                 "18.0 - Outras Informações julgadas apropriadas sobre a entidade proponente."
               ]}
-              forceOpen={forceOpen}
             />
             <ProjectAccordionList
               title="V - Dados Físico Financeiro: Planilhas Orçamentárias"
@@ -94,7 +81,6 @@ export function DetalheProjeto() {
                 "19.0 - Valor Total do Projeto.",
                 "20.0 - Cronograma de Desembolso."
               ]}
-              forceOpen={forceOpen}
             />
           </div>
         </div>

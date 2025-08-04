@@ -24,7 +24,18 @@ interface ProjectAccordionListProps {
 
 export function ProjectAccordionList({ title, items, defaultOpen = false, checkedItems = [], open, forceOpen }: ProjectAccordionListProps) {
   const router = useRouter();
-  const [accordionOpen, setAccordionOpen] = React.useState<boolean>(false);
+  const [accordionOpen, setAccordionOpen] = React.useState<boolean>(() => {
+    // Se forceOpen está definido, verifica se deve estar aberto
+    if (forceOpen) {
+      return forceOpen === title;
+    }
+    // Se open está definido, usa esse valor
+    if (open !== undefined) {
+      return open;
+    }
+    // Caso contrário, usa o defaultOpen
+    return defaultOpen;
+  });
 
   React.useEffect(() => {
     if (forceOpen && forceOpen === title) {
@@ -93,7 +104,6 @@ export function ProjectAccordionList({ title, items, defaultOpen = false, checke
             type="single"
             collapsible
             value={accordionOpen ? "section" : undefined}
-            defaultValue={open === undefined && forceOpen === undefined ? (defaultOpen ? "section" : undefined) : undefined}
             onValueChange={handleAccordionChange}
           >
             <AccordionItem value="section">
