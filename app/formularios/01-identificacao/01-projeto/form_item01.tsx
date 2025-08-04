@@ -3,6 +3,7 @@
 import React from "react";
 import { Formulario, FormField } from "@/components/fomulario/formulario";
 import { Button } from "@/components/ui/button";
+import { InputWithLabel, TextareaWithLabel } from "@/components/ui/input-form";
 import styles from "./form_item01.module.css";
 
 const identificacaoFields: FormField[] = [
@@ -81,9 +82,9 @@ export function FormIdentificacao() {
               <div className={styles.labelMuted}>1.3 - Duração</div>
               <div className={styles.valueBox}>{dados.duracao}</div>
             </div>
-            <div className={`${styles.field} ${styles.fullWidth}`}>
+            <div className={styles.field}>
               <div className={styles.labelMuted}>1.4 - Resumo do Projeto</div>
-              <div className={styles.valueBox}>{dados.resumoProjeto}</div>
+              <div className={`${styles.valueBox} ${styles.valueBoxResumo}`}>{dados.resumoProjeto}</div>
             </div>
           </div>
           <div className={styles.buttonRow}>
@@ -105,54 +106,48 @@ export function FormIdentificacao() {
           onSubmit={e => { e.preventDefault(); handleFormSubmit(formData); }}
           className={styles.grid}
         >
-          <div className={styles.field}>
-            <label className={styles.label} htmlFor="nomeProjeto">Nome do Projeto<span className="text-destructive ml-1">*</span></label>
-            <input
-              id="nomeProjeto"
-              type="text"
-              required
-              className={styles.input}
-              placeholder="Digite o nome do projeto"
-              value={formData.nomeProjeto || ''}
-              onChange={e => setFormData({ ...formData, nomeProjeto: e.target.value })}
-            />
-          </div>
-          <div className={styles.field}>
-            <label className={styles.label} htmlFor="localExecucao">Local de Execução<span className="text-destructive ml-1">*</span></label>
-            <input
-              id="localExecucao"
-              type="text"
-              required
-              className={styles.input}
-              placeholder="Digite o local de execução"
-              value={formData.localExecucao || ''}
-              onChange={e => setFormData({ ...formData, localExecucao: e.target.value })}
-            />
-          </div>
-          <div className={styles.field}>
-            <label className={styles.label} htmlFor="duracao">Duração<span className="text-destructive ml-1">*</span></label>
-            <input
-              id="duracao"
-              type="text"
-              required
-              className={styles.input}
-              placeholder="Ex: 12 meses"
-              value={formData.duracao || ''}
-              onChange={e => setFormData({ ...formData, duracao: e.target.value })}
-            />
-          </div>
-          <div className={`${styles.field} ${styles.fullWidth}`}>
-            <label className={styles.label} htmlFor="resumoProjeto">Resumo do Projeto<span className="text-destructive ml-1">*</span></label>
-            <textarea
-              id="resumoProjeto"
-              required
-              rows={6}
-              className={styles.textarea}
-              placeholder="Descreva um resumo do projeto"
-              value={formData.resumoProjeto || ''}
-              onChange={e => setFormData({ ...formData, resumoProjeto: e.target.value })}
-            />
-          </div>
+          <InputWithLabel
+            id="nomeProjeto"
+            label="Nome do Projeto"
+            type="text"
+            placeholder="Digite o nome do projeto"
+            required={true}
+            value={formData.nomeProjeto || ''}
+            onChange={e => setFormData({ ...formData, nomeProjeto: e.target.value })}
+          />
+          
+          <InputWithLabel
+            id="localExecucao"
+            label="Local de Execução"
+            type="text"
+            placeholder="Digite o local de execução"
+            required={true}
+            value={formData.localExecucao || ''}
+            onChange={e => setFormData({ ...formData, localExecucao: e.target.value })}
+          />
+          
+          <InputWithLabel
+            id="duracao"
+            label="Duração"
+            type="text"
+            placeholder="Ex: 12 meses"
+            required={true}
+            value={formData.duracao || ''}
+            onChange={e => setFormData({ ...formData, duracao: e.target.value })}
+          />
+          
+          <TextareaWithLabel
+            id="resumoProjeto"
+            label="Resumo do Projeto"
+            placeholder="Descreva um resumo do projeto"
+            required={true}
+            rows={6}
+            maxHeight={300}
+            maxChars={1000}
+            value={formData.resumoProjeto || ''}
+            onChange={e => setFormData({ ...formData, resumoProjeto: e.target.value })}
+          />
+          
           <div className={styles.buttonRow}>
             <Button 
               type="button" 
@@ -161,7 +156,6 @@ export function FormIdentificacao() {
                 setFormData(dados);
                 setModoEdicao(false);
               }}
-              style={{ marginRight: '1rem' }}
             >
               Cancelar
             </Button>
