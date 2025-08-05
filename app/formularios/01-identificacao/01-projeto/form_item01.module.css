@@ -50,8 +50,33 @@
   width: 100%;
   border: 1px solid #000000;
   border-radius: 4px;
-  padding: 1rem;
+  padding: 0.75rem;
   background: #fafafa;
+}
+
+/* Estilos para os componentes dentro das divs field */
+.field > div {
+  width: 100%;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  min-height: 1.5rem;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  background: white;
+  color: var(--foreground, #111827);
+  transition: border-color 0.2s;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  border-width: 2px;
 }
 
 .fullWidth {
@@ -89,6 +114,11 @@
   height: 300px;
   overflow-y: auto;
   resize: none;
+}
+
+.valueBoxPlaceholder {
+  color: #6b7280;
+  font-style: italic;
 }
 
 .input, .textarea {
