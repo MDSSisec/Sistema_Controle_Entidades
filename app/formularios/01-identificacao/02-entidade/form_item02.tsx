@@ -123,56 +123,56 @@ export function FormDescricao() {
     return (
       <div className={styles.container}>
         <div className={styles.formWrapper}>
-          <h2 className={styles.title}>II - Descrição da Entidade</h2>
+          <h2 className={styles.title}>{FORMS.ENTIDADE.TITULO}</h2>
           <div className={styles.grid}>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>Nome</div>
+              <div className={styles.labelMuted}>{FORMS.ENTIDADE.LABEL_NOME}</div>
               <div className={styles.valueBox}>{dados.nome}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>CNPJ</div>
+              <div className={styles.labelMuted}>{FORMS.ENTIDADE.LABEL_CNPJ}</div>
               <div className={styles.valueBox}>{dados.cnpj}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>Data de Fundação</div>
+              <div className={styles.labelMuted}>{FORMS.ENTIDADE.LABEL_DATA_FUNDACAO}</div>
               <div className={styles.valueBox}>{dados.dataFundacao}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>Registro do CNPJ</div>
+              <div className={styles.labelMuted}>{FORMS.ENTIDADE.LABEL_REGISTRO_CNPJ}</div>
               <div className={styles.valueBox}>{dados.registroCnpj}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>CEP</div>
+              <div className={styles.labelMuted}>{FORMS.ENTIDADE.LABEL_CEP}</div>
               <div className={styles.valueBox}>{dados.cep}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>Bairro</div>
+              <div className={styles.labelMuted}>{FORMS.ENTIDADE.LABEL_BAIRRO}</div>
               <div className={styles.valueBox}>{dados.bairro}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>UF</div>
+              <div className={styles.labelMuted}>{FORMS.ENTIDADE.LABEL_UF}</div>
               <div className={styles.valueBox}>{dados.uf}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>Endereço Completo</div>
+              <div className={styles.labelMuted}>{FORMS.ENTIDADE.LABEL_ENDERECO_COMPLETO}</div>
               <div className={styles.valueBox}>{dados.enderecoCompleto}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>E-mail</div>
+              <div className={styles.labelMuted}>{FORMS.ENTIDADE.LABEL_EMAIL}</div>
               <div className={styles.valueBox}>{dados.email}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>Número de telefone e fax com DDD</div>
+              <div className={styles.labelMuted}>{FORMS.ENTIDADE.LABEL_TELEFONE_FAX}</div>
               <div className={styles.valueBox}>{dados.telefoneFax}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>Página na web</div>
+              <div className={styles.labelMuted}>{FORMS.ENTIDADE.LABEL_PAGINA_WEB}</div>
               <div className={styles.valueBox}>{dados.paginaWeb}</div>
             </div>
           </div>
           <div className={styles.buttonRow}>
             <Button onClick={() => setModoEdicao(true)}>
-              Editar
+              {FORMS.ENTIDADE.BOTAO_EDITAR}
             </Button>
           </div>
         </div>
@@ -184,7 +184,7 @@ export function FormDescricao() {
   return (
     <div className={styles.container}>
       <div className={styles.formWrapper}>
-        <h2 className={styles.title}>II - Descrição da Entidade</h2>
+        <h2 className={styles.title}>{FORMS.ENTIDADE.TITULO}</h2>
         <form
           onSubmit={e => { e.preventDefault(); handleFormSubmit(formData); }}
           className={styles.grid}
@@ -192,7 +192,7 @@ export function FormDescricao() {
           <div className={styles.field}>
             <InputWithLabel
               id="nome"
-              label="Nome"
+              label={FORMS.ENTIDADE.LABEL_NOME_EDICAO}
               type="text"
               placeholder={FORMS.ENTIDADE.NOME}
               required={true}
@@ -204,7 +204,7 @@ export function FormDescricao() {
           <div className={styles.field}>
             <InputWithLabel
               id="cnpj"
-              label="CNPJ"
+              label={FORMS.ENTIDADE.LABEL_CNPJ_EDICAO}
               type="text"
               placeholder={FORMS.ENTIDADE.CNPJ}
               required={true}
@@ -216,7 +216,7 @@ export function FormDescricao() {
           <div className={styles.field}>
             <InputWithLabel
               id="dataFundacao"
-              label="Data de Fundação"
+              label={FORMS.ENTIDADE.LABEL_DATA_FUNDACAO_EDICAO}
               type="text"
               placeholder={FORMS.ENTIDADE.DATA_FUNDACAO}
               required={true}
@@ -228,7 +228,7 @@ export function FormDescricao() {
           <div className={styles.field}>
             <InputWithLabel
               id="registroCnpj"
-              label="Registro do CNPJ"
+              label={FORMS.ENTIDADE.LABEL_REGISTRO_CNPJ_EDICAO}
               type="text"
               placeholder={FORMS.ENTIDADE.REGISTRO_CNPJ}
               required={true}
@@ -240,7 +240,7 @@ export function FormDescricao() {
           <div className={styles.field}>
             <InputWithLabel
               id="cep"
-              label="CEP"
+              label={FORMS.ENTIDADE.LABEL_CEP_EDICAO}
               type="text"
               placeholder={FORMS.ENTIDADE.CEP}
               required={true}
@@ -252,7 +252,7 @@ export function FormDescricao() {
           <div className={styles.field}>
             <InputWithLabel
               id="bairro"
-              label="Bairro"
+              label={FORMS.ENTIDADE.LABEL_BAIRRO_EDICAO}
               type="text"
               placeholder={FORMS.ENTIDADE.BAIRRO}
               required={true}
@@ -264,7 +264,7 @@ export function FormDescricao() {
           <div className={styles.field}>
             <InputWithLabel
               id="uf"
-              label="UF"
+              label={FORMS.ENTIDADE.LABEL_UF_EDICAO}
               type="text"
               placeholder={FORMS.ENTIDADE.UF}
               required={true}
@@ -276,7 +276,7 @@ export function FormDescricao() {
           <div className={styles.field}>
             <InputWithLabel
               id="enderecoCompleto"
-              label="Endereço Completo"
+              label={FORMS.ENTIDADE.LABEL_ENDERECO_COMPLETO_EDICAO}
               type="text"
               placeholder={FORMS.ENTIDADE.ENDERECO_COMPLETO}
               required={true}
@@ -288,7 +288,7 @@ export function FormDescricao() {
           <div className={styles.field}>
             <InputWithLabel
               id="email"
-              label="E-mail"
+              label={FORMS.ENTIDADE.LABEL_EMAIL_EDICAO}
               type="email"
               placeholder={FORMS.ENTIDADE.EMAIL}
               required={true}
@@ -300,7 +300,7 @@ export function FormDescricao() {
           <div className={styles.field}>
             <InputWithLabel
               id="telefoneFax"
-              label="Número de telefone e fax com DDD"
+              label={FORMS.ENTIDADE.LABEL_TELEFONE_FAX_EDICAO}
               type="text"
               placeholder={FORMS.ENTIDADE.TELEFONE_FAX}
               required={true}
@@ -312,7 +312,7 @@ export function FormDescricao() {
           <div className={styles.field}>
             <InputWithLabel
               id="paginaWeb"
-              label="Página na web"
+              label={FORMS.ENTIDADE.LABEL_PAGINA_WEB_EDICAO}
               type="text"
               placeholder={FORMS.ENTIDADE.PAGINA_WEB}
               required={false}
@@ -330,9 +330,9 @@ export function FormDescricao() {
                 setModoEdicao(false);
               }}
             >
-              Cancelar
+              {FORMS.ENTIDADE.BOTAO_CANCELAR}
             </Button>
-            <Button type="submit">Salvar Descrição</Button>
+            <Button type="submit">{FORMS.ENTIDADE.BOTAO_SALVAR}</Button>
           </div>
         </form>
       </div>

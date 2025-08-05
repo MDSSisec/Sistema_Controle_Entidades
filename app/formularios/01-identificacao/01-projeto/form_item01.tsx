@@ -68,29 +68,29 @@ export function FormIdentificacao() {
     return (
       <div className={styles.container}>
         <div className={styles.formWrapper}>
-          <h2 className={styles.title}>I - Identificação</h2>
-          <h3 className={styles.subtitle}>1.0 - Identificação do Projeto</h3>
+          <h2 className={styles.title}>{FORMS.PROJETO.TITULO}</h2>
+          <h3 className={styles.subtitle}>{FORMS.PROJETO.SUBTITULO}</h3>
           <div className={styles.grid}>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>1.1 - Nome do Projeto</div>
+              <div className={styles.labelMuted}>{FORMS.PROJETO.LABEL_NOME}</div>
               <div className={styles.valueBox}>{dados.nomeProjeto}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>1.2 - Local de Execução</div>
+              <div className={styles.labelMuted}>{FORMS.PROJETO.LABEL_LOCAL}</div>
               <div className={styles.valueBox}>{dados.localExecucao}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>1.3 - Duração</div>
+              <div className={styles.labelMuted}>{FORMS.PROJETO.LABEL_DURACAO}</div>
               <div className={styles.valueBox}>{dados.duracao}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>1.4 - Resumo do Projeto</div>
+              <div className={styles.labelMuted}>{FORMS.PROJETO.LABEL_RESUMO}</div>
               <div className={`${styles.valueBox} ${styles.valueBoxResumo}`}>{dados.resumoProjeto}</div>
             </div>
           </div>
           <div className={styles.buttonRow}>
             <Button onClick={() => setModoEdicao(true)}>
-              Editar
+              {FORMS.PROJETO.BOTAO_EDITAR}
             </Button>
           </div>
         </div>
@@ -102,7 +102,7 @@ export function FormIdentificacao() {
   return (
     <div className={styles.container}>
       <div className={styles.formWrapper}>
-        <h2 className={styles.title}>I - Identificação do Projeto</h2>
+        <h2 className={styles.title}>{FORMS.PROJETO.TITULO_EDICAO}</h2>
         <form
           onSubmit={e => { e.preventDefault(); handleFormSubmit(formData); }}
           className={styles.grid}
@@ -110,7 +110,7 @@ export function FormIdentificacao() {
           <div className={styles.field}>
             <InputWithLabel
               id="nomeProjeto"
-              label="Nome do Projeto"
+              label={FORMS.PROJETO.LABEL_NOME_EDICAO}
               type="text"
               placeholder={FORMS.PROJETO.NOME_PROJETO}
               required={true}
@@ -122,7 +122,7 @@ export function FormIdentificacao() {
           <div className={styles.field}>
             <InputWithLabel
               id="localExecucao"
-              label="Local de Execução"
+              label={FORMS.PROJETO.LABEL_LOCAL_EDICAO}
               type="text"
               placeholder={FORMS.PROJETO.LOCAL_EXECUCAO}
               required={true}
@@ -134,7 +134,7 @@ export function FormIdentificacao() {
           <div className={styles.field}>
             <InputWithLabel
               id="duracao"
-              label="Duração"
+              label={FORMS.PROJETO.LABEL_DURACAO_EDICAO}
               type="text"
               placeholder={FORMS.PROJETO.DURACAO}
               required={true}
@@ -146,7 +146,7 @@ export function FormIdentificacao() {
           <div className={styles.field}>
             <TextareaWithLabel
               id="resumoProjeto"
-              label="Resumo do Projeto"
+              label={FORMS.PROJETO.LABEL_RESUMO_EDICAO}
               placeholder={FORMS.PROJETO.RESUMO_PROJETO}
               required={true}
               rows={6}
@@ -166,9 +166,9 @@ export function FormIdentificacao() {
                 setModoEdicao(false);
               }}
             >
-              Cancelar
+              {FORMS.PROJETO.BOTAO_CANCELAR}
             </Button>
-            <Button type="submit">Salvar Identificação</Button>
+            <Button type="submit">{FORMS.PROJETO.BOTAO_SALVAR}</Button>
           </div>
         </form>
       </div>
