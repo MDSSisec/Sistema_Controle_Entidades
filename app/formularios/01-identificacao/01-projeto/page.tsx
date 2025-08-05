@@ -5,6 +5,7 @@ import { AppSidebar } from "@/components/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
 import { FormIdentificacao } from "./form_item01";
 import { BackToProjectDetails } from "@/components/BackToProjectDetails";
+import { FormNavigationSimple } from "@/components/form-navigation-simple";
 
 export default function IdentificacaoPage() {
   return (
@@ -18,6 +19,7 @@ export default function IdentificacaoPage() {
       <SidebarInset>
         <SiteHeader />
         <BackToProjectDetails />
+        <FormNavigationSimple currentForm="01-projeto" />
         <FormIdentificacao />
       </SidebarInset>
     </SidebarProvider>

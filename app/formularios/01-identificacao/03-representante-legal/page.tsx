@@ -5,6 +5,7 @@ import { AppSidebar } from "@/components/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
 import { FormPublico } from "./form_item03";
 import { BackToProjectDetails } from "@/components/BackToProjectDetails";
+import { FormNavigationSimple } from "@/components/form-navigation-simple";
 
 export default function PublicoPage() {
   return (
@@ -18,6 +19,7 @@ export default function PublicoPage() {
       <SidebarInset>
         <SiteHeader />
         <BackToProjectDetails />
+        <FormNavigationSimple currentForm="03-representante-legal" />
         <FormPublico />
       </SidebarInset>
     </SidebarProvider>
