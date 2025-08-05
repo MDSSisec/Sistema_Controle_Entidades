@@ -97,11 +97,34 @@ export const FORMS = {
 
     // ----- FORMULÁRIO 04 - RESPONSÁVEL TÉCNICO -----
     RESPONSAVEL_TECNICO: {
+        // Títulos
+        TITULO: "IV - Identificação do Responsável Técnico pelo Projeto",
+        
+        // Placeholders
         NOME: "Digite o nome completo do responsável técnico",
         CARGO: "Digite o cargo atual do responsável técnico",
         TELEFONE: "(11) 99999-9999",
         CELULAR: "(11) 99999-9999",
-        EMAIL: "responsavel.tecnico@entidade.com.br"
+        EMAIL: "responsavel.tecnico@entidade.com.br",
+        
+        // Labels do modo de visualização
+        LABEL_NOME: "Nome",
+        LABEL_CARGO: "Cargo",
+        LABEL_TELEFONE: "Número de telefone com DDD",
+        LABEL_CELULAR: "Número de celular com DDD",
+        LABEL_EMAIL: "Email",
+        
+        // Labels do modo de edição
+        LABEL_NOME_EDICAO: "Nome",
+        LABEL_CARGO_EDICAO: "Cargo",
+        LABEL_TELEFONE_EDICAO: "Número de telefone com DDD",
+        LABEL_CELULAR_EDICAO: "Número de celular com DDD",
+        LABEL_EMAIL_EDICAO: "Email",
+        
+        // Botões
+        BOTAO_EDITAR: "Editar",
+        BOTAO_CANCELAR: "Cancelar",
+        BOTAO_SALVAR: "Salvar Dados do Responsável Técnico"
     }
 
   

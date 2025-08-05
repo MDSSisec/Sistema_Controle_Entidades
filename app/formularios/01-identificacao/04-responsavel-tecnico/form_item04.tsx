@@ -3,6 +3,8 @@
 import React from "react";
 import { Formulario, FormField } from "@/components/fomulario/formulario";
 import { Button } from "@/components/ui/button";
+import { InputWithLabel } from "@/components/ui/input-form";
+import { FORMS } from "@/components/constants/formularios/forms";
 import styles from "./form_item04.module.css";
 
 const responsavelTecnicoFields: FormField[] = [
@@ -73,32 +75,32 @@ export function FormResponsavelTecnico() {
     return (
       <div className={styles.container}>
         <div className={styles.formWrapper}>
-          <h2 className={styles.title}>IV - Identificação do Responsável Técnico pelo Projeto</h2>
+          <h2 className={styles.title}>{FORMS.RESPONSAVEL_TECNICO.TITULO}</h2>
           <div className={styles.grid}>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>Nome</div>
+              <div className={styles.labelMuted}>{FORMS.RESPONSAVEL_TECNICO.LABEL_NOME}</div>
               <div className={styles.valueBox}>{dados.nome}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>Cargo</div>
+              <div className={styles.labelMuted}>{FORMS.RESPONSAVEL_TECNICO.LABEL_CARGO}</div>
               <div className={styles.valueBox}>{dados.cargo}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>Número de telefone com DDD</div>
+              <div className={styles.labelMuted}>{FORMS.RESPONSAVEL_TECNICO.LABEL_TELEFONE}</div>
               <div className={styles.valueBox}>{dados.telefone}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>Número de celular com DDD</div>
+              <div className={styles.labelMuted}>{FORMS.RESPONSAVEL_TECNICO.LABEL_CELULAR}</div>
               <div className={styles.valueBox}>{dados.celular}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>Email</div>
+              <div className={styles.labelMuted}>{FORMS.RESPONSAVEL_TECNICO.LABEL_EMAIL}</div>
               <div className={styles.valueBox}>{dados.email}</div>
             </div>
           </div>
           <div className={styles.buttonRow}>
             <Button onClick={() => setModoEdicao(true)}>
-              Editar
+              {FORMS.RESPONSAVEL_TECNICO.BOTAO_EDITAR}
             </Button>
           </div>
         </div>
@@ -110,25 +112,71 @@ export function FormResponsavelTecnico() {
   return (
     <div className={styles.container}>
       <div className={styles.formWrapper}>
-        <h2 className={styles.title}>IV - Identificação do Responsável Técnico pelo Projeto</h2>
+        <h2 className={styles.title}>{FORMS.RESPONSAVEL_TECNICO.TITULO}</h2>
         <form
           onSubmit={e => { e.preventDefault(); handleFormSubmit(formData); }}
           className={styles.grid}
         >
-          {responsavelTecnicoFields.map((field) => (
-            <div key={field.id} className={styles.field}>
-              <label className={styles.label} htmlFor={field.id}>{field.label}{field.required && <span className="text-destructive ml-1">*</span>}</label>
-              <input
-                id={field.id}
-                type={field.type}
-                required={field.required}
-                className={styles.input}
-                placeholder={field.placeholder}
-                value={formData[field.id] || ''}
-                onChange={e => setFormData({ ...formData, [field.id]: e.target.value })}
-              />
-            </div>
-          ))}
+          <div className={styles.field}>
+            <InputWithLabel
+              id="nome"
+              label={FORMS.RESPONSAVEL_TECNICO.LABEL_NOME_EDICAO}
+              type="text"
+              placeholder={FORMS.RESPONSAVEL_TECNICO.NOME}
+              required={true}
+              value={formData.nome || ''}
+              onChange={e => setFormData({ ...formData, nome: e.target.value })}
+            />
+          </div>
+          
+          <div className={styles.field}>
+            <InputWithLabel
+              id="cargo"
+              label={FORMS.RESPONSAVEL_TECNICO.LABEL_CARGO_EDICAO}
+              type="text"
+              placeholder={FORMS.RESPONSAVEL_TECNICO.CARGO}
+              required={true}
+              value={formData.cargo || ''}
+              onChange={e => setFormData({ ...formData, cargo: e.target.value })}
+            />
+          </div>
+          
+          <div className={styles.field}>
+            <InputWithLabel
+              id="telefone"
+              label={FORMS.RESPONSAVEL_TECNICO.LABEL_TELEFONE_EDICAO}
+              type="text"
+              placeholder={FORMS.RESPONSAVEL_TECNICO.TELEFONE}
+              required={true}
+              value={formData.telefone || ''}
+              onChange={e => setFormData({ ...formData, telefone: e.target.value })}
+            />
+          </div>
+          
+          <div className={styles.field}>
+            <InputWithLabel
+              id="celular"
+              label={FORMS.RESPONSAVEL_TECNICO.LABEL_CELULAR_EDICAO}
+              type="text"
+              placeholder={FORMS.RESPONSAVEL_TECNICO.CELULAR}
+              required={true}
+              value={formData.celular || ''}
+              onChange={e => setFormData({ ...formData, celular: e.target.value })}
+            />
+          </div>
+          
+          <div className={styles.field}>
+            <InputWithLabel
+              id="email"
+              label={FORMS.RESPONSAVEL_TECNICO.LABEL_EMAIL_EDICAO}
+              type="email"
+              placeholder={FORMS.RESPONSAVEL_TECNICO.EMAIL}
+              required={true}
+              value={formData.email || ''}
+              onChange={e => setFormData({ ...formData, email: e.target.value })}
+            />
+          </div>
+          
           <div className={styles.buttonRow}>
             <Button 
               type="button" 
@@ -137,11 +185,10 @@ export function FormResponsavelTecnico() {
                 setFormData(dados);
                 setModoEdicao(false);
               }}
-              style={{ marginRight: '1rem' }}
             >
-              Cancelar
+              {FORMS.RESPONSAVEL_TECNICO.BOTAO_CANCELAR}
             </Button>
-            <Button type="submit">Salvar Dados do Responsável Técnico</Button>
+            <Button type="submit">{FORMS.RESPONSAVEL_TECNICO.BOTAO_SALVAR}</Button>
           </div>
         </form>
       </div>
