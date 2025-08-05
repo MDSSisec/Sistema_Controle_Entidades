@@ -4,7 +4,7 @@ import React from "react";
 import { Formulario, FormField } from "@/components/fomulario/formulario";
 import { Button } from "@/components/ui/button";
 import { InputWithLabel, TextareaWithLabel } from "@/components/ui/input-form";
-import { entidade } from "@/components/constants/formularios/01-identificacao/entidade";
+import { FORMS } from "@/components/constants/formularios/forms";
 import styles from "./form_item02.module.css";
 
 const descricaoFields: FormField[] = [
@@ -127,69 +127,47 @@ export function FormDescricao() {
           <div className={styles.grid}>
             <div className={styles.field}>
               <div className={styles.labelMuted}>Nome</div>
-              <div className={`${styles.valueBox} ${!dados.nome ? styles.valueBoxPlaceholder : ''}`}>
-                {dados.nome || entidade.ENTIDADE.NOME}
-              </div>
+              <div className={styles.valueBox}>{dados.nome}</div>
             </div>
             <div className={styles.field}>
               <div className={styles.labelMuted}>CNPJ</div>
-              <div className={`${styles.valueBox} ${!dados.cnpj ? styles.valueBoxPlaceholder : ''}`}>
-                {dados.cnpj || entidade.ENTIDADE.CNPJ}
-              </div>
+              <div className={styles.valueBox}>{dados.cnpj}</div>
             </div>
             <div className={styles.field}>
               <div className={styles.labelMuted}>Data de Fundação</div>
-              <div className={`${styles.valueBox} ${!dados.dataFundacao ? styles.valueBoxPlaceholder : ''}`}>
-                {dados.dataFundacao || entidade.ENTIDADE.DATA_FUNDACAO}
-              </div>
+              <div className={styles.valueBox}>{dados.dataFundacao}</div>
             </div>
             <div className={styles.field}>
               <div className={styles.labelMuted}>Registro do CNPJ</div>
-              <div className={`${styles.valueBox} ${!dados.registroCnpj ? styles.valueBoxPlaceholder : ''}`}>
-                {dados.registroCnpj || entidade.ENTIDADE.REGISTRO_CNPJ}
-              </div>
+              <div className={styles.valueBox}>{dados.registroCnpj}</div>
             </div>
             <div className={styles.field}>
               <div className={styles.labelMuted}>CEP</div>
-              <div className={`${styles.valueBox} ${!dados.cep ? styles.valueBoxPlaceholder : ''}`}>
-                {dados.cep || entidade.ENTIDADE.CEP}
-              </div>
+              <div className={styles.valueBox}>{dados.cep}</div>
             </div>
             <div className={styles.field}>
               <div className={styles.labelMuted}>Bairro</div>
-              <div className={`${styles.valueBox} ${!dados.bairro ? styles.valueBoxPlaceholder : ''}`}>
-                {dados.bairro || entidade.ENTIDADE.BAIRRO}
-              </div>
+              <div className={styles.valueBox}>{dados.bairro}</div>
             </div>
             <div className={styles.field}>
               <div className={styles.labelMuted}>UF</div>
-              <div className={`${styles.valueBox} ${!dados.uf ? styles.valueBoxPlaceholder : ''}`}>
-                {dados.uf || entidade.ENTIDADE.UF}
-              </div>
+              <div className={styles.valueBox}>{dados.uf}</div>
             </div>
             <div className={styles.field}>
               <div className={styles.labelMuted}>Endereço Completo</div>
-              <div className={`${styles.valueBox} ${!dados.enderecoCompleto ? styles.valueBoxPlaceholder : ''}`}>
-                {dados.enderecoCompleto || entidade.ENTIDADE.ENDERECO_COMPLETO}
-              </div>
+              <div className={styles.valueBox}>{dados.enderecoCompleto}</div>
             </div>
             <div className={styles.field}>
               <div className={styles.labelMuted}>E-mail</div>
-              <div className={`${styles.valueBox} ${!dados.email ? styles.valueBoxPlaceholder : ''}`}>
-                {dados.email || entidade.ENTIDADE.EMAIL}
-              </div>
+              <div className={styles.valueBox}>{dados.email}</div>
             </div>
             <div className={styles.field}>
               <div className={styles.labelMuted}>Número de telefone e fax com DDD</div>
-              <div className={`${styles.valueBox} ${!dados.telefoneFax ? styles.valueBoxPlaceholder : ''}`}>
-                {dados.telefoneFax || entidade.ENTIDADE.TELEFONE_FAX}
-              </div>
+              <div className={styles.valueBox}>{dados.telefoneFax}</div>
             </div>
             <div className={styles.field}>
               <div className={styles.labelMuted}>Página na web</div>
-              <div className={`${styles.valueBox} ${!dados.paginaWeb ? styles.valueBoxPlaceholder : ''}`}>
-                {dados.paginaWeb || entidade.ENTIDADE.PAGINA_WEB}
-              </div>
+              <div className={styles.valueBox}>{dados.paginaWeb}</div>
             </div>
           </div>
           <div className={styles.buttonRow}>
@@ -216,7 +194,7 @@ export function FormDescricao() {
               id="nome"
               label="Nome"
               type="text"
-              placeholder={entidade.ENTIDADE.NOME}
+              placeholder={FORMS.ENTIDADE.NOME}
               required={true}
               value={formData.nome || ''}
               onChange={e => setFormData({ ...formData, nome: e.target.value })}
@@ -228,7 +206,7 @@ export function FormDescricao() {
               id="cnpj"
               label="CNPJ"
               type="text"
-              placeholder={entidade.ENTIDADE.CNPJ}
+              placeholder={FORMS.ENTIDADE.CNPJ}
               required={true}
               value={formData.cnpj || ''}
               onChange={e => setFormData({ ...formData, cnpj: e.target.value })}
@@ -240,7 +218,7 @@ export function FormDescricao() {
               id="dataFundacao"
               label="Data de Fundação"
               type="text"
-              placeholder={entidade.ENTIDADE.DATA_FUNDACAO}
+              placeholder={FORMS.ENTIDADE.DATA_FUNDACAO}
               required={true}
               value={formData.dataFundacao || ''}
               onChange={e => setFormData({ ...formData, dataFundacao: e.target.value })}
@@ -252,7 +230,7 @@ export function FormDescricao() {
               id="registroCnpj"
               label="Registro do CNPJ"
               type="text"
-              placeholder={entidade.ENTIDADE.REGISTRO_CNPJ}
+              placeholder={FORMS.ENTIDADE.REGISTRO_CNPJ}
               required={true}
               value={formData.registroCnpj || ''}
               onChange={e => setFormData({ ...formData, registroCnpj: e.target.value })}
@@ -264,7 +242,7 @@ export function FormDescricao() {
               id="cep"
               label="CEP"
               type="text"
-              placeholder={entidade.ENTIDADE.CEP}
+              placeholder={FORMS.ENTIDADE.CEP}
               required={true}
               value={formData.cep || ''}
               onChange={e => setFormData({ ...formData, cep: e.target.value })}
@@ -276,7 +254,7 @@ export function FormDescricao() {
               id="bairro"
               label="Bairro"
               type="text"
-              placeholder={entidade.ENTIDADE.BAIRRO}
+              placeholder={FORMS.ENTIDADE.BAIRRO}
               required={true}
               value={formData.bairro || ''}
               onChange={e => setFormData({ ...formData, bairro: e.target.value })}
@@ -288,7 +266,7 @@ export function FormDescricao() {
               id="uf"
               label="UF"
               type="text"
-              placeholder={entidade.ENTIDADE.UF}
+              placeholder={FORMS.ENTIDADE.UF}
               required={true}
               value={formData.uf || ''}
               onChange={e => setFormData({ ...formData, uf: e.target.value })}
@@ -296,12 +274,12 @@ export function FormDescricao() {
           </div>
           
           <div className={styles.field}>
-            <TextareaWithLabel
+            <InputWithLabel
               id="enderecoCompleto"
               label="Endereço Completo"
-              placeholder={entidade.ENTIDADE.ENDERECO_COMPLETO}
+              type="text"
+              placeholder={FORMS.ENTIDADE.ENDERECO_COMPLETO}
               required={true}
-              rows={1}
               value={formData.enderecoCompleto || ''}
               onChange={e => setFormData({ ...formData, enderecoCompleto: e.target.value })}
             />
@@ -312,7 +290,7 @@ export function FormDescricao() {
               id="email"
               label="E-mail"
               type="email"
-              placeholder={entidade.ENTIDADE.EMAIL}
+              placeholder={FORMS.ENTIDADE.EMAIL}
               required={true}
               value={formData.email || ''}
               onChange={e => setFormData({ ...formData, email: e.target.value })}
@@ -324,7 +302,7 @@ export function FormDescricao() {
               id="telefoneFax"
               label="Número de telefone e fax com DDD"
               type="text"
-              placeholder={entidade.ENTIDADE.TELEFONE_FAX}
+              placeholder={FORMS.ENTIDADE.TELEFONE_FAX}
               required={true}
               value={formData.telefoneFax || ''}
               onChange={e => setFormData({ ...formData, telefoneFax: e.target.value })}
@@ -336,7 +314,7 @@ export function FormDescricao() {
               id="paginaWeb"
               label="Página na web"
               type="text"
-              placeholder={entidade.ENTIDADE.PAGINA_WEB}
+              placeholder={FORMS.ENTIDADE.PAGINA_WEB}
               required={false}
               value={formData.paginaWeb || ''}
               onChange={e => setFormData({ ...formData, paginaWeb: e.target.value })}

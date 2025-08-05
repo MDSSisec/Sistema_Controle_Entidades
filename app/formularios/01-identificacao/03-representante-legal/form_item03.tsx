@@ -3,6 +3,8 @@
 import React from "react";
 import { Formulario, FormField } from "@/components/fomulario/formulario";
 import { Button } from "@/components/ui/button";
+import { InputWithLabel } from "@/components/ui/input-form";
+import { FORMS } from "@/components/constants/formularios/forms";
 import styles from "./form_item03.module.css";
 
 const publicoFields: FormField[] = [
@@ -79,16 +81,16 @@ const publicoFields: FormField[] = [
 ];
 
 const dadosExemplo = {
-  nome: "João Silva Santos",
-  cpf: "123.456.789-00",
-  rg: "12.345.678-9",
-  orgaoExpeditor: "SSP",
-  uf: "SP",
-  profissao: "Engenheiro",
-  cargo: "Gerente de Projetos",
-  estadoCivil: "Casado",
-  telefone: "(11) 99999-8888",
-  email: "joao.silva@email.com",
+  nome: "",
+  cpf: "",
+  rg: "",
+  orgaoExpeditor: "",
+  uf: "",
+  profissao: "",
+  cargo: "",
+  estadoCivil: "",
+  telefone: "",
+  email: "",
 };
 
 export function FormPublico() {
@@ -170,27 +172,143 @@ export function FormPublico() {
   return (
     <div className={styles.container}>
       <div className={styles.formWrapper}>
-        <h2 className={styles.title}>III - Dados do Público</h2>
+        <h2 className={styles.title}>III - Representante Legal</h2>
         <form
           onSubmit={e => { e.preventDefault(); handleFormSubmit(formData); }}
           className={styles.grid}
         >
-          {publicoFields.map((field) => (
-            <div key={field.id} className={styles.field}>
-              <label className={styles.label} htmlFor={field.id}>{field.label}{field.required && <span className="text-destructive ml-1">*</span>}</label>
-              <input
-                id={field.id}
-                type={field.type}
-                required={field.required}
-                className={styles.input}
-                placeholder={field.placeholder}
-                value={formData[field.id] || ''}
-                onChange={e => setFormData({ ...formData, [field.id]: e.target.value })}
-              />
-            </div>
-          ))}
+          <div className={styles.field}>
+            <InputWithLabel
+              id="nome"
+              label="Nome"
+              type="text"
+              placeholder={FORMS.REPRESENTANTE.NOME}
+              required={true}
+              value={formData.nome || ''}
+              onChange={e => setFormData({ ...formData, nome: e.target.value })}
+            />
+          </div>
+          
+          <div className={styles.field}>
+            <InputWithLabel
+              id="cpf"
+              label="CPF"
+              type="text"
+              placeholder={FORMS.REPRESENTANTE.CPF}
+              required={true}
+              value={formData.cpf || ''}
+              onChange={e => setFormData({ ...formData, cpf: e.target.value })}
+            />
+          </div>
+          
+          <div className={styles.field}>
+            <InputWithLabel
+              id="rg"
+              label="RG"
+              type="text"
+              placeholder={FORMS.REPRESENTANTE.RG}
+              required={true}
+              value={formData.rg || ''}
+              onChange={e => setFormData({ ...formData, rg: e.target.value })}
+            />
+          </div>
+          
+          <div className={styles.field}>
+            <InputWithLabel
+              id="orgaoExpeditor"
+              label="Órgão Expedidor"
+              type="text"
+              placeholder={FORMS.REPRESENTANTE.ORGAO_EXPEDITOR}
+              required={true}
+              value={formData.orgaoExpeditor || ''}
+              onChange={e => setFormData({ ...formData, orgaoExpeditor: e.target.value })}
+            />
+          </div>
+          
+          <div className={styles.field}>
+            <InputWithLabel
+              id="uf"
+              label="UF"
+              type="text"
+              placeholder={FORMS.REPRESENTANTE.UF}
+              required={true}
+              value={formData.uf || ''}
+              onChange={e => setFormData({ ...formData, uf: e.target.value })}
+            />
+          </div>
+          
+          <div className={styles.field}>
+            <InputWithLabel
+              id="profissao"
+              label="Profissão"
+              type="text"
+              placeholder={FORMS.REPRESENTANTE.PROFISSAO}
+              required={true}
+              value={formData.profissao || ''}
+              onChange={e => setFormData({ ...formData, profissao: e.target.value })}
+            />
+          </div>
+          
+          <div className={styles.field}>
+            <InputWithLabel
+              id="cargo"
+              label="Cargo"
+              type="text"
+              placeholder={FORMS.REPRESENTANTE.CARGO}
+              required={true}
+              value={formData.cargo || ''}
+              onChange={e => setFormData({ ...formData, cargo: e.target.value })}
+            />
+          </div>
+          
+          <div className={styles.field}>
+            <InputWithLabel
+              id="estadoCivil"
+              label="Estado Civil"
+              type="text"
+              placeholder={FORMS.REPRESENTANTE.ESTADO_CIVIL}
+              required={true}
+              value={formData.estadoCivil || ''}
+              onChange={e => setFormData({ ...formData, estadoCivil: e.target.value })}
+            />
+          </div>
+          
+          <div className={styles.field}>
+            <InputWithLabel
+              id="telefone"
+              label="Número de telefone com DDD"
+              type="text"
+              placeholder={FORMS.REPRESENTANTE.TELEFONE}
+              required={true}
+              value={formData.telefone || ''}
+              onChange={e => setFormData({ ...formData, telefone: e.target.value })}
+            />
+          </div>
+          
+          <div className={styles.field}>
+            <InputWithLabel
+              id="email"
+              label="Email"
+              type="email"
+              placeholder={FORMS.REPRESENTANTE.EMAIL}
+              required={true}
+              value={formData.email || ''}
+              onChange={e => setFormData({ ...formData, email: e.target.value })}
+            />
+          </div>
+          
           <div className={styles.buttonRow}>
-            <Button type="submit">Salvar Dados do Público</Button>
+            <Button 
+              type="button" 
+              variant="outline" 
+              onClick={() => {
+                setFormData(dados);
+                setModoEdicao(false);
+              }}
+            >
+              Cancelar
+            </Button>
+            <Button type="submit">Salvar</Button>
           </div>
         </form>
       </div>

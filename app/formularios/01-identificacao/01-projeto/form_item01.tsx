@@ -4,7 +4,7 @@ import React from "react";
 import { Formulario, FormField } from "@/components/fomulario/formulario";
 import { Button } from "@/components/ui/button";
 import { InputWithLabel, TextareaWithLabel } from "@/components/ui/input-form";
-import { projeto } from "@/components/constants/formularios/01-identificacao/projeto";
+import { FORMS } from "@/components/constants/formularios/forms";
 import styles from "./form_item01.module.css";
 
 const identificacaoFields: FormField[] = [
@@ -73,27 +73,19 @@ export function FormIdentificacao() {
           <div className={styles.grid}>
             <div className={styles.field}>
               <div className={styles.labelMuted}>1.1 - Nome do Projeto</div>
-              <div className={styles.valueBox}>
-                {dados.nomeProjeto || <span className={styles.valueBoxPlaceholder}>{projeto.PROJETO.NOME_PROJETO}</span>}
-              </div>
+              <div className={styles.valueBox}>{dados.nomeProjeto}</div>
             </div>
             <div className={styles.field}>
               <div className={styles.labelMuted}>1.2 - Local de Execução</div>
-              <div className={styles.valueBox}>
-                {dados.localExecucao || <span className={styles.valueBoxPlaceholder}>{projeto.PROJETO.LOCAL_EXECUCAO}</span>}
-              </div>
+              <div className={styles.valueBox}>{dados.localExecucao}</div>
             </div>
             <div className={styles.field}>
               <div className={styles.labelMuted}>1.3 - Duração</div>
-              <div className={styles.valueBox}>
-                {dados.duracao || <span className={styles.valueBoxPlaceholder}>{projeto.PROJETO.DURACAO}</span>}
-              </div>
+              <div className={styles.valueBox}>{dados.duracao}</div>
             </div>
             <div className={styles.field}>
               <div className={styles.labelMuted}>1.4 - Resumo do Projeto</div>
-              <div className={`${styles.valueBox} ${styles.valueBoxResumo}`}>
-                {dados.resumoProjeto || <span className={styles.valueBoxPlaceholder}>{projeto.PROJETO.RESUMO_PROJETO}</span>}
-              </div>
+              <div className={`${styles.valueBox} ${styles.valueBoxResumo}`}>{dados.resumoProjeto}</div>
             </div>
           </div>
           <div className={styles.buttonRow}>
@@ -120,7 +112,7 @@ export function FormIdentificacao() {
               id="nomeProjeto"
               label="Nome do Projeto"
               type="text"
-              placeholder={projeto.PROJETO.NOME_PROJETO}
+              placeholder={FORMS.PROJETO.NOME_PROJETO}
               required={true}
               value={formData.nomeProjeto || ''}
               onChange={e => setFormData({ ...formData, nomeProjeto: e.target.value })}
@@ -132,7 +124,7 @@ export function FormIdentificacao() {
               id="localExecucao"
               label="Local de Execução"
               type="text"
-              placeholder={projeto.PROJETO.LOCAL_EXECUCAO}
+              placeholder={FORMS.PROJETO.LOCAL_EXECUCAO}
               required={true}
               value={formData.localExecucao || ''}
               onChange={e => setFormData({ ...formData, localExecucao: e.target.value })}
@@ -144,7 +136,7 @@ export function FormIdentificacao() {
               id="duracao"
               label="Duração"
               type="text"
-              placeholder={projeto.PROJETO.DURACAO}
+              placeholder={FORMS.PROJETO.DURACAO}
               required={true}
               value={formData.duracao || ''}
               onChange={e => setFormData({ ...formData, duracao: e.target.value })}
@@ -155,7 +147,7 @@ export function FormIdentificacao() {
             <TextareaWithLabel
               id="resumoProjeto"
               label="Resumo do Projeto"
-              placeholder={projeto.PROJETO.RESUMO_PROJETO}
+              placeholder={FORMS.PROJETO.RESUMO_PROJETO}
               required={true}
               rows={6}
               maxHeight={300}
