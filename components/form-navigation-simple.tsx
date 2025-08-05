@@ -58,7 +58,7 @@ export function FormNavigationSimple({ currentForm }: FormNavigationSimpleProps)
 
   return (
     <div style={{
-      position: "fixed",
+      position: "absolute",
       top: "80px",
       right: "20px",
       background: "white",
