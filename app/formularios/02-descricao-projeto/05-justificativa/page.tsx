@@ -5,6 +5,7 @@ import { AppSidebar } from "@/components/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
 import { FormJustificativa } from "./form_item05";
 import { BackToProjectDetails } from "@/components/BackToProjectDetails";
+import { FormNavigationSimple } from "@/components/form-navigation-simple";
 
 export default function JustificativaPage() {
   return (
@@ -18,6 +19,7 @@ export default function JustificativaPage() {
       <SidebarInset>
         <SiteHeader />
         <BackToProjectDetails />
+        <FormNavigationSimple currentForm="05-justificativa" />
         <FormJustificativa />
       </SidebarInset>
     </SidebarProvider>

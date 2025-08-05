@@ -1,52 +1,10 @@
 "use client"
 
 import React from "react";
-import { Formulario, FormField } from "@/components/fomulario/formulario";
 import { Button } from "@/components/ui/button";
+import { TextareaWithLabel } from "@/components/ui/input-form";
+import { FORMS } from "@/components/constants/formularios/forms";
 import styles from "./form_item05.module.css";
-
-const justificativaFields: FormField[] = [
-  {
-    id: "interessesReciprocos",
-    label: "5.1 - Caracterização dos Interesses Recíprocos",
-    type: "textarea" as const,
-    placeholder: "Descreva a caracterização dos interesses recíprocos entre as partes envolvidas no projeto",
-    required: true,
-    rows: 6,
-  },
-  {
-    id: "publicoAlvo",
-    label: "5.2 - Público Alvo",
-    type: "textarea" as const,
-    placeholder: "Descreva o público alvo do projeto, suas características e necessidades",
-    required: true,
-    rows: 4,
-  },
-  {
-    id: "problemaResolver",
-    label: "5.3 - Problema a ser Resolvido",
-    type: "textarea" as const,
-    placeholder: "Descreva o problema específico que o projeto visa resolver",
-    required: true,
-    rows: 4,
-  },
-  {
-    id: "resultadosEsperados",
-    label: "5.4 - Resultados Esperados",
-    type: "textarea" as const,
-    placeholder: "Descreva os resultados esperados com a implementação do projeto",
-    required: true,
-    rows: 4,
-  },
-  {
-    id: "relacaoObjetivos",
-    label: "5.5 - Relação entre a Proposta e os Objetivos e Diretrizes do Programa",
-    type: "textarea" as const,
-    placeholder: "Explique como a proposta se relaciona com os objetivos e diretrizes do programa",
-    required: true,
-    rows: 6,
-  },
-];
 
 const dadosExemplo = {
   interessesReciprocos: "",
@@ -78,33 +36,33 @@ export function FormJustificativa() {
     return (
       <div className={styles.container}>
         <div className={styles.formWrapper}>
-          <h2 className={styles.title}>II - Descrição do Projeto</h2>
-          <h3 className={styles.subtitle}>5.0 - Justificativa e Motivação do Instrumento</h3>
+          <h2 className={styles.title}>{FORMS.JUSTIFICATIVA.TITULO}</h2>
+          <h3 className={styles.subtitle}>{FORMS.JUSTIFICATIVA.SUBTITULO}</h3>
           <div className={styles.grid}>
             <div className={`${styles.field} ${styles.fullWidth}`}>
-              <div className={styles.labelMuted}>5.1 - Caracterização dos Interesses Recíprocos</div>
+              <div className={styles.labelMuted}>{FORMS.JUSTIFICATIVA.LABEL_INTERESSES_RECIPROCOS}</div>
               <div className={styles.valueBox}>{dados.interessesReciprocos}</div>
             </div>
             <div className={`${styles.field} ${styles.fullWidth}`}>
-              <div className={styles.labelMuted}>5.2 - Público Alvo</div>
+              <div className={styles.labelMuted}>{FORMS.JUSTIFICATIVA.LABEL_PUBLICO_ALVO}</div>
               <div className={styles.valueBox}>{dados.publicoAlvo}</div>
             </div>
             <div className={`${styles.field} ${styles.fullWidth}`}>
-              <div className={styles.labelMuted}>5.3 - Problema a ser Resolvido</div>
+              <div className={styles.labelMuted}>{FORMS.JUSTIFICATIVA.LABEL_PROBLEMA_RESOLVER}</div>
               <div className={styles.valueBox}>{dados.problemaResolver}</div>
             </div>
             <div className={`${styles.field} ${styles.fullWidth}`}>
-              <div className={styles.labelMuted}>5.4 - Resultados Esperados</div>
+              <div className={styles.labelMuted}>{FORMS.JUSTIFICATIVA.LABEL_RESULTADOS_ESPERADOS}</div>
               <div className={styles.valueBox}>{dados.resultadosEsperados}</div>
             </div>
             <div className={`${styles.field} ${styles.fullWidth}`}>
-              <div className={styles.labelMuted}>5.5 - Relação entre a Proposta e os Objetivos e Diretrizes do Programa</div>
+              <div className={styles.labelMuted}>{FORMS.JUSTIFICATIVA.LABEL_RELACAO_OBJETIVOS}</div>
               <div className={styles.valueBox}>{dados.relacaoObjetivos}</div>
             </div>
           </div>
           <div className={styles.buttonRow}>
             <Button onClick={() => setModoEdicao(true)}>
-              Editar
+              {FORMS.JUSTIFICATIVA.BOTAO_EDITAR}
             </Button>
           </div>
         </div>
@@ -116,26 +74,72 @@ export function FormJustificativa() {
   return (
     <div className={styles.container}>
       <div className={styles.formWrapper}>
-        <h2 className={styles.title}>II - Descrição do Projeto</h2>
-        <h3 className={styles.subtitle}>5.0 - Justificativa e Motivação do Instrumento</h3>
+        <h2 className={styles.title}>{FORMS.JUSTIFICATIVA.TITULO_EDICAO}</h2>
+        <h3 className={styles.subtitle}>{FORMS.JUSTIFICATIVA.SUBTITULO}</h3>
         <form
           onSubmit={e => { e.preventDefault(); handleFormSubmit(formData); }}
           className={styles.grid}
         >
-          {justificativaFields.map((field) => (
-            <div key={field.id} className={`${styles.field} ${styles.fullWidth}`}>
-              <label className={styles.label} htmlFor={field.id}>{field.label}{field.required && <span className="text-destructive ml-1">*</span>}</label>
-              <textarea
-                id={field.id}
-                required={field.required}
-                rows={field.rows || 4}
-                className={styles.textarea}
-                placeholder={field.placeholder}
-                value={formData[field.id] || ''}
-                onChange={e => setFormData({ ...formData, [field.id]: e.target.value })}
-              />
-            </div>
-          ))}
+          <div className={styles.field}>
+            <TextareaWithLabel
+              id="interessesReciprocos"
+              label={FORMS.JUSTIFICATIVA.LABEL_INTERESSES_RECIPROCOS_EDICAO}
+              placeholder={FORMS.JUSTIFICATIVA.INTERESSES_RECIPROCOS}
+              required={true}
+              rows={6}
+              value={formData.interessesReciprocos || ''}
+              onChange={e => setFormData({ ...formData, interessesReciprocos: e.target.value })}
+            />
+          </div>
+          
+          <div className={styles.field}>
+            <TextareaWithLabel
+              id="publicoAlvo"
+              label={FORMS.JUSTIFICATIVA.LABEL_PUBLICO_ALVO_EDICAO}
+              placeholder={FORMS.JUSTIFICATIVA.PUBLICO_ALVO}
+              required={true}
+              rows={4}
+              value={formData.publicoAlvo || ''}
+              onChange={e => setFormData({ ...formData, publicoAlvo: e.target.value })}
+            />
+          </div>
+          
+          <div className={styles.field}>
+            <TextareaWithLabel
+              id="problemaResolver"
+              label={FORMS.JUSTIFICATIVA.LABEL_PROBLEMA_RESOLVER_EDICAO}
+              placeholder={FORMS.JUSTIFICATIVA.PROBLEMA_RESOLVER}
+              required={true}
+              rows={4}
+              value={formData.problemaResolver || ''}
+              onChange={e => setFormData({ ...formData, problemaResolver: e.target.value })}
+            />
+          </div>
+          
+          <div className={styles.field}>
+            <TextareaWithLabel
+              id="resultadosEsperados"
+              label={FORMS.JUSTIFICATIVA.LABEL_RESULTADOS_ESPERADOS_EDICAO}
+              placeholder={FORMS.JUSTIFICATIVA.RESULTADOS_ESPERADOS}
+              required={true}
+              rows={4}
+              value={formData.resultadosEsperados || ''}
+              onChange={e => setFormData({ ...formData, resultadosEsperados: e.target.value })}
+            />
+          </div>
+          
+          <div className={styles.field}>
+            <TextareaWithLabel
+              id="relacaoObjetivos"
+              label={FORMS.JUSTIFICATIVA.LABEL_RELACAO_OBJETIVOS_EDICAO}
+              placeholder={FORMS.JUSTIFICATIVA.RELACAO_OBJETIVOS}
+              required={true}
+              rows={6}
+              value={formData.relacaoObjetivos || ''}
+              onChange={e => setFormData({ ...formData, relacaoObjetivos: e.target.value })}
+            />
+          </div>
+          
           <div className={styles.buttonRow}>
             <Button 
               type="button" 
@@ -144,11 +148,10 @@ export function FormJustificativa() {
                 setFormData(dados);
                 setModoEdicao(false);
               }}
-              style={{ marginRight: '1rem' }}
             >
-              Cancelar
+              {FORMS.JUSTIFICATIVA.BOTAO_CANCELAR}
             </Button>
-            <Button type="submit">Salvar Justificativa</Button>
+            <Button type="submit">{FORMS.JUSTIFICATIVA.BOTAO_SALVAR}</Button>
           </div>
         </form>
       </div>

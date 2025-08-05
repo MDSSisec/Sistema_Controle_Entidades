@@ -125,6 +125,40 @@ export const FORMS = {
         BOTAO_EDITAR: "Editar",
         BOTAO_CANCELAR: "Cancelar",
         BOTAO_SALVAR: "Salvar Dados do Responsável Técnico"
+    },
+
+    // ----- FORMULÁRIO 05 - JUSTIFICATIVA -----
+    JUSTIFICATIVA: {
+        // Títulos e Subtítulos
+        TITULO: "II - Descrição do Projeto",
+        SUBTITULO: "5.0 - Justificativa e Motivação do Instrumento",
+        TITULO_EDICAO: "II - Descrição do Projeto",
+        
+        // Placeholders
+        INTERESSES_RECIPROCOS: "Descreva a caracterização dos interesses recíprocos entre as partes envolvidas no projeto",
+        PUBLICO_ALVO: "Descreva o público alvo do projeto, suas características e necessidades",
+        PROBLEMA_RESOLVER: "Descreva o problema específico que o projeto visa resolver",
+        RESULTADOS_ESPERADOS: "Descreva os resultados esperados com a implementação do projeto",
+        RELACAO_OBJETIVOS: "Explique como a proposta se relaciona com os objetivos e diretrizes do programa",
+        
+        // Labels do modo de visualização
+        LABEL_INTERESSES_RECIPROCOS: "5.1 - Caracterização dos Interesses Recíprocos",
+        LABEL_PUBLICO_ALVO: "5.2 - Público Alvo",
+        LABEL_PROBLEMA_RESOLVER: "5.3 - Problema a ser Resolvido",
+        LABEL_RESULTADOS_ESPERADOS: "5.4 - Resultados Esperados",
+        LABEL_RELACAO_OBJETIVOS: "5.5 - Relação entre a Proposta e os Objetivos e Diretrizes do Programa",
+        
+        // Labels do modo de edição
+        LABEL_INTERESSES_RECIPROCOS_EDICAO: "Caracterização dos Interesses Recíprocos",
+        LABEL_PUBLICO_ALVO_EDICAO: "Público Alvo",
+        LABEL_PROBLEMA_RESOLVER_EDICAO: "Problema a ser Resolvido",
+        LABEL_RESULTADOS_ESPERADOS_EDICAO: "Resultados Esperados",
+        LABEL_RELACAO_OBJETIVOS_EDICAO: "Relação entre a Proposta e os Objetivos e Diretrizes do Programa",
+        
+        // Botões
+        BOTAO_EDITAR: "Editar",
+        BOTAO_CANCELAR: "Cancelar",
+        BOTAO_SALVAR: "Salvar Justificativa"
     }
 
   

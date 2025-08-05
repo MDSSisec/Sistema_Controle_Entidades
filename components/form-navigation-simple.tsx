@@ -13,14 +13,16 @@ const FORM_ORDER = [
   "01-projeto",
   "02-entidade", 
   "03-representante-legal",
-  "04-responsavel-tecnico"
+  "04-responsavel-tecnico",
+  "05-justificativa"
 ];
 
 const FORM_NAMES: Record<string, string> = {
   "01-projeto": "I.1 - Projeto",
   "02-entidade": "I.2 - Entidade",
   "03-representante-legal": "I.3 - Representante Legal",
-  "04-responsavel-tecnico": "I.4 - Responsável Técnico"
+  "04-responsavel-tecnico": "I.4 - Responsável Técnico",
+  "05-justificativa": "II.5 - Justificativa"
 };
 
 export function FormNavigationSimple({ currentForm }: FormNavigationSimpleProps) {
@@ -30,15 +32,24 @@ export function FormNavigationSimple({ currentForm }: FormNavigationSimpleProps)
   const handlePrevious = () => {
     if (currentIndex > 0) {
       const previousForm = FORM_ORDER[currentIndex - 1];
-      router.push(`/formularios/01-identificacao/${previousForm}`);
+      const route = getFormRoute(previousForm);
+      router.push(route);
     }
   };
 
   const handleNext = () => {
     if (currentIndex < FORM_ORDER.length - 1) {
       const nextForm = FORM_ORDER[currentIndex + 1];
-      router.push(`/formularios/01-identificacao/${nextForm}`);
+      const route = getFormRoute(nextForm);
+      router.push(route);
     }
+  };
+
+  const getFormRoute = (formId: string) => {
+    if (formId === "05-justificativa") {
+      return `/formularios/02-descricao-projeto/${formId}`;
+    }
+    return `/formularios/01-identificacao/${formId}`;
   };
 
   const isFirstForm = currentIndex === 0;
