@@ -6,6 +6,7 @@ import { DataTable } from "@/components/data-table";
 import { IconDotsVertical } from "@tabler/icons-react";
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { Row } from "@tanstack/react-table";
+import { FORMS } from "@/components/constants/formularios/forms";
 import styles from "./form_item07.module.css";
 
 // Tipagem dos dados da meta
@@ -35,7 +36,8 @@ const dadosExemplo: Meta[] = [
 ];
 
 export function FormMetas() {
-  const [metas, setMetas] = React.useState<Meta[]>(dadosExemplo);
+  const [modoEdicao, setModoEdicao] = React.useState(false);
+  const [dados, setDados] = React.useState<Meta[]>(dadosExemplo);
   const [formData, setFormData] = React.useState<Omit<Meta, 'id'>>({
     especificacao: "",
     valor: "",
@@ -43,6 +45,18 @@ export function FormMetas() {
     dataTermino: ""
   });
   const [editandoId, setEditandoId] = React.useState<number | null>(null);
+
+  // Sempre que entrar no modo edição, sincroniza formData com dados atuais
+  React.useEffect(() => {
+    if (modoEdicao) {
+      setFormData({
+        especificacao: "",
+        valor: "",
+        dataInicio: "",
+        dataTermino: ""
+      });
+    }
+  }, [modoEdicao]);
 
   // Função para formatar valor monetário
   const formatarValor = (valor: string): string => {
@@ -113,6 +127,10 @@ export function FormMetas() {
     setEditandoId(meta.id);
   };
 
+  const handleRemoveMeta = (idx: number) => {
+    setDados(dados.filter((_, i) => i !== idx));
+  };
+
   const handleCancelarEdicao = () => {
     setEditandoId(null);
     setFormData({
@@ -134,17 +152,17 @@ export function FormMetas() {
 
     if (editandoId) {
       // Atualizar meta existente
-      setMetas(metas.map(meta =>
+      setDados(dados.map(meta =>
         meta.id === editandoId ? { ...meta, ...formData } : meta
       ));
       setEditandoId(null);
     } else {
       // Adicionar nova meta
       const novaMeta: Meta = {
-        id: metas.length + 1,
+        id: dados.length + 1,
         ...formData
       };
-      setMetas([...metas, novaMeta]);
+      setDados([...dados, novaMeta]);
     }
 
     // Limpar formulário
@@ -205,102 +223,177 @@ export function FormMetas() {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-32">
-            <DropdownMenuItem onClick={() => handleEditar(row.original)}>Editar</DropdownMenuItem>
-            <DropdownMenuItem>Excluir</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => handleEditar(row.original)}>{FORMS.METAS.BOTAO_EDITAR}</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => handleRemoveMeta(row.original.id - 1)}>Remover</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       ),
     },
   ];
 
+  // DataTable columns para metas (modo visualização - sem ações)
+  const columnsVisualizacao = [
+    {
+      id: "numero",
+      header: "Meta",
+      cell: ({ row }: { row: Row<Meta> }) => (
+        <div className="font-medium">
+          Meta {String(row.original.id).padStart(2, '0')}
+        </div>
+      ),
+      enableHiding: false,
+    },
+    {
+      accessorKey: "especificacao",
+      header: "Especificação da Meta",
+      cell: ({ row }: { row: Row<Meta> }) => row.original.especificacao,
+      enableHiding: false,
+    },
+    {
+      accessorKey: "valor",
+      header: "Valor",
+      cell: ({ row }: { row: Row<Meta> }) => row.original.valor,
+    },
+    {
+      accessorKey: "dataInicio",
+      header: "Data de Início",
+      cell: ({ row }: { row: Row<Meta> }) => row.original.dataInicio,
+    },
+    {
+      accessorKey: "dataTermino",
+      header: "Data de Término",
+      cell: ({ row }: { row: Row<Meta> }) => row.original.dataTermino,
+    },
+  ];
+
   return (
     <div className={styles.container}>
       <div className={styles.formWrapper}>
-        <h2 className={styles.title}>II - Descrição do Projeto</h2>
-        <h3 className={styles.subtitle}>7.0 - Metas</h3>
+        <h2 className={styles.title}>{FORMS.TITULO_DESCRICAO}</h2>
+        <h3 className={styles.subtitle}>{FORMS.METAS.TITULO}</h3>
         
-        {/* Card do Formulário */}
-        <div className={styles.formCard}>
-          <h4 className={styles.cardTitle}>Adicionar Nova Meta</h4>
-          <form onSubmit={handleFormSubmit} className={styles.formGrid}>
-            <div className={`${styles.field} ${styles.fullWidth}`}>
-              <label className={styles.label} htmlFor="especificacao">
-                Especificação da Meta<span className="text-destructive ml-1">*</span>
-              </label>
-              <textarea
-                id="especificacao"
-                required
-                rows={3}
-                className={styles.textarea}
-                placeholder="Descreva a especificação da meta"
-                value={formData.especificacao}
-                onChange={e => setFormData({ ...formData, especificacao: e.target.value })}
-              />
-            </div>
-            
-            <div className={styles.field}>
-              <label className={styles.label} htmlFor="valor">
-                Valor<span className="text-destructive ml-1">*</span>
-              </label>
-              <input
-                id="valor"
-                type="text"
-                required
-                className={styles.input}
-                placeholder="Digite apenas números (ex: 25000)"
-                value={formData.valor}
-                onChange={handleValorChange}
-              />
-            </div>
-            
-            <div className={styles.field}>
-              <label className={styles.label} htmlFor="dataInicio">
-                Data de Início<span className="text-destructive ml-1">*</span>
-              </label>
-              <input
-                id="dataInicio"
-                type="text"
-                required
-                className={styles.input}
-                placeholder="00/00/0000"
-                maxLength={10}
-                value={formData.dataInicio}
-                onChange={handleDataInicioChange}
-              />
-            </div>
-            
-            <div className={styles.field}>
-              <label className={styles.label} htmlFor="dataTermino">
-                Data de Término<span className="text-destructive ml-1">*</span>
-              </label>
-              <input
-                id="dataTermino"
-                type="text"
-                required
-                className={styles.input}
-                placeholder="00/00/0000"
-                maxLength={10}
-                value={formData.dataTermino}
-                onChange={handleDataTerminoChange}
-              />
+        {!modoEdicao ? (
+          // Modo visualização - apenas tabela de metas
+          <>
+            {/* Tabela de Metas */}
+            <div className={styles.tableSection}>
+              <h4 className={styles.tableTitle}>{FORMS.METAS.LABEL_METAS_CADASTRADAS}</h4>
+              {dados.length > 0 ? (
+                <DataTable data={dados} columns={columnsVisualizacao} pageSize={5} />
+              ) : (
+                <div className={styles.valueBox} style={{ textAlign: 'center', color: '#6b7280', padding: '2rem' }}>
+                  Nenhum item cadastrado
+                </div>
+              )}
             </div>
             
             <div className={styles.buttonRow}>
-              <Button type="submit">{editandoId ? "Salvar" : "Adicionar Meta"}</Button>
-              {editandoId && (
-                <Button type="button" variant="outline" onClick={handleCancelarEdicao}>
-                  Cancelar
-                </Button>
-              )}
+              <Button onClick={() => setModoEdicao(true)}>
+                {FORMS.BOTAO_EDITAR}
+              </Button>
             </div>
-          </form>
-        </div>
-        
-        {/* Tabela de Metas */}
-        <div className={styles.tableSection}>
-          <h4 className={styles.tableTitle}>Metas Cadastradas</h4>
-          <DataTable data={metas} columns={columns} pageSize={5} />
-        </div>
+          </>
+        ) : (
+          // Modo edição
+          <>
+            {/* Card do Formulário */}
+            <div className={styles.formCard}>
+              <h4 className={styles.cardTitle}>Adicionar Nova Meta</h4>
+              <form onSubmit={handleFormSubmit} className={styles.formGrid}>
+                <div className={`${styles.field} ${styles.fullWidth}`}>
+                  <label className={styles.label} htmlFor="especificacao">
+                    {FORMS.METAS.LABEL_ESPECIFICACAO}<span className="text-destructive ml-1">*</span>
+                  </label>
+                  <textarea
+                    id="especificacao"
+                    required
+                    rows={3}
+                    className={styles.textarea}
+                    placeholder={FORMS.METAS.ESPECIFICACAO}
+                    value={formData.especificacao}
+                    onChange={e => setFormData({ ...formData, especificacao: e.target.value })}
+                  />
+                </div>
+                
+                <div className={styles.field}>
+                  <label className={styles.label} htmlFor="valor">
+                    {FORMS.METAS.LABEL_VALOR}<span className="text-destructive ml-1">*</span>
+                  </label>
+                  <input
+                    id="valor"
+                    type="text"
+                    required
+                    className={styles.input}
+                    placeholder={FORMS.METAS.VALOR}
+                    value={formData.valor}
+                    onChange={handleValorChange}
+                  />
+                </div>
+                
+                <div className={styles.field}>
+                  <label className={styles.label} htmlFor="dataInicio">
+                    {FORMS.METAS.LABEL_DATA_INICIO}<span className="text-destructive ml-1">*</span>
+                  </label>
+                  <input
+                    id="dataInicio"
+                    type="text"
+                    required
+                    className={styles.input}
+                    placeholder={FORMS.METAS.DATA_INICIO}
+                    maxLength={10}
+                    value={formData.dataInicio}
+                    onChange={handleDataInicioChange}
+                  />
+                </div>
+                
+                <div className={styles.field}>
+                  <label className={styles.label} htmlFor="dataTermino">
+                    {FORMS.METAS.LABEL_DATA_TERMINO}<span className="text-destructive ml-1">*</span>
+                  </label>
+                  <input
+                    id="dataTermino"
+                    type="text"
+                    required
+                    className={styles.input}
+                    placeholder={FORMS.METAS.DATA_TERMINO}
+                    maxLength={10}
+                    value={formData.dataTermino}
+                    onChange={handleDataTerminoChange}
+                  />
+                </div>
+                
+                <div className={styles.buttonRow}>
+                  <Button type="submit">{editandoId ? FORMS.METAS.BOTAO_SALVAR : FORMS.METAS.BOTAO_ADICIONAR}</Button>
+                  {editandoId && (
+                    <Button type="button" variant="outline" onClick={handleCancelarEdicao}>
+                      {FORMS.METAS.BOTAO_CANCELAR}
+                    </Button>
+                  )}
+                </div>
+              </form>
+            </div>
+            
+            {/* Tabela de Metas */}
+            <div className={styles.tableSection}>
+              <h4 className={styles.tableTitle}>{FORMS.METAS.LABEL_METAS_CADASTRADAS}</h4>
+              <DataTable data={dados} columns={columns} pageSize={5} />
+            </div>
+            
+            {/* Botões Salvar/Cancelar */}
+            <div className={styles.buttonRow}>
+              <Button 
+                type="button" 
+                variant="outline" 
+                onClick={() => setModoEdicao(false)}
+              >
+                {FORMS.BOTAO_CANCELAR}
+              </Button>
+              <Button onClick={() => setModoEdicao(false)}>
+                {FORMS.BOTAO_SALVAR}
+              </Button>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

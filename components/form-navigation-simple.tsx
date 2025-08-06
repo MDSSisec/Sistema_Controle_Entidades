@@ -14,7 +14,9 @@ const FORM_ORDER = [
   "02-entidade", 
   "03-representante-legal",
   "04-responsavel-tecnico",
-  "05-justificativa"
+  "05-justificativa",
+  "06-objetivos",
+  "07-metas"
 ];
 
 const FORM_NAMES: Record<string, string> = {
@@ -22,7 +24,9 @@ const FORM_NAMES: Record<string, string> = {
   "02-entidade": "I.2 - Entidade",
   "03-representante-legal": "I.3 - Representante Legal",
   "04-responsavel-tecnico": "I.4 - Responsável Técnico",
-  "05-justificativa": "II.5 - Justificativa"
+  "05-justificativa": "II.5 - Justificativa",
+  "06-objetivos": "II.6 - Objetivos",
+  "07-metas": "II.7 - Metas"
 };
 
 export function FormNavigationSimple({ currentForm }: FormNavigationSimpleProps) {
@@ -46,7 +50,7 @@ export function FormNavigationSimple({ currentForm }: FormNavigationSimpleProps)
   };
 
   const getFormRoute = (formId: string) => {
-    if (formId === "05-justificativa") {
+    if (formId === "05-justificativa" || formId === "06-objetivos" || formId === "07-metas") {
       return `/formularios/02-descricao-projeto/${formId}`;
     }
     return `/formularios/01-identificacao/${formId}`;

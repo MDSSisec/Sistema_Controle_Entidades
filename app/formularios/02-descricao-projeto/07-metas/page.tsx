@@ -4,6 +4,8 @@ import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
 import { FormMetas } from "./form_item07";
+import { BackToProjectDetails } from "@/components/BackToProjectDetails";
+import { FormNavigationSimple } from "@/components/form-navigation-simple";
 
 export default function MetasPage() {
   return (
@@ -16,7 +18,9 @@ export default function MetasPage() {
       <AppSidebar variant="inset" />
       <SidebarInset>
         <SiteHeader />
+        <BackToProjectDetails/>
         <FormMetas />
+        <FormNavigationSimple currentForm="07-metas" />
       </SidebarInset>
     </SidebarProvider>
   );

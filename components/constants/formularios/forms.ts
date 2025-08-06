@@ -172,6 +172,56 @@ export const FORMS = {
         LABEL_RESULTADOS_ESPERADOS_EDICAO: "Resultados Esperados",
         LABEL_RELACAO_OBJETIVOS_EDICAO: "Relação entre a Proposta e os Objetivos e Diretrizes do Programa",
         
+    },
+
+    // ----- FORMULÁRIO 06 - OBJETIVOS -----
+    OBJETIVOS: {
+        // Títulos
+        TITULO: "6.0 - Objetivo",
+        
+        // Placeholders
+        OBJETIVO_GERAL: "Descreva o objetivo geral do projeto",
+        OBJETIVO_ESPECIFICO: "Digite um objetivo específico e adicione",
+        OBJETIVO_ESPECIFICO_EDICAO: "Edite o objetivo específico",
+        
+        // Labels
+        LABEL_OBJETIVO_GERAL: "6.1 - Objetivo Geral",
+        LABEL_OBJETIVO_ESPECIFICO: "6.2 - Objetivo Específico",
+        LABEL_OBJETIVOS_CADASTRADOS: "Objetivos Específicos Cadastrados",
+        
+        // Botões
+        BOTAO_ADICIONAR: "Adicionar",
+        BOTAO_EDITAR: "Editar",
+        BOTAO_SALVAR: "Salvar",
+        BOTAO_CANCELAR: "Cancelar",
+        BOTAO_SALVAR_OBJETIVOS: "Salvar Objetivos",
+        
+    },
+
+    // ----- FORMULÁRIO 07 - METAS -----
+    METAS: {
+        // Títulos
+        TITULO: "7.0 - Metas",
+        
+        // Placeholders
+        ESPECIFICACAO: "Descreva a especificação da meta",
+        VALOR: "Digite apenas números (ex: 25000)",
+        DATA_INICIO: "00/00/0000",
+        DATA_TERMINO: "00/00/0000",
+        
+        // Labels
+        LABEL_ESPECIFICACAO: "Especificação da Meta",
+        LABEL_VALOR: "Valor",
+        LABEL_DATA_INICIO: "Data de Início",
+        LABEL_DATA_TERMINO: "Data de Término",
+        LABEL_METAS_CADASTRADAS: "Metas Cadastradas",
+        
+        // Botões
+        BOTAO_ADICIONAR: "Adicionar Meta",
+        BOTAO_EDITAR: "Editar",
+        BOTAO_SALVAR: "Salvar",
+        BOTAO_CANCELAR: "Cancelar",
+        
     }
 
   

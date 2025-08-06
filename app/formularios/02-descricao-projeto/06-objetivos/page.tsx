@@ -5,6 +5,7 @@ import { AppSidebar } from "@/components/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
 import { FormObjetivos } from "./form_item06";
 import { BackToProjectDetails } from "@/components/BackToProjectDetails";
+import { FormNavigationSimple } from "@/components/form-navigation-simple";
 
 export default function ObjetivosPage() {
   return (
@@ -18,6 +19,7 @@ export default function ObjetivosPage() {
       <SidebarInset>
         <SiteHeader />
         <BackToProjectDetails />
+        <FormNavigationSimple currentForm="06-objetivos" />
         <FormObjetivos />
       </SidebarInset>
     </SidebarProvider>
