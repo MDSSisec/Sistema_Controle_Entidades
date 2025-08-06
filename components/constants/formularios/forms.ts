@@ -1,9 +1,16 @@
 export const FORMS = {
+
+    TITULO_IDENTIFICACAO: "I - Identificação",
+    TITULO_DESCRICAO: "II - Descrição do Projeto",
+
+    // Botões
+    BOTAO_EDITAR: "Editar",
+    BOTAO_CANCELAR: "Cancelar",
+    BOTAO_SALVAR: "Salvar",
     
     // ----- FORMULÁRIO 01 - PROJETO -----
     PROJETO: {
         // Títulos e Subtítulos
-        TITULO: "I - Identificação",
         SUBTITULO: "1.0 - Identificação do Projeto",
         TITULO_EDICAO: "I - Identificação do Projeto",
         
@@ -19,16 +26,6 @@ export const FORMS = {
         LABEL_DURACAO: "1.3 - Duração",
         LABEL_RESUMO: "1.4 - Resumo do Projeto",
         
-        // Labels do modo de edição
-        LABEL_NOME_EDICAO: "Nome do Projeto",
-        LABEL_LOCAL_EDICAO: "Local de Execução",
-        LABEL_DURACAO_EDICAO: "Duração",
-        LABEL_RESUMO_EDICAO: "Resumo do Projeto",
-        
-        // Botões
-        BOTAO_EDITAR: "Editar",
-        BOTAO_CANCELAR: "Cancelar",
-        BOTAO_SALVAR: "Salvar Identificação"
     },
 
     // ----- FORMULÁRIO 02 - ENTIDADE -----
@@ -63,14 +60,14 @@ export const FORMS = {
         LABEL_TELEFONE_FAX: "2.10 - Número de telefone e fax com DDD",
         LABEL_PAGINA_WEB: "2.11 - Página na web",
         
-        // Botões
-        BOTAO_EDITAR: "Editar",
-        BOTAO_CANCELAR: "Cancelar",
-        BOTAO_SALVAR: "Salvar Descrição"
     },
 
     // ----- FORMULÁRIO 03 - REPRESENTANTE LEGAL -----
     REPRESENTANTE: {
+        // Títulos
+        TITULO: "III - Identificação do Representante Legal da Entidade Proponente",
+        
+        // Placeholders
         NOME: "Digite o nome completo do representante legal",
         CPF: "000.000.000-00",
         RG: "Digite o número do RG",
@@ -80,7 +77,20 @@ export const FORMS = {
         CARGO: "Digite o cargo atual na entidade",
         ESTADO_CIVIL: "Ex: Solteiro, Casado, Divorciado",
         TELEFONE: "(11) 99999-9999",
-        EMAIL: "representante@entidade.com.br"
+        EMAIL: "representante@entidade.com.br",
+        
+        // Labels
+        LABEL_NOME: "3.1 - Nome",
+        LABEL_CPF: "3.2 - CPF",
+        LABEL_RG: "3.3 - RG",
+        LABEL_ORGAO_EXPEDITOR: "3.4 - Órgão Expedidor",
+        LABEL_UF: "3.5 - UF",
+        LABEL_PROFISSAO: "3.6 - Profissão",
+        LABEL_CARGO: "3.7 - Cargo",
+        LABEL_ESTADO_CIVIL: "3.8 - Estado Civil",
+        LABEL_TELEFONE: "3.9 - Número de telefone com DDD",
+        LABEL_EMAIL: "3.10 - Email",
+        
     },
 
     // ----- FORMULÁRIO 04 - RESPONSÁVEL TÉCNICO -----
@@ -109,18 +119,12 @@ export const FORMS = {
         LABEL_CELULAR_EDICAO: "Número de celular com DDD",
         LABEL_EMAIL_EDICAO: "Email",
         
-        // Botões
-        BOTAO_EDITAR: "Editar",
-        BOTAO_CANCELAR: "Cancelar",
-        BOTAO_SALVAR: "Salvar Dados do Responsável Técnico"
     },
 
     // ----- FORMULÁRIO 05 - JUSTIFICATIVA -----
     JUSTIFICATIVA: {
         // Títulos e Subtítulos
-        TITULO: "II - Descrição do Projeto",
         SUBTITULO: "5.0 - Justificativa e Motivação do Instrumento",
-        TITULO_EDICAO: "II - Descrição do Projeto",
         
         // Placeholders
         INTERESSES_RECIPROCOS: "Descreva a caracterização dos interesses recíprocos entre as partes envolvidas no projeto",
@@ -143,10 +147,6 @@ export const FORMS = {
         LABEL_RESULTADOS_ESPERADOS_EDICAO: "Resultados Esperados",
         LABEL_RELACAO_OBJETIVOS_EDICAO: "Relação entre a Proposta e os Objetivos e Diretrizes do Programa",
         
-        // Botões
-        BOTAO_EDITAR: "Editar",
-        BOTAO_CANCELAR: "Cancelar",
-        BOTAO_SALVAR: "Salvar Justificativa"
     }
 
   

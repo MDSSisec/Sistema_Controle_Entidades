@@ -115,53 +115,53 @@ export function FormPublico() {
     return (
       <div className={styles.container}>
         <div className={styles.formWrapper}>
-          <h2 className={styles.title}>I - Identificação</h2>
-          <h3 className={styles.subtitle}>III - Dados do Público</h3>
+          <h2 className={styles.title}>{FORMS.TITULO_IDENTIFICACAO}</h2>
+          <h3 className={styles.subtitle}>{FORMS.REPRESENTANTE.TITULO}</h3>
           <div className={styles.grid}>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>Nome</div>
+              <div className={styles.labelMuted}>{FORMS.REPRESENTANTE.LABEL_NOME}</div>
               <div className={styles.valueBox}>{dados.nome}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>CPF</div>
+              <div className={styles.labelMuted}>{FORMS.REPRESENTANTE.LABEL_CPF}</div>
               <div className={styles.valueBox}>{dados.cpf}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>RG</div>
+              <div className={styles.labelMuted}>{FORMS.REPRESENTANTE.LABEL_RG}</div>
               <div className={styles.valueBox}>{dados.rg}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>Órgão Expedidor</div>
+              <div className={styles.labelMuted}>{FORMS.REPRESENTANTE.LABEL_ORGAO_EXPEDITOR}</div>
               <div className={styles.valueBox}>{dados.orgaoExpeditor}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>UF</div>
+              <div className={styles.labelMuted}>{FORMS.REPRESENTANTE.LABEL_UF}</div>
               <div className={styles.valueBox}>{dados.uf}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>Profissão</div>
+              <div className={styles.labelMuted}>{FORMS.REPRESENTANTE.LABEL_PROFISSAO}</div>
               <div className={styles.valueBox}>{dados.profissao}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>Cargo</div>
+              <div className={styles.labelMuted}>{FORMS.REPRESENTANTE.LABEL_CARGO}</div>
               <div className={styles.valueBox}>{dados.cargo}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>Estado Civil</div>
+              <div className={styles.labelMuted}>{FORMS.REPRESENTANTE.LABEL_ESTADO_CIVIL}</div>
               <div className={styles.valueBox}>{dados.estadoCivil}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>Número de telefone com DDD</div>
+              <div className={styles.labelMuted}>{FORMS.REPRESENTANTE.LABEL_TELEFONE}</div>
               <div className={styles.valueBox}>{dados.telefone}</div>
             </div>
             <div className={styles.field}>
-              <div className={styles.labelMuted}>Email</div>
+              <div className={styles.labelMuted}>{FORMS.REPRESENTANTE.LABEL_EMAIL}</div>
               <div className={styles.valueBox}>{dados.email}</div>
             </div>
           </div>
           <div className={styles.buttonRow}>
             <Button onClick={() => setModoEdicao(true)}>
-              Editar
+              {FORMS.BOTAO_EDITAR}
             </Button>
           </div>
         </div>
@@ -173,8 +173,8 @@ export function FormPublico() {
   return (
     <div className={styles.container}>
       <div className={styles.formWrapper}>
-        <h2 className={styles.title}>I - Identificação</h2>
-        <h3 className={styles.subtitle}>III - Representante Legal</h3>
+        <h2 className={styles.title}>{FORMS.TITULO_IDENTIFICACAO}</h2>
+        <h3 className={styles.subtitle}>{FORMS.REPRESENTANTE.TITULO}</h3>
         <form
           onSubmit={e => { e.preventDefault(); handleFormSubmit(formData); }}
           className={styles.grid}
@@ -182,7 +182,7 @@ export function FormPublico() {
           <div className={styles.field}>
             <InputWithLabel
               id="nome"
-              label="Nome"
+              label={FORMS.REPRESENTANTE.LABEL_NOME}
               type="text"
               placeholder={FORMS.REPRESENTANTE.NOME}
               required={true}
@@ -194,7 +194,7 @@ export function FormPublico() {
           <div className={styles.field}>
             <InputWithLabel
               id="cpf"
-              label="CPF"
+              label={FORMS.REPRESENTANTE.LABEL_CPF}
               type="text"
               placeholder={FORMS.REPRESENTANTE.CPF}
               required={true}
@@ -206,7 +206,7 @@ export function FormPublico() {
           <div className={styles.field}>
             <InputWithLabel
               id="rg"
-              label="RG"
+              label={FORMS.REPRESENTANTE.LABEL_RG}
               type="text"
               placeholder={FORMS.REPRESENTANTE.RG}
               required={true}
@@ -218,7 +218,7 @@ export function FormPublico() {
           <div className={styles.field}>
             <InputWithLabel
               id="orgaoExpeditor"
-              label="Órgão Expedidor"
+              label={FORMS.REPRESENTANTE.LABEL_ORGAO_EXPEDITOR}
               type="text"
               placeholder={FORMS.REPRESENTANTE.ORGAO_EXPEDITOR}
               required={true}
@@ -230,7 +230,7 @@ export function FormPublico() {
           <div className={styles.field}>
             <InputWithLabel
               id="uf"
-              label="UF"
+              label={FORMS.REPRESENTANTE.LABEL_UF}
               type="text"
               placeholder={FORMS.REPRESENTANTE.UF}
               required={true}
@@ -242,7 +242,7 @@ export function FormPublico() {
           <div className={styles.field}>
             <InputWithLabel
               id="profissao"
-              label="Profissão"
+              label={FORMS.REPRESENTANTE.LABEL_PROFISSAO}
               type="text"
               placeholder={FORMS.REPRESENTANTE.PROFISSAO}
               required={true}
@@ -254,7 +254,7 @@ export function FormPublico() {
           <div className={styles.field}>
             <InputWithLabel
               id="cargo"
-              label="Cargo"
+              label={FORMS.REPRESENTANTE.LABEL_CARGO}
               type="text"
               placeholder={FORMS.REPRESENTANTE.CARGO}
               required={true}
@@ -266,7 +266,7 @@ export function FormPublico() {
           <div className={styles.field}>
             <InputWithLabel
               id="estadoCivil"
-              label="Estado Civil"
+              label={FORMS.REPRESENTANTE.LABEL_ESTADO_CIVIL}
               type="text"
               placeholder={FORMS.REPRESENTANTE.ESTADO_CIVIL}
               required={true}
@@ -278,7 +278,7 @@ export function FormPublico() {
           <div className={styles.field}>
             <InputWithLabel
               id="telefone"
-              label="Número de telefone com DDD"
+              label={FORMS.REPRESENTANTE.LABEL_TELEFONE}
               type="text"
               placeholder={FORMS.REPRESENTANTE.TELEFONE}
               required={true}
@@ -290,7 +290,7 @@ export function FormPublico() {
           <div className={styles.field}>
             <InputWithLabel
               id="email"
-              label="Email"
+              label={FORMS.REPRESENTANTE.LABEL_EMAIL}
               type="email"
               placeholder={FORMS.REPRESENTANTE.EMAIL}
               required={true}
@@ -308,9 +308,9 @@ export function FormPublico() {
                 setModoEdicao(false);
               }}
             >
-              Cancelar
+              {FORMS.BOTAO_CANCELAR}
             </Button>
-            <Button type="submit">Salvar</Button>
+            <Button type="submit">{FORMS.BOTAO_SALVAR}</Button>
           </div>
         </form>
       </div>

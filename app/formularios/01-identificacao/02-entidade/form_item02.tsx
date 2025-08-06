@@ -123,7 +123,7 @@ export function FormDescricao() {
     return (
       <div className={styles.container}>
         <div className={styles.formWrapper}>
-          <h2 className={styles.title}>I - Identificação</h2>
+          <h2 className={styles.title}>{FORMS.TITULO_IDENTIFICACAO}</h2>
           <h3 className={styles.subtitle}>{FORMS.ENTIDADE.TITULO}</h3>
           <div className={styles.grid}>
             <div className={styles.field}>
@@ -173,7 +173,7 @@ export function FormDescricao() {
           </div>
           <div className={styles.buttonRow}>
             <Button onClick={() => setModoEdicao(true)}>
-              {FORMS.ENTIDADE.BOTAO_EDITAR}
+              {FORMS.BOTAO_EDITAR}
             </Button>
           </div>
         </div>
@@ -185,7 +185,7 @@ export function FormDescricao() {
   return (
     <div className={styles.container}>
       <div className={styles.formWrapper}>
-        <h2 className={styles.title}>I - Identificação</h2>
+        <h2 className={styles.title}>{FORMS.TITULO_IDENTIFICACAO}</h2>
         <h3 className={styles.subtitle}>{FORMS.ENTIDADE.TITULO}</h3>
         <form
           onSubmit={e => { e.preventDefault(); handleFormSubmit(formData); }}
@@ -332,9 +332,9 @@ export function FormDescricao() {
                 setModoEdicao(false);
               }}
             >
-              {FORMS.ENTIDADE.BOTAO_CANCELAR}
+              {FORMS.BOTAO_CANCELAR}
             </Button>
-            <Button type="submit">{FORMS.ENTIDADE.BOTAO_SALVAR}</Button>
+            <Button type="submit">{FORMS.BOTAO_SALVAR}</Button>
           </div>
         </form>
       </div>

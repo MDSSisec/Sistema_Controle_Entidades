@@ -68,7 +68,7 @@ export function FormIdentificacao() {
     return (
       <div className={styles.container}>
         <div className={styles.formWrapper}>
-          <h2 className={styles.title}>{FORMS.PROJETO.TITULO}</h2>
+          <h2 className={styles.title}>{FORMS.TITULO_IDENTIFICACAO}</h2>
           <h3 className={styles.subtitle}>{FORMS.PROJETO.SUBTITULO}</h3>
           <div className={styles.grid}>
             <div className={styles.field}>
@@ -90,7 +90,7 @@ export function FormIdentificacao() {
           </div>
           <div className={styles.buttonRow}>
             <Button onClick={() => setModoEdicao(true)}>
-              {FORMS.PROJETO.BOTAO_EDITAR}
+              {FORMS.BOTAO_EDITAR}
             </Button>
           </div>
         </div>
@@ -102,7 +102,7 @@ export function FormIdentificacao() {
   return (
     <div className={styles.container}>
       <div className={styles.formWrapper}>
-        <h2 className={styles.title}>{FORMS.PROJETO.TITULO}</h2>
+        <h2 className={styles.title}>{FORMS.TITULO_IDENTIFICACAO}</h2>
         <h3 className={styles.subtitle}>{FORMS.PROJETO.SUBTITULO}</h3>
         <form
           onSubmit={e => { e.preventDefault(); handleFormSubmit(formData); }}
@@ -111,7 +111,7 @@ export function FormIdentificacao() {
           <div className={styles.field}>
             <InputWithLabel
               id="nomeProjeto"
-              label={FORMS.PROJETO.LABEL_NOME_EDICAO}
+              label={FORMS.PROJETO.LABEL_NOME}
               type="text"
               placeholder={FORMS.PROJETO.NOME_PROJETO}
               required={true}
@@ -123,7 +123,7 @@ export function FormIdentificacao() {
           <div className={styles.field}>
             <InputWithLabel
               id="localExecucao"
-              label={FORMS.PROJETO.LABEL_LOCAL_EDICAO}
+              label={FORMS.PROJETO.LABEL_LOCAL}
               type="text"
               placeholder={FORMS.PROJETO.LOCAL_EXECUCAO}
               required={true}
@@ -135,7 +135,7 @@ export function FormIdentificacao() {
           <div className={styles.field}>
             <InputWithLabel
               id="duracao"
-              label={FORMS.PROJETO.LABEL_DURACAO_EDICAO}
+              label={FORMS.PROJETO.LABEL_DURACAO}
               type="text"
               placeholder={FORMS.PROJETO.DURACAO}
               required={true}
@@ -147,7 +147,7 @@ export function FormIdentificacao() {
           <div className={styles.field}>
             <TextareaWithLabel
               id="resumoProjeto"
-              label={FORMS.PROJETO.LABEL_RESUMO_EDICAO}
+              label={FORMS.PROJETO.LABEL_RESUMO}
               placeholder={FORMS.PROJETO.RESUMO_PROJETO}
               required={true}
               rows={6}
@@ -167,9 +167,9 @@ export function FormIdentificacao() {
                 setModoEdicao(false);
               }}
             >
-              {FORMS.PROJETO.BOTAO_CANCELAR}
+              {FORMS.BOTAO_CANCELAR}
             </Button>
-            <Button type="submit">{FORMS.PROJETO.BOTAO_SALVAR}</Button>
+            <Button type="submit">{FORMS.BOTAO_SALVAR}</Button>
           </div>
         </form>
       </div>

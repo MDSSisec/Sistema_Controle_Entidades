@@ -36,7 +36,7 @@ export function FormJustificativa() {
     return (
       <div className={styles.container}>
         <div className={styles.formWrapper}>
-          <h2 className={styles.title}>{FORMS.JUSTIFICATIVA.TITULO}</h2>
+          <h2 className={styles.title}>{FORMS.TITULO_DESCRICAO}</h2>
           <h3 className={styles.subtitle}>{FORMS.JUSTIFICATIVA.SUBTITULO}</h3>
           <div className={styles.grid}>
             <div className={`${styles.field} ${styles.fullWidth}`}>
@@ -62,7 +62,7 @@ export function FormJustificativa() {
           </div>
           <div className={styles.buttonRow}>
             <Button onClick={() => setModoEdicao(true)}>
-              {FORMS.JUSTIFICATIVA.BOTAO_EDITAR}
+              {FORMS.BOTAO_EDITAR}
             </Button>
           </div>
         </div>
@@ -74,7 +74,7 @@ export function FormJustificativa() {
   return (
     <div className={styles.container}>
       <div className={styles.formWrapper}>
-        <h2 className={styles.title}>{FORMS.JUSTIFICATIVA.TITULO_EDICAO}</h2>
+        <h2 className={styles.title}>{FORMS.TITULO_DESCRICAO}</h2>
         <h3 className={styles.subtitle}>{FORMS.JUSTIFICATIVA.SUBTITULO}</h3>
         <form
           onSubmit={e => { e.preventDefault(); handleFormSubmit(formData); }}
@@ -149,9 +149,9 @@ export function FormJustificativa() {
                 setModoEdicao(false);
               }}
             >
-              {FORMS.JUSTIFICATIVA.BOTAO_CANCELAR}
+              {FORMS.BOTAO_CANCELAR}
             </Button>
-            <Button type="submit">{FORMS.JUSTIFICATIVA.BOTAO_SALVAR}</Button>
+            <Button type="submit">{FORMS.BOTAO_SALVAR}</Button>
           </div>
         </form>
       </div>
