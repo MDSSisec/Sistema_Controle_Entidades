@@ -5,6 +5,7 @@ import { Formulario, FormField } from "@/components/fomulario/formulario";
 import { Button } from "@/components/ui/button";
 import { InputWithLabel, TextareaWithLabel } from "@/components/ui/input-form";
 import { FORMS } from "@/components/constants/formularios/forms";
+import { mascarasUtils } from "@/components/constants/mascaras";
 import styles from "./form_item02.module.css";
 
 const descricaoFields: FormField[] = [
@@ -105,6 +106,22 @@ export function FormDescricao() {
   const [modoEdicao, setModoEdicao] = React.useState(false);
   const [dados, setDados] = React.useState<Record<string, string>>(dadosExemplo);
   const [formData, setFormData] = React.useState<Record<string, string>>(dadosExemplo);
+
+  // Função única para aplicar máscaras
+  const aplicarMascara = (valor: string, tipo: 'cnpj' | 'cep' | 'data' | 'telefone') => {
+    switch (tipo) {
+      case 'cnpj':
+        return mascarasUtils.cnpj(valor);
+      case 'cep':
+        return mascarasUtils.cep(valor);
+      case 'data':
+        return mascarasUtils.data(valor);
+      case 'telefone':
+        return mascarasUtils.telefone(valor);
+      default:
+        return valor;
+    }
+  }; 
 
   // Sempre que entrar no modo edição, sincroniza formData com dados atuais
   React.useEffect(() => {
@@ -211,7 +228,7 @@ export function FormDescricao() {
               placeholder={FORMS.ENTIDADE.CNPJ}
               required={true}
               value={formData.cnpj || ''}
-              onChange={e => setFormData({ ...formData, cnpj: e.target.value })}
+              onChange={e => setFormData({ ...formData, cnpj: aplicarMascara(e.target.value, 'cnpj') })}
             />
           </div>
           
@@ -223,7 +240,7 @@ export function FormDescricao() {
               placeholder={FORMS.ENTIDADE.DATA_FUNDACAO}
               required={true}
               value={formData.dataFundacao || ''}
-              onChange={e => setFormData({ ...formData, dataFundacao: e.target.value })}
+              onChange={e => setFormData({ ...formData, dataFundacao: aplicarMascara(e.target.value, 'data') })}
             />
           </div>
           
@@ -247,7 +264,7 @@ export function FormDescricao() {
               placeholder={FORMS.ENTIDADE.CEP}
               required={true}
               value={formData.cep || ''}
-              onChange={e => setFormData({ ...formData, cep: e.target.value })}
+              onChange={e => setFormData({ ...formData, cep: aplicarMascara(e.target.value, 'cep') })}
             />
           </div>
           
@@ -307,7 +324,7 @@ export function FormDescricao() {
               placeholder={FORMS.ENTIDADE.TELEFONE_FAX}
               required={true}
               value={formData.telefoneFax || ''}
-              onChange={e => setFormData({ ...formData, telefoneFax: e.target.value })}
+              onChange={e => setFormData({ ...formData, telefoneFax: aplicarMascara(e.target.value, 'telefone') })}
             />
           </div>
           
