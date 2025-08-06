@@ -75,7 +75,8 @@ export function FormResponsavelTecnico() {
     return (
       <div className={styles.container}>
         <div className={styles.formWrapper}>
-          <h2 className={styles.title}>{FORMS.RESPONSAVEL_TECNICO.TITULO}</h2>
+          <h2 className={styles.title}>I - Identificação</h2>
+          <h3 className={styles.subtitle}>{FORMS.RESPONSAVEL_TECNICO.TITULO}</h3>
           <div className={styles.grid}>
             <div className={styles.field}>
               <div className={styles.labelMuted}>{FORMS.RESPONSAVEL_TECNICO.LABEL_NOME}</div>
@@ -112,7 +113,8 @@ export function FormResponsavelTecnico() {
   return (
     <div className={styles.container}>
       <div className={styles.formWrapper}>
-        <h2 className={styles.title}>{FORMS.RESPONSAVEL_TECNICO.TITULO}</h2>
+        <h2 className={styles.title}>I - Identificação</h2>
+        <h3 className={styles.subtitle}>{FORMS.RESPONSAVEL_TECNICO.TITULO}</h3>
         <form
           onSubmit={e => { e.preventDefault(); handleFormSubmit(formData); }}
           className={styles.grid}

@@ -123,7 +123,8 @@ export function FormDescricao() {
     return (
       <div className={styles.container}>
         <div className={styles.formWrapper}>
-          <h2 className={styles.title}>{FORMS.ENTIDADE.TITULO}</h2>
+          <h2 className={styles.title}>I - Identificação</h2>
+          <h3 className={styles.subtitle}>{FORMS.ENTIDADE.TITULO}</h3>
           <div className={styles.grid}>
             <div className={styles.field}>
               <div className={styles.labelMuted}>{FORMS.ENTIDADE.LABEL_NOME}</div>
@@ -184,7 +185,8 @@ export function FormDescricao() {
   return (
     <div className={styles.container}>
       <div className={styles.formWrapper}>
-        <h2 className={styles.title}>{FORMS.ENTIDADE.TITULO}</h2>
+        <h2 className={styles.title}>I - Identificação</h2>
+        <h3 className={styles.subtitle}>{FORMS.ENTIDADE.TITULO}</h3>
         <form
           onSubmit={e => { e.preventDefault(); handleFormSubmit(formData); }}
           className={styles.grid}
@@ -192,7 +194,7 @@ export function FormDescricao() {
           <div className={styles.field}>
             <InputWithLabel
               id="nome"
-              label={FORMS.ENTIDADE.LABEL_NOME_EDICAO}
+              label={FORMS.ENTIDADE.LABEL_NOME}
               type="text"
               placeholder={FORMS.ENTIDADE.NOME}
               required={true}
@@ -204,7 +206,7 @@ export function FormDescricao() {
           <div className={styles.field}>
             <InputWithLabel
               id="cnpj"
-              label={FORMS.ENTIDADE.LABEL_CNPJ_EDICAO}
+              label={FORMS.ENTIDADE.LABEL_CNPJ}
               type="text"
               placeholder={FORMS.ENTIDADE.CNPJ}
               required={true}
@@ -216,7 +218,7 @@ export function FormDescricao() {
           <div className={styles.field}>
             <InputWithLabel
               id="dataFundacao"
-              label={FORMS.ENTIDADE.LABEL_DATA_FUNDACAO_EDICAO}
+              label={FORMS.ENTIDADE.LABEL_DATA_FUNDACAO}
               type="text"
               placeholder={FORMS.ENTIDADE.DATA_FUNDACAO}
               required={true}
@@ -228,7 +230,7 @@ export function FormDescricao() {
           <div className={styles.field}>
             <InputWithLabel
               id="registroCnpj"
-              label={FORMS.ENTIDADE.LABEL_REGISTRO_CNPJ_EDICAO}
+              label={FORMS.ENTIDADE.LABEL_REGISTRO_CNPJ}
               type="text"
               placeholder={FORMS.ENTIDADE.REGISTRO_CNPJ}
               required={true}
@@ -240,7 +242,7 @@ export function FormDescricao() {
           <div className={styles.field}>
             <InputWithLabel
               id="cep"
-              label={FORMS.ENTIDADE.LABEL_CEP_EDICAO}
+              label={FORMS.ENTIDADE.LABEL_CEP}
               type="text"
               placeholder={FORMS.ENTIDADE.CEP}
               required={true}
@@ -252,7 +254,7 @@ export function FormDescricao() {
           <div className={styles.field}>
             <InputWithLabel
               id="bairro"
-              label={FORMS.ENTIDADE.LABEL_BAIRRO_EDICAO}
+              label={FORMS.ENTIDADE.LABEL_BAIRRO}
               type="text"
               placeholder={FORMS.ENTIDADE.BAIRRO}
               required={true}
@@ -264,7 +266,7 @@ export function FormDescricao() {
           <div className={styles.field}>
             <InputWithLabel
               id="uf"
-              label={FORMS.ENTIDADE.LABEL_UF_EDICAO}
+              label={FORMS.ENTIDADE.LABEL_UF}
               type="text"
               placeholder={FORMS.ENTIDADE.UF}
               required={true}
@@ -276,7 +278,7 @@ export function FormDescricao() {
           <div className={styles.field}>
             <InputWithLabel
               id="enderecoCompleto"
-              label={FORMS.ENTIDADE.LABEL_ENDERECO_COMPLETO_EDICAO}
+              label={FORMS.ENTIDADE.LABEL_ENDERECO_COMPLETO}
               type="text"
               placeholder={FORMS.ENTIDADE.ENDERECO_COMPLETO}
               required={true}
@@ -288,7 +290,7 @@ export function FormDescricao() {
           <div className={styles.field}>
             <InputWithLabel
               id="email"
-              label={FORMS.ENTIDADE.LABEL_EMAIL_EDICAO}
+              label={FORMS.ENTIDADE.LABEL_EMAIL}
               type="email"
               placeholder={FORMS.ENTIDADE.EMAIL}
               required={true}
@@ -300,7 +302,7 @@ export function FormDescricao() {
           <div className={styles.field}>
             <InputWithLabel
               id="telefoneFax"
-              label={FORMS.ENTIDADE.LABEL_TELEFONE_FAX_EDICAO}
+              label={FORMS.ENTIDADE.LABEL_TELEFONE_FAX}
               type="text"
               placeholder={FORMS.ENTIDADE.TELEFONE_FAX}
               required={true}
@@ -312,7 +314,7 @@ export function FormDescricao() {
           <div className={styles.field}>
             <InputWithLabel
               id="paginaWeb"
-              label={FORMS.ENTIDADE.LABEL_PAGINA_WEB_EDICAO}
+              label={FORMS.ENTIDADE.LABEL_PAGINA_WEB}
               type="text"
               placeholder={FORMS.ENTIDADE.PAGINA_WEB}
               required={false}

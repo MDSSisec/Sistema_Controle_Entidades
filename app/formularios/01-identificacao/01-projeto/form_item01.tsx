@@ -102,7 +102,8 @@ export function FormIdentificacao() {
   return (
     <div className={styles.container}>
       <div className={styles.formWrapper}>
-        <h2 className={styles.title}>{FORMS.PROJETO.TITULO_EDICAO}</h2>
+        <h2 className={styles.title}>{FORMS.PROJETO.TITULO}</h2>
+        <h3 className={styles.subtitle}>{FORMS.PROJETO.SUBTITULO}</h3>
         <form
           onSubmit={e => { e.preventDefault(); handleFormSubmit(formData); }}
           className={styles.grid}

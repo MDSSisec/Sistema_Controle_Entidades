@@ -71,10 +71,29 @@ export function FormNavigationSimple({ currentForm }: FormNavigationSimpleProps)
     }}>
       <div style={{
         display: "flex",
-        flexDirection: "column",
-        gap: "0.5rem",
-        alignItems: "center"
+        alignItems: "center",
+        gap: "1rem"
       }}>
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={handlePrevious}
+          disabled={isFirstForm}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.25rem",
+            fontSize: "0.875rem",
+            padding: "0.5rem 0.75rem",
+            border: "1px solid #000000",
+            background: "white",
+            color: "#111827"
+          }}
+        >
+          <ChevronLeft style={{ width: "1rem", height: "1rem" }} />
+          Voltar
+        </Button>
+        
         <span style={{
           fontSize: "0.875rem",
           color: "#6b7280",
@@ -83,51 +102,25 @@ export function FormNavigationSimple({ currentForm }: FormNavigationSimpleProps)
           {currentIndex + 1} de {FORM_ORDER.length}
         </span>
         
-        <div style={{
-          display: "flex",
-          gap: "0.5rem",
-          justifyContent: "center"
-        }}>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={handlePrevious}
-            disabled={isFirstForm}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.25rem",
-              fontSize: "0.875rem",
-              padding: "0.5rem 0.75rem",
-              border: "1px solid #000000",
-              background: "white",
-              color: "#111827"
-            }}
-          >
-            <ChevronLeft style={{ width: "1rem", height: "1rem" }} />
-            Voltar
-          </Button>
-          
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={handleNext}
-            disabled={isLastForm}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.25rem",
-              fontSize: "0.875rem",
-              padding: "0.5rem 0.75rem",
-              border: "1px solid #000000",
-              background: "white",
-              color: "#111827"
-            }}
-          >
-            Avançar
-            <ChevronRight style={{ width: "1rem", height: "1rem" }} />
-          </Button>
-        </div>
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={handleNext}
+          disabled={isLastForm}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.25rem",
+            fontSize: "0.875rem",
+            padding: "0.5rem 0.75rem",
+            border: "1px solid #000000",
+            background: "white",
+            color: "#111827"
+          }}
+        >
+          Avançar
+          <ChevronRight style={{ width: "1rem", height: "1rem" }} />
+        </Button>
       </div>
     </div>
   );

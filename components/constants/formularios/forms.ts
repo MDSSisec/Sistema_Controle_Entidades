@@ -34,7 +34,7 @@ export const FORMS = {
     // ----- FORMULÁRIO 02 - ENTIDADE -----
     ENTIDADE: {
         // Títulos
-        TITULO: "II - Descrição da Entidade",
+        TITULO: "2.0 - Identificação da Entidade Proponente",
         
         // Placeholders
         NOME: "Digite o nome completo da entidade",
@@ -49,31 +49,19 @@ export const FORMS = {
         TELEFONE_FAX: "(11) 99999-9999 / (11) 3333-4444",
         PAGINA_WEB: "https://www.entidade.com.br",
         
-        // Labels do modo de visualização
-        LABEL_NOME: "Nome",
-        LABEL_CNPJ: "CNPJ",
-        LABEL_DATA_FUNDACAO: "Data de Fundação",
-        LABEL_REGISTRO_CNPJ: "Registro do CNPJ",
-        LABEL_CEP: "CEP",
-        LABEL_BAIRRO: "Bairro",
-        LABEL_UF: "UF",
-        LABEL_ENDERECO_COMPLETO: "Endereço Completo",
-        LABEL_EMAIL: "E-mail",
-        LABEL_TELEFONE_FAX: "Número de telefone e fax com DDD",
-        LABEL_PAGINA_WEB: "Página na web",
         
         // Labels do modo de edição
-        LABEL_NOME_EDICAO: "Nome",
-        LABEL_CNPJ_EDICAO: "CNPJ",
-        LABEL_DATA_FUNDACAO_EDICAO: "Data de Fundação",
-        LABEL_REGISTRO_CNPJ_EDICAO: "Registro do CNPJ",
-        LABEL_CEP_EDICAO: "CEP",
-        LABEL_BAIRRO_EDICAO: "Bairro",
-        LABEL_UF_EDICAO: "UF",
-        LABEL_ENDERECO_COMPLETO_EDICAO: "Endereço Completo",
-        LABEL_EMAIL_EDICAO: "E-mail",
-        LABEL_TELEFONE_FAX_EDICAO: "Número de telefone e fax com DDD",
-        LABEL_PAGINA_WEB_EDICAO: "Página na web",
+        LABEL_NOME: "2.1 - Nome",
+        LABEL_CNPJ: "2.2 - CNPJ",
+        LABEL_DATA_FUNDACAO: "2.3 - Data de Fundação",
+        LABEL_REGISTRO_CNPJ: "2.4 - Registro do CNPJ",
+        LABEL_CEP: "2.5 - CEP",
+        LABEL_BAIRRO: "2.6 - Bairro",
+        LABEL_UF: "2.7 - UF",
+        LABEL_ENDERECO_COMPLETO: "2.8 - Endereço Completo",
+        LABEL_EMAIL: "2.9 - E-mail",
+        LABEL_TELEFONE_FAX: "2.10 - Número de telefone e fax com DDD",
+        LABEL_PAGINA_WEB: "2.11 - Página na web",
         
         // Botões
         BOTAO_EDITAR: "Editar",

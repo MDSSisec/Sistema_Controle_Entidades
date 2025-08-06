@@ -115,7 +115,8 @@ export function FormPublico() {
     return (
       <div className={styles.container}>
         <div className={styles.formWrapper}>
-          <h2 className={styles.title}>III - Dados do Público</h2>
+          <h2 className={styles.title}>I - Identificação</h2>
+          <h3 className={styles.subtitle}>III - Dados do Público</h3>
           <div className={styles.grid}>
             <div className={styles.field}>
               <div className={styles.labelMuted}>Nome</div>
@@ -172,7 +173,8 @@ export function FormPublico() {
   return (
     <div className={styles.container}>
       <div className={styles.formWrapper}>
-        <h2 className={styles.title}>III - Representante Legal</h2>
+        <h2 className={styles.title}>I - Identificação</h2>
+        <h3 className={styles.subtitle}>III - Representante Legal</h3>
         <form
           onSubmit={e => { e.preventDefault(); handleFormSubmit(formData); }}
           className={styles.grid}
