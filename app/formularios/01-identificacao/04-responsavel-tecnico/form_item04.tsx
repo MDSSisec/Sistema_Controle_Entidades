@@ -5,6 +5,7 @@ import { Formulario, FormField } from "@/components/fomulario/formulario";
 import { Button } from "@/components/ui/button";
 import { InputWithLabel } from "@/components/ui/input-form";
 import { FORMS } from "@/components/constants/formularios/forms";
+import { mascarasUtils } from "@/components/constants/mascaras";
 import styles from "./form_item04.module.css";
 
 const responsavelTecnicoFields: FormField[] = [
@@ -58,6 +59,20 @@ export function FormResponsavelTecnico() {
   const [dados, setDados] = React.useState<Record<string, string>>(dadosExemplo);
   const [formData, setFormData] = React.useState<Record<string, string>>(dadosExemplo);
 
+  // Função única para aplicar máscaras
+  const aplicarMascara = (valor: string, tipo: 'telefone' | 'celular' | 'email') => {
+    switch (tipo) {
+      case 'telefone':
+        return mascarasUtils.telefone(valor);
+      case 'celular':
+        return mascarasUtils.celular(valor);
+      case 'email':
+        return mascarasUtils.email(valor);
+      default:
+        return valor;
+    }
+  };
+
   // Sempre que entrar no modo edição, sincroniza formData com dados atuais
   React.useEffect(() => {
     if (modoEdicao) {
@@ -75,7 +90,7 @@ export function FormResponsavelTecnico() {
     return (
       <div className={styles.container}>
         <div className={styles.formWrapper}>
-          <h2 className={styles.title}>I - Identificação</h2>
+          <h2 className={styles.title}>{FORMS.TITULO_IDENTIFICACAO}</h2>
           <h3 className={styles.subtitle}>{FORMS.RESPONSAVEL_TECNICO.TITULO}</h3>
           <div className={styles.grid}>
             <div className={styles.field}>
@@ -101,7 +116,7 @@ export function FormResponsavelTecnico() {
           </div>
           <div className={styles.buttonRow}>
             <Button onClick={() => setModoEdicao(true)}>
-              {FORMS.RESPONSAVEL_TECNICO.BOTAO_EDITAR}
+              {FORMS.BOTAO_EDITAR}
             </Button>
           </div>
         </div>
@@ -113,7 +128,7 @@ export function FormResponsavelTecnico() {
   return (
     <div className={styles.container}>
       <div className={styles.formWrapper}>
-        <h2 className={styles.title}>I - Identificação</h2>
+        <h2 className={styles.title}>{FORMS.TITULO_IDENTIFICACAO}</h2>
         <h3 className={styles.subtitle}>{FORMS.RESPONSAVEL_TECNICO.TITULO}</h3>
         <form
           onSubmit={e => { e.preventDefault(); handleFormSubmit(formData); }}
@@ -122,7 +137,7 @@ export function FormResponsavelTecnico() {
           <div className={styles.field}>
             <InputWithLabel
               id="nome"
-              label={FORMS.RESPONSAVEL_TECNICO.LABEL_NOME_EDICAO}
+              label={FORMS.RESPONSAVEL_TECNICO.LABEL_NOME}
               type="text"
               placeholder={FORMS.RESPONSAVEL_TECNICO.NOME}
               required={true}
@@ -134,7 +149,7 @@ export function FormResponsavelTecnico() {
           <div className={styles.field}>
             <InputWithLabel
               id="cargo"
-              label={FORMS.RESPONSAVEL_TECNICO.LABEL_CARGO_EDICAO}
+              label={FORMS.RESPONSAVEL_TECNICO.LABEL_CARGO}
               type="text"
               placeholder={FORMS.RESPONSAVEL_TECNICO.CARGO}
               required={true}
@@ -146,36 +161,36 @@ export function FormResponsavelTecnico() {
           <div className={styles.field}>
             <InputWithLabel
               id="telefone"
-              label={FORMS.RESPONSAVEL_TECNICO.LABEL_TELEFONE_EDICAO}
+              label={FORMS.RESPONSAVEL_TECNICO.LABEL_TELEFONE}
               type="text"
               placeholder={FORMS.RESPONSAVEL_TECNICO.TELEFONE}
               required={true}
               value={formData.telefone || ''}
-              onChange={e => setFormData({ ...formData, telefone: e.target.value })}
+              onChange={e => setFormData({ ...formData, telefone: aplicarMascara(e.target.value, 'telefone') })}
             />
           </div>
           
           <div className={styles.field}>
             <InputWithLabel
               id="celular"
-              label={FORMS.RESPONSAVEL_TECNICO.LABEL_CELULAR_EDICAO}
+              label={FORMS.RESPONSAVEL_TECNICO.LABEL_CELULAR}
               type="text"
               placeholder={FORMS.RESPONSAVEL_TECNICO.CELULAR}
               required={true}
               value={formData.celular || ''}
-              onChange={e => setFormData({ ...formData, celular: e.target.value })}
+              onChange={e => setFormData({ ...formData, celular: aplicarMascara(e.target.value, 'celular') })}
             />
           </div>
           
           <div className={styles.field}>
             <InputWithLabel
               id="email"
-              label={FORMS.RESPONSAVEL_TECNICO.LABEL_EMAIL_EDICAO}
+              label={FORMS.RESPONSAVEL_TECNICO.LABEL_EMAIL}
               type="email"
               placeholder={FORMS.RESPONSAVEL_TECNICO.EMAIL}
               required={true}
               value={formData.email || ''}
-              onChange={e => setFormData({ ...formData, email: e.target.value })}
+              onChange={e => setFormData({ ...formData, email: aplicarMascara(e.target.value, 'email') })}
             />
           </div>
           
@@ -188,9 +203,9 @@ export function FormResponsavelTecnico() {
                 setModoEdicao(false);
               }}
             >
-              {FORMS.RESPONSAVEL_TECNICO.BOTAO_CANCELAR}
+              {FORMS.BOTAO_CANCELAR}
             </Button>
-            <Button type="submit">{FORMS.RESPONSAVEL_TECNICO.BOTAO_SALVAR}</Button>
+            <Button type="submit">{FORMS.BOTAO_SALVAR}</Button>
           </div>
         </form>
       </div>

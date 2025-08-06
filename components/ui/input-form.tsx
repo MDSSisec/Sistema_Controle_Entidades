@@ -1,5 +1,6 @@
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import React from "react"
 
 interface InputWithLabelProps {
@@ -26,6 +27,18 @@ interface TextareaWithLabelProps {
   disabled?: boolean
   maxHeight?: number
   maxChars?: number
+}
+
+interface SelectWithLabelProps {
+  id: string
+  label: string
+  placeholder?: string
+  required?: boolean
+  value?: string
+  onValueChange?: (value: string) => void
+  options: { value: string; label: string }[]
+  className?: string
+  disabled?: boolean
 }
 
 export function InputWithLabel({
@@ -99,6 +112,39 @@ export function TextareaWithLabel({
           overflowY: 'auto'
         }}
       />
+    </div>
+  )
+}
+
+export function SelectWithLabel({
+  id,
+  label,
+  placeholder,
+  required = false,
+  value,
+  onValueChange,
+  options,
+  className = "",
+  disabled = false
+}: SelectWithLabelProps) {
+  return (
+    <div className={`grid w-full items-center gap-2 ${className}`}>
+      <Label htmlFor={id} className="text-sm font-medium">
+        {label}
+        {required && <span className="text-destructive ml-1">*</span>}
+      </Label>
+      <Select value={value} onValueChange={onValueChange} disabled={disabled}>
+        <SelectTrigger>
+          <SelectValue placeholder={placeholder} />
+        </SelectTrigger>
+        <SelectContent>
+          {options.map((option) => (
+            <SelectItem key={option.value} value={option.value}>
+              {option.label}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
     </div>
   )
 }

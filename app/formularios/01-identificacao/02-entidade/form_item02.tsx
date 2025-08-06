@@ -3,7 +3,7 @@
 import React from "react";
 import { Formulario, FormField } from "@/components/fomulario/formulario";
 import { Button } from "@/components/ui/button";
-import { InputWithLabel, TextareaWithLabel } from "@/components/ui/input-form";
+import { InputWithLabel, TextareaWithLabel, SelectWithLabel } from "@/components/ui/input-form";
 import { FORMS } from "@/components/constants/formularios/forms";
 import { mascarasUtils } from "@/components/constants/mascaras";
 import styles from "./form_item02.module.css";
@@ -252,7 +252,7 @@ export function FormDescricao() {
               placeholder={FORMS.ENTIDADE.REGISTRO_CNPJ}
               required={true}
               value={formData.registroCnpj || ''}
-              onChange={e => setFormData({ ...formData, registroCnpj: e.target.value })}
+              onChange={e => setFormData({ ...formData, registroCnpj: aplicarMascara(e.target.value, 'data') })}
             />
           </div>
           
@@ -281,14 +281,14 @@ export function FormDescricao() {
           </div>
           
           <div className={styles.field}>
-            <InputWithLabel
+            <SelectWithLabel
               id="uf"
               label={FORMS.ENTIDADE.LABEL_UF}
-              type="text"
               placeholder={FORMS.ENTIDADE.UF}
               required={true}
               value={formData.uf || ''}
-              onChange={e => setFormData({ ...formData, uf: e.target.value })}
+              onValueChange={(value) => setFormData({ ...formData, uf: value })}
+              options={FORMS.ESTADOS_BRASILEIROS}
             />
           </div>
           

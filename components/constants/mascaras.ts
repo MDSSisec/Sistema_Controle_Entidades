@@ -44,6 +44,7 @@ export const MASCARAS = {
         PORCENTAGEM: "0,00%",
         NUMERO: "000000000",
         DECIMAL: "0,00",
+        EMAIL: "exemplo@dominio.com",
     }
 };
 
@@ -76,6 +77,10 @@ export const mascarasUtils = {
     telefone: (valor: string) => aplicarMascara(valor.replace(/\D/g, ''), MASCARAS.GLOBAIS.TELEFONE),
     celular: (valor: string) => aplicarMascara(valor.replace(/\D/g, ''), MASCARAS.GLOBAIS.CELULAR),
     data: (valor: string) => aplicarMascara(valor.replace(/\D/g, ''), MASCARAS.GLOBAIS.DATA),
+    email: (valor: string) => {
+        // Remove caracteres inválidos para email
+        return valor.replace(/[^a-zA-Z0-9@._-]/g, '');
+    },
     moeda: (valor: string) => {
         const numero = parseFloat(valor.replace(/\D/g, '')) / 100;
         return numero.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });

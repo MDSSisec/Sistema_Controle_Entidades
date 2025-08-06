@@ -8,6 +8,37 @@ export const FORMS = {
     BOTAO_CANCELAR: "Cancelar",
     BOTAO_SALVAR: "Salvar",
     
+    // Estados brasileiros
+    ESTADOS_BRASILEIROS: [
+        { value: "AC", label: "AC" },
+        { value: "AL", label: "AL" },
+        { value: "AP", label: "AP" },
+        { value: "AM", label: "AM" },
+        { value: "BA", label: "BA" },
+        { value: "CE", label: "CE" },
+        { value: "DF", label: "DF" },
+        { value: "ES", label: "ES" },
+        { value: "GO", label: "GO" },
+        { value: "MA", label: "MA" },
+        { value: "MT", label: "MT" },
+        { value: "MS", label: "MS" },
+        { value: "MG", label: "MG" },
+        { value: "PA", label: "PA" },
+        { value: "PB", label: "PB" },
+        { value: "PR", label: "PR" },
+        { value: "PE", label: "PE" },
+        { value: "PI", label: "PI" },
+        { value: "RJ", label: "RJ" },
+        { value: "RN", label: "RN" },
+        { value: "RS", label: "RS" },
+        { value: "RO", label: "RO" },
+        { value: "RR", label: "RR" },
+        { value: "SC", label: "SC" },
+        { value: "SP", label: "SP" },
+        { value: "SE", label: "SE" },
+        { value: "TO", label: "TO" }
+    ],
+
     // ----- FORMULÁRIO 01 - PROJETO -----
     PROJETO: {
         // Títulos e Subtítulos
@@ -37,7 +68,7 @@ export const FORMS = {
         NOME: "Digite o nome completo da entidade",
         CNPJ: "00.000.000/0000-00",
         DATA_FUNDACAO: "DD/MM/AAAA",
-        REGISTRO_CNPJ: "Número do registro do CNPJ",
+        REGISTRO_CNPJ: "DD/MM/AAAA",
         CEP: "00000-000",
         BAIRRO: "Digite o nome do bairro",
         UF: "Ex: SP, RJ, MG",
@@ -51,7 +82,7 @@ export const FORMS = {
         LABEL_NOME: "2.1 - Nome",
         LABEL_CNPJ: "2.2 - CNPJ",
         LABEL_DATA_FUNDACAO: "2.3 - Data de Fundação",
-        LABEL_REGISTRO_CNPJ: "2.4 - Registro do CNPJ",
+        LABEL_REGISTRO_CNPJ: "2.4 - Data de Registro do CNPJ",
         LABEL_CEP: "2.5 - CEP",
         LABEL_BAIRRO: "2.6 - Bairro",
         LABEL_UF: "2.7 - UF",
@@ -65,7 +96,7 @@ export const FORMS = {
     // ----- FORMULÁRIO 03 - REPRESENTANTE LEGAL -----
     REPRESENTANTE: {
         // Títulos
-        TITULO: "III - Identificação do Representante Legal da Entidade Proponente",
+        TITULO: "3.0 - Identificação do Representante Legal da Entidade Proponente",
         
         // Placeholders
         NOME: "Digite o nome completo do representante legal",
@@ -96,7 +127,7 @@ export const FORMS = {
     // ----- FORMULÁRIO 04 - RESPONSÁVEL TÉCNICO -----
     RESPONSAVEL_TECNICO: {
         // Títulos
-        TITULO: "IV - Identificação do Responsável Técnico pelo Projeto",
+        TITULO: "4.0 - Identificação do Responsável Técnico pelo Projeto",
         
         // Placeholders
         NOME: "Digite o nome completo do responsável técnico",
@@ -105,19 +136,13 @@ export const FORMS = {
         CELULAR: "(11) 99999-9999",
         EMAIL: "responsavel.tecnico@entidade.com.br",
         
-        // Labels do modo de visualização
-        LABEL_NOME: "Nome",
-        LABEL_CARGO: "Cargo",
-        LABEL_TELEFONE: "Número de telefone com DDD",
-        LABEL_CELULAR: "Número de celular com DDD",
-        LABEL_EMAIL: "Email",
+        // Labels
+        LABEL_NOME: "4.1 - Nome",
+        LABEL_CARGO: "4.2 - Cargo",
+        LABEL_TELEFONE: "4.3 - Número de telefone com DDD",
+        LABEL_CELULAR: "4.4 - Número de celular com DDD",
+        LABEL_EMAIL: "4.5 - Email",
         
-        // Labels do modo de edição
-        LABEL_NOME_EDICAO: "Nome",
-        LABEL_CARGO_EDICAO: "Cargo",
-        LABEL_TELEFONE_EDICAO: "Número de telefone com DDD",
-        LABEL_CELULAR_EDICAO: "Número de celular com DDD",
-        LABEL_EMAIL_EDICAO: "Email",
         
     },
 
